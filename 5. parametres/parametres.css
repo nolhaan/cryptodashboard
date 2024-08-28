@@ -1,0 +1,254 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --light-gray: #ECEAE7; 
+    --black: #000000; 
+    --sidebar-background: #262626; 
+    --card-background: #1e1e1e; 
+    --header-background: #333333; 
+    --yellow: #FFE873; 
+    --white: #FFFFFF; 
+
+    --text-color-primary: #FFFFFF; 
+    --text-color-secondary: #FFE873; 
+    --text-color-third: #9db3be;
+
+    --box-shadow-card: 8px 8px 32px rgba(0, 0, 0, 0.15);
+    --box-shadow-card-2: 8px 8px 32px rgba(0, 0, 0, 0.3);
+    --box-shadow-card-3: 4px 4px 16px rgba(0, 0, 0, 0.15);
+
+    --padding-card: 28px;
+    --border-radius-rounded: 50%;
+    --border-radius-8: 8px;
+    --border-radius-4: 4px;
+    --border-radius-12: 12px;
+}
+
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Rubik", sans-serif;
+    font-size: 20px;
+}
+
+html {
+    font-size: 14px;
+}
+
+body {
+    background-color: var(--black);
+    color: var(--text-color-primary);
+    height: 100vh;
+    transition: background-color .3s ease-in-out, color 0.3s ease-in-out;
+}
+
+ul {
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+    color: var(--text-color-secondary);
+    transition: color 0.3s ease-in-out;
+}
+
+a:hover {
+    color: var(--text-color-primary);
+}
+
+.material-icons-outlined {
+    vertical-align: middle;
+}
+
+.text-primary {
+    color: var(--text-color-primary);
+}
+
+.text-secondary {
+    color: var(--text-color-secondary);
+}
+
+.text-third {
+    color: var(--text-color-third);
+}
+
+.dashboard-container {
+    display: grid;
+    grid-template-columns: 1.5fr 8.5fr; 
+    grid-template-areas: "sidebar main";
+    gap: 2rem;
+    height: 100%;
+}
+
+.main-sidebar {
+    grid-area: sidebar;
+    height: 90vh; 
+    width: 280px; 
+    padding: 20px 0 20px 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; 
+    position: fixed;
+    margin-top: 97px; /* Adjusted margin to lower the sidebar */
+}
+
+.main-sidebar .sidebar {
+    display: flex;
+    flex-direction: column;
+    height: 100%; 
+}
+
+.sidebar .list-items {
+    width: 100%;
+    padding-left: 0; 
+}
+
+.sidebar .list-items.bottom {
+    margin-top: auto; 
+}
+
+.list-items li {
+    margin-bottom: 1rem;
+}
+
+.list-items .item a {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    font-weight: normal;
+    gap: 12px;
+    width: 100%;
+    padding: 16px 1.5rem; 
+    font-size: 1.2rem;
+    font-weight: normal;
+    transition: all .3s ease-in-out;
+    color: var(--white); 
+    background-color: var(--sidebar-background);
+    border-radius: var(--border-radius-12);
+}
+
+.list-items .item a:hover span:not(.material-icons-outlined) {
+    color: var(--white); 
+}
+
+.list-items .item a:hover .material-icons-outlined {
+    color: var (--yellow); 
+}
+
+.list-items .item a:active,
+.list-items .item a.active {
+    color: var(--text-color-primary);
+}
+
+.item a .material-icons-outlined {
+    font-size: 28px;
+}
+
+.item .news-count {
+    text-align: center;
+    color: var(--white);
+    padding: 0 8px;
+    margin-left: auto; 
+    background-color: var(--black);
+    border-radius: 10px;
+}
+
+.main-title {
+    margin-top: 1rem; 
+    margin-bottom: 1rem; 
+    line-height: 1.8;
+    color: var(--yellow); 
+    font-size: 2.5rem; 
+    text-align: center; 
+}
+
+.main-container {
+    grid-area: main;
+    padding: 20px 40px;
+}
+
+.main-title {
+    font-weight: 500;
+    font-size: 32px;
+    margin-bottom: 3.5rem;
+}
+
+.settings-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+}
+
+.settings-section {
+    background-color: #262626; 
+    padding: 2rem;
+    border-radius: var(--border-radius-12);
+    box-shadow: var(--box-shadow-card-2);
+    color: var(--text-color-primary);
+}
+
+.settings-section h2 {
+    font-weight: 500;
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    color: var(--text-color-secondary);
+}
+
+.settings-section form {
+    display: grid;
+    gap: 1rem;
+}
+
+.settings-section form label {
+    font-weight: 400;
+    color: var(--text-color-third);
+}
+
+.settings-section form input,
+.settings-section form select {
+    padding: 0.5rem;
+    border-radius: var(--border-radius-4);
+    border: none;
+    background-color: var(--card-background);
+    color: var(--text-color-primary);
+}
+
+.settings-section form input[readonly] {
+    background-color: white;
+    color: black;
+}
+
+.settings-section form button {
+    padding: 0.75rem;
+    background-color: var(--text-color-secondary);
+    color: var(--black);
+    border: none;
+    border-radius: var(--border-radius-4);
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.settings-section form button:hover {
+    background-color: var(--text-color-primary);
+    color: var(--black);
+}
+
+.input-group {
+    display: flex;
+    align-items: center;
+}
+
+.input-group input {
+    flex-grow: 1;
+    margin-right: 1rem;
+}
+
+.edit-icon {
+    cursor: pointer;
+    color: var(--text-color-secondary);
+}
+
+.edit-icon:hover {
+    color: var(--text-color-primary);
+}

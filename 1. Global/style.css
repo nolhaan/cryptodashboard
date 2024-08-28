@@ -1,0 +1,406 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --light-gray: #ECEAE7; /* Gris clair */
+    --black: #000000; /* Noir */
+    --sidebar-background: #262626; /* Couleur de fond de la sidebar */
+    --yellow: #F0D85A; /* Jaune */
+    --white: #FFFFFF; /* Blanc */
+  
+    --text-color-primary: #FFFFFF; /* Blanc */
+    --text-color-secondary: #F0D85A; /* Jaune */
+    --text-color-third: #9db3be;
+
+    --box-shadow-card: 8px 8px 32px rgba(0, 0, 0, 0.15);
+    --box-shadow-card-2: 8px 8px 32px rgba(0, 0, 0, 0.3);
+    --box-shadow-card-3: 4px 4px 16px rgba(0, 0, 0, 0.15);
+
+    --padding-card: 28px;
+    --border-radius-rounded: 50%;
+    --border-radius-8: 8px;
+    --border-radius-4: 4px;
+    --border-radius-12: 12px;
+    --border-radius-card: var(--padding-card);
+}
+
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Rubik", sans-serif;
+    font-size: 20px;
+}
+
+html {
+    font-size: 14px;
+}
+
+body {
+    background-color: var(--black);
+    color: var(--text-color-primary);
+    height: 100vh;
+    transition: background-color .3s ease-in-out, color 0.3s ease-in-out;
+}
+
+ul {
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+    color: var(--text-color-secondary);
+    transition: color 0.3s ease-in-out;
+}
+
+a:hover {
+    color: var(--text-color-primary);
+}
+
+.material-icons-outlined {
+    vertical-align: middle;
+}
+
+.text-primary {
+    color: var(--text-color-primary);
+}
+
+.text-secondary {
+    color: var(--text-color-secondary);
+}
+
+.text-third {
+    color: var(--text-color-third);
+}
+
+.dashboard-container {
+    display: grid;
+    grid-template-columns: 1.5fr 8.5fr; /* Adjusted to give more space to main container */
+    grid-template-areas: "sidebar main";
+    gap: 2rem;
+    height: 100%;
+}
+
+.main-sidebar {
+    grid-area: sidebar;
+    height: 90vh; /* Ensure the sidebar takes full height */
+    width: 280px; /* Reduced width */
+    padding: 20px 0 20px 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Align items to the top */
+    margin-top: 97px; /* Align with main card */
+    position: fixed;
+}
+
+.main-sidebar .sidebar {
+    display: flex;
+    flex-direction: column;
+    height: 100%; /* Ensure it takes the full height */
+}
+
+.sidebar .list-items {
+    width: 100%;
+    padding-left: 0; /* Remove default padding */
+}
+
+.sidebar .list-items.bottom {
+    margin-top: auto; /* Push to the bottom */
+}
+
+.list-items li {
+    margin-bottom: 1rem;
+}
+
+.list-items .item a {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    font-weight: normal;
+    gap: 12px;
+    width: 100%;
+    padding: 16px 1.5rem; /* Adjust padding for better alignment */
+    font-size: 1.2rem;
+    font-weight: normal;
+    transition: all .3s ease-in-out;
+    color: var(--white); /* Blanc */
+    background-color: var(--sidebar-background);
+    border-radius: var(--border-radius-12);
+}
+
+.list-items .item a:hover span:not(.material-icons-outlined) {
+    color: var(--white); /* Maintenir la couleur du texte en blanc */
+}
+
+.list-items .item a:hover .material-icons-outlined {
+    color: var(--yellow); /* Changer la couleur des icônes en jaune */
+}
+
+.list-items .item a:active,
+.list-items .item a.active {
+    color: var(--text-color-primary);
+}
+
+.item a .material-icons-outlined {
+    font-size: 28px;
+}
+
+.item .news-count {
+    text-align: center;
+    color: var(--white);
+    padding: 0 8px;
+    margin-left: auto; /* Align the count to the right */
+    background-color: var(--black);
+    border-radius: 10px;
+}
+
+/*============ Main ============*/
+
+.main-container {
+    grid-area: main;
+    padding: 20px 0;
+    background-color: var(--black); /* Noir */
+}
+
+.main-title {
+    margin-top: 1rem; /* Reduce the distance from the top */
+    margin-bottom: 1rem; /* Reduce the distance from the bottom */
+    line-height: 1.8;
+    color: var(--yellow); /* Jaune */
+    font-size: 2.5rem; /* Increase the font size */
+    text-align: center; /* Center align the text */
+}
+
+.main-card {
+    background-color: #262626; /* Couleur de fond de la carte principale */
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 100%; /* Largeur de la carte principale */
+    max-width: 1560px; /* Reduced max-width */
+    margin-top: 20px;
+    margin-bottom: 2rem;
+}
+
+.balance-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.total-balance {
+    text-align: left;
+}
+
+.total-balance h2 {
+    font-size: 1rem; /* Taille du texte de "Total Balance" */
+    color: var(--white); /* Couleur du texte de "Total Balance" */
+    text-transform: uppercase; /* Mettre le texte en majuscule */
+    font-weight: normal;
+}
+
+#total-balance {
+    font-size: 2.5rem; /* Adjust the size to match your preference */
+    color: #fff; /* Color of the balance text */
+    display: inline-block;
+}
+
+#total-balance .decimal-amount {
+    font-size: 1.5rem;
+    color: #9db3be;
+    font-weight: normal;
+}
+
+.cards-summary {
+    display: flex;
+    gap: 1rem;
+    position: relative;
+}
+
+.summary {
+    text-align: center;
+    position: relative;
+    padding: 0 1rem;
+}
+
+.summary:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 1px;
+    height: 100%;
+    background-color: #9db3be;
+}
+
+.summary h3 {
+    font-size: 1rem;
+    font-weight: normal;
+    color: #9db3be; /* Couleur du texte des titres */
+}
+
+.summary .value {
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.summary .value.negative {
+    color: #e74c3c; /* Couleur négative */
+}
+
+.summary .value.positive {
+    color: #2ecc71; /* Couleur positive */
+}
+
+.summary .value span.material-icons-outlined {
+    margin-left: 0.5rem;
+}
+
+.cards-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.card {
+    background-color: black; /* Couleur de fond des sous-cartes */
+    padding: 1rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center; /* Alignement centré */
+    flex: 1; /* Allow cards to grow and shrink */
+    height: 208px;
+    position: relative;
+    display: flex;
+    align-items: center; /* Centre verticalement */
+    justify-content: center; /* Centre horizontalement */
+}
+
+.card .tradingview-widget-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-chart {
+    width: 100%; /* Full width */
+    height: 100px; /* Height adjusted */
+    position: relative;
+    overflow: hidden;
+}
+
+.tradingview-widget-container {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.tradingview-widget-container iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.crypto-chart {
+    margin-top: 3rem;
+    margin-bottom: 2rem; /* Ajouter un espace en bas de la carte principale */
+}
+
+.crypto-chart-card {
+    background-color: black; /* Couleur de fond de la carte */
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 100%; /* Largeur de la carte */
+    margin-bottom: -2rem; /* Espace en bas de la carte */
+}
+
+.crypto-chart-title {
+    font-weight: normal; /* Vous pouvez changer 'normal' par la valeur que vous souhaitez (par exemple, bold, 600, etc.) */
+    font-size: 27px;
+}
+
+.chart-header-line {
+    width: 100%; /* S'étend sur toute la largeur du conteneur */
+    height: 2px; /* Hauteur de la ligne */
+    background-color: #262626; /* Couleur grise */
+    margin-top: 8px; /* Espace au-dessus de la ligne */
+    margin-bottom: 16px; /* Espace en dessous de la ligne */
+}
+
+.crypto-chart .ro-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.crypto-chart .ro-title a {
+    font-size: 16px;
+    font-weight: 600;
+    transition: 0.3s ease-in-out;
+    padding-right: 28px;
+    color: var(--yellow); /* Jaune */
+}
+
+.crypto-chart .ro-title a:hover {
+    color: var(--fuscha);
+}
+
+.crypto-chart table {
+    width: 100%;
+    background-color: var(--black); /* Noir */
+    padding: var(--padding-card);
+    border-radius: var(--border-radius-card);
+    box-shadow: var(--box-shadow-card);
+    text-align: center;
+    transition: box-shadow 0.3s ease-in-out;
+    overflow: hidden;
+    border-spacing: 0;
+    color: var(--white); /* Blanc */
+}
+
+/* Updated TA Widget Styles */
+#ta-widget {
+    width: 300px; /* Adjusted width */
+    height: 300px; /* Adjusted height */
+    overflow: hidden; /* Ensure no scrollbars */
+    background-color: transparent; /* Fond transparent */
+    border-radius: 8px;
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    color: var(--white); /* Texte en blanc */
+    position: relative;
+}
+
+/* Header styles for profile */
+.header-right {
+    display: flex;
+    justify-content: flex-end; /* Aligne la photo à droite */
+    align-items: center;
+    gap: 1rem; /* Espace entre les éléments */
+    margin-bottom: 1rem; /* Espace en bas de l'en-tête */
+    margin-right: 40px; /* Espace à droite */
+}
+
+.header-right .profile {
+    display: flex;
+    align-items: center;
+    gap: 1rem; /* Espace entre l'image et les infos */
+}
+
+.header-right .profile .profile-info {
+    font-size: 16px;
+    color: var(--white); /* Couleur du texte en blanc */
+}
+
+.header-right .profile .profile-image img {
+    width: 50px; /* Ajustez la largeur de l'image */
+    height: 50px; /* Ajustez la hauteur de l'image */
+    border-radius: 50%; /* Pour une image ronde */
+    object-fit: cover; /* Assure que l'image garde ses proportions */
+}

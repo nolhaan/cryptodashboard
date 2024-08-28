@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+
+    <!-- MATERIAL ICONS -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Icons+Outlined" rel="stylesheet">
+
+    <!-- GOOGLE FONTS -->
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="1. Global/style.css">
+
+    <!-- TradingView Widget -->
+    <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
+</head>
+<body>
+    <div class="dashboard-container">
+        <div class="main-sidebar">
+            <div class="sidebar">
+                <ul class="list-items">
+                    <li class="item">
+                        <a href="webtracker.html">
+                            <span class="material-icons-outlined">home</span>
+                            <span>Accueil</span>
+                        </a>
+                    </li>
+                    <li class="item">
+                        <a href="trades.html">
+                            <span class="material-icons-outlined">swap_vert</span>
+                            <span>Trades</span>
+                        </a>
+                    </li>
+                    <li class="item">
+                        <a href="actualites.html">
+                            <span class="material-icons-outlined">article</span>
+                            <span>Actualités</span>
+                            <span class="news-count">2</span>
+                        </a>
+                    </li>
+                    <li class="item">
+                        <a href="coins_infos.html">
+                            <span class="material-icons-outlined">info</span>
+                            <span>Coins infos</span>
+                        </a>
+                    </li>
+                </ul>
+                <ul class="list-items bottom">
+                    <li class="item">
+                        <a href="parametres.html">
+                            <span class="material-icons-outlined">settings</span>
+                            <span>Paramètres</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>        
+
+        <div class="main-container">
+            <h1 class="main-title">Dashboard</h1>
+
+            <!-- MAIN CARD -->
+            <div class="main-card">
+                <div class="balance-section">
+                    <div class="total-balance">
+                        <h2>Total Balance</h2>
+                         <p id="total-balance">1000<span class="decimal-amount">.00</span></p>
+                    </div>
+                    <div class="cards-summary">
+                        <div class="summary">
+                            <h3>Today</h3>
+                            <p class="value" id="today-change">0.00% <span class="material-icons-outlined">trending_up</span></p>
+                        </div>
+                        <div class="summary">
+                            <h3>7 Days</h3>
+                            <p class="value" id="week-change">0.00% <span class="material-icons-outlined">trending_up</span></p>
+                        </div>
+                        <div class="summary">
+                            <h3>30 Days</h3>
+                            <p class="value" id="month-change">0.00% <span class="material-icons-outlined">trending_up</span></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="cards-container">
+                    <div class="card">
+                        <div class="tradingview-widget-container">
+                            <div id="btc-mini-chart"></div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="tradingview-widget-container">
+                            <div id="eth-mini-chart"></div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="tradingview-widget-container">
+                            <div id="mcap-mini-chart"></div>
+                        </div>
+                    </div>                                        
+                    <div class="card">
+                        <div class="tradingview-widget-container">
+                            <div id="ta-widget"></div>
+                        </div>
+                    </div>
+                    <!-- Market Quotes Widget Card -->
+                    <div class="card">
+                        <div class="tradingview-widget-container">
+                            <div id="market-quotes-widget"></div>
+                        </div>
+                    </div>
+                </div>
+                <!--Crypto Chart-->
+                <section class="crypto-chart">
+                    <div class="crypto-chart-card">
+                        <div class="ro-title">
+                            <h2 class="crypto-chart-title">Crypto Chart</h2>
+                            <a href="#" class="Show all"></a> 
+                        </div>
+                        <div class="chart-header-line"></div> <!-- Ajout de la ligne grise ici -->
+                        <div class="tradingview-widget-container">
+                            <div id="crypto-overview"></div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const totalBalance = localStorage.getItem('totalBalance') || 0;
+            document.getElementById('total-balance').textContent = parseFloat(totalBalance).toFixed(8);
+        });
+    </script>
+
+    <script src="1. Global/script.js"></script>
+</body>
+</html>

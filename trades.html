@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trades</title>
+
+    <!-- MATERIAL ICONS -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Icons+Outlined" rel="stylesheet">
+
+    <!-- GOOGLE FONTS -->
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+   
+    <link rel="stylesheet" href="2. trades/trades.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <div class="main-sidebar">
+            <div class="sidebar">
+                <ul class="list-items">
+                    <li class="item">
+                        <a href="webtracker.html">
+                            <span class="material-icons-outlined">home</span>
+                            <span>Accueil</span>
+                        </a>
+                    </li>
+                    <li class="item">
+                        <a href="trades.html" class="active">
+                            <span class="material-icons-outlined">swap_vert</span>
+                            <span>Trades</span>
+                        </a>
+                    </li>
+                    <li class="item">
+                        <a href="actualites.html">
+                            <span class="material-icons-outlined">article</span>
+                            <span>Actualités</span>
+                            <span class="news-count">2</span>
+                        </a>
+                    </li>
+                    <li class="item">
+                        <a href="coins_infos.html">
+                            <span class="material-icons-outlined">info</span>
+                            <span>Coins infos</span>
+                        </a>
+                    </li>
+                </ul>
+                <ul class="list-items bottom">
+                    <li class="item">
+                        <a href="parametres.html">
+                            <span class="material-icons-outlined">settings</span>
+                            <span>Paramètres</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="main-container">
+            <h1 class="main-title">Trades</h1>
+
+            <!-- MAIN CARD -->
+            <div class="main-card trade-conditions">
+                <div class="input-container">
+                    <form id="trade-form">
+                        <div class="input-group">
+                            <label for="entry-date">Entry Date:</label>
+                            <input type="date" id="entry-date" class="small-input" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="long-short">Long/Short:</label>
+                            <select id="long-short" class="medium-input" required>
+                                <option value="long">Long</option>
+                                <option value="short">Short</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <label for="crypto">Crypto:</label>
+                            <input type="text" id="crypto" class="medium-input" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="quantity">Quantity:</label>
+                            <input type="text" id="quantity" class="medium-input" pattern="\d+(\.\d{1,8})?" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="buy">Buy:</label>
+                            <input type="text" id="buy" class="medium-input" pattern="\d+(\.\d{1,8})?" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="sell">Sell:</label>
+                            <input type="text" id="sell" class="medium-input" pattern="\d+(\.\d{1,8})?" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="comments">Comments:</label>
+                            <textarea id="comments" class="large-input" rows="4"></textarea>
+                        </div>
+                        <div class="input-group">
+                            <label for="screenshot">Screenshot:</label>
+                            <input type="file" id="screenshot" class="large-input" accept="image/*">
+                        </div>
+                        <button type="submit">Add Trade</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- ARCHIVE CARD -->
+            <div class="main-card trade-archive">
+                <div class="archive-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Entry Date</th>
+                                <th>Long/Short</th>
+                                <th>Crypto</th>
+                                <th>Quantity</th>
+                                <th>Buy</th>
+                                <th>Sell</th>
+                                <th>Profit</th>
+                                <th>ROI</th>
+                                <th>Comments</th>
+                                <th>Screenshot</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody id="trades-archive">
+                        </tbody>
+                    </table>
+                </div>
+                <div id="pagination-controls">
+                    <button id="prev-page">Previous</button>
+                    <span id="pagination"></span>
+                    <button id="next-page">Next</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="2. trades/trades.js"></script>
+</body>
+</html>

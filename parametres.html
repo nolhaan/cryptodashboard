@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paramètres</title>
+
+    <!-- MATERIAL ICONS -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Icons+Outlined" rel="stylesheet">
+
+    <!-- GOOGLE FONTS -->
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="5. parametres/parametres.css">
+    
+</head>
+<body>
+    <div class="dashboard-container">
+        <div class="main-sidebar">
+            <!-- Include your sidebar content here -->
+            <div class="sidebar">
+                <ul class="list-items">
+                    <li class="item">
+                        <a href="webtracker.html">
+                            <span class="material-icons-outlined">home</span>
+                            <span>Accueil</span>
+                        </a>
+                    </li>
+                    <li class="item">
+                        <a href="trades.html">
+                            <span class="material-icons-outlined">swap_vert</span>
+                            <span>Trades</span>
+                        </a>
+                    </li>
+                    <li class="item">
+                        <a href="actualites.html">
+                            <span class="material-icons-outlined">article</span>
+                            <span>Actualités</span>
+                            <span class="news-count">2</span>
+                        </a>
+                    </li>
+                    <li class="item">
+                        <a href="coins_infos.html">
+                            <span class="material-icons-outlined">info</span>
+                            <span>Coins infos</span>
+                        </a>
+                    </li>
+                </ul>
+                <ul class="list-items bottom">
+                    <li class="item">
+                        <a href="parametres.html">
+                            <span class="material-icons-outlined">settings</span>
+                            <span>Paramètres</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="main-container">
+            <h1 class="main-title">Paramètres</h1>
+            <!-- Content for Paramètres -->
+            <div class="settings-container">
+                <div class="settings-section" id="profile-settings">
+                    <h2>Profil</h2>
+                    <form>
+                        <label for="username">Nom d'utilisateur :</label>
+                        <div class="input-group">
+                            <input type="text" id="username" value="Nolhan" readonly>
+                            <span class="material-icons-outlined edit-icon" onclick="enableEdit('username')">edit</span>
+                        </div>
+                        <label for="email">Email :</label>
+                        <div class="input-group">
+                            <input type="email" id="email" value="nolhanmsct@gmail.com" readonly>
+                            <span class="material-icons-outlined edit-icon" onclick="enableEdit('email')">edit</span>
+                        </div>
+                        <label for="password">Mot de passe :</label>
+                        <div class="input-group">
+                            <input type="password" id="password" value="Nomsct76!" readonly>
+                            <span class="material-icons-outlined edit-icon" onclick="enableEdit('password')">edit</span>
+                        </div>
+                        <button type="submit">Sauvegarder</button>
+                    </form>
+                </div>
+
+                <div class="settings-section" id="account-preferences">
+                    <h2>Préférences de Compte</h2>
+                    <form>
+                        <label for="language">Langue:</label>
+                        <select id="language" name="language">
+                            <option value="fr">Français</option>
+                            <option value="en">Anglais</option>
+                        </select>
+                        <label for="theme">Thème:</label>
+                        <select id="theme" name="theme">
+                            <option value="light">Clair</option>
+                            <option value="dark">Sombre</option>
+                        </select>
+                        <button type="submit">Sauvegarder</button>
+                    </form>
+                </div>
+
+                <div class="settings-section" id="security-settings">
+                    <h2>Sécurité</h2>
+                    <form>
+                        <label for="current-password">Mot de passe actuel:</label>
+                        <input type="password" id="current-password" name="current-password">
+                        <label for="new-password">Nouveau mot de passe:</label>
+                        <input type="password" id="new-password" name="new-password">
+                        <label for="2fa">Authentification à deux facteurs:</label>
+                        <input type="checkbox" id="2fa" name="2fa">
+                        <button type="submit">Sauvegarder</button>
+                    </form>
+                </div>
+
+                <div class="settings-section" id="notification-settings">
+                    <h2>Notifications et Alertes</h2>
+                    <form>
+                        <label for="email-notifications">Notifications par email:</label>
+                        <input type="checkbox" id="email-notifications" name="email-notifications">
+                        <label for="sms-notifications">Notifications par SMS:</label>
+                        <input type="checkbox" id="sms-notifications" name="sms-notifications">
+                        <label for="price-alerts">Alertes de prix:</label>
+                        <input type="checkbox" id="price-alerts" name="price-alerts">
+                        <button type="submit">Sauvegarder</button>
+                    </form>
+                </div>
+
+                <div class="settings-section" id="support-settings">
+                    <h2>Support et Aide</h2>
+                    <p>Pour toute assistance, veuillez contacter notre support client via le formulaire de contact ou par téléphone.</p>
+                    <button onclick="contactSupport()">Contacter le Support</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="5. parametres/parametres.js"></script>
+</body>
+</html>

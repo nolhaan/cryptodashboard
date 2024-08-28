@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coins Infos</title>
+    <!-- MATERIAL ICONS -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Icons+Outlined" rel="stylesheet">
+    <!-- GOOGLE FONTS -->
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="coins_infos/coins_infos.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <div class="main-sidebar">
+            <div class="sidebar">
+                <ul class="list-items">
+                    <li class="item">
+                        <a href="webtracker.html">
+                            <span class="material-icons-outlined">home</span>
+                            <span>Accueil</span>
+                        </a>
+                    </li>
+                    <li class="item">
+                        <a href="trades.html">
+                            <span class="material-icons-outlined">swap_vert</span>
+                            <span>Trades</span>
+                        </a>
+                    </li>
+                    <li class="item">
+                        <a href="actualites.html">
+                            <span class="material-icons-outlined">article</span>
+                            <span>Actualités</span>
+                            <span class="news-count">2</span>
+                        </a>
+                    </li>
+                    <li class="item">
+                        <a href="coins_infos.html">
+                            <span class="material-icons-outlined">info</span>
+                            <span>Coins infos</span>
+                        </a>
+                    </li>
+                </ul>
+                <ul class="list-items bottom">
+                    <li class="item">
+                        <a href="parametres.html">
+                            <span class="material-icons-outlined">settings</span>
+                            <span>Paramètres</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="main-container">
+            <h1 class="main-title">Coins Infos</h1>
+            <div class="main-card">
+                <!-- Search and Sort -->
+                <div class="search-sort">
+                    <input type="text" id="search" placeholder="Rechercher une crypto...">
+                    <div class="sort-options">
+                        <select id="sort">
+                            <option value="toutes">Toutes</option>
+                            <option value="top_gainers">Top Gainers</option>
+                            <option value="top_losers">Top Losers</option>
+                            <option value="top_market_cap">Top Cap</option>
+                            <option value="low_market_cap">Low Cap</option>
+                        </select>
+                    </div>
+                </div>
+                <!-- Header Card -->
+                <div class="header-card">
+                    <div class="card-content">
+                        <span>#</span>
+                        <span>Nom</span>
+                        <span>Prix</span>
+                        <span>% 24h</span>
+                        <span>Capitalisation</span>
+                        <span>Volume 24h</span>
+                        <span>Prix 24h</span>
+                    </div>
+                </div>
+                <!-- Bitcoin Card -->
+                <div class="sub-card" id="bitcoin-card">
+                    <div class="card-content">
+                        <span>1</span>
+                        <span class="crypto-name">Bitcoin <span class="acronym">BTC</span></span>
+                        <span class="price">$64,028.2</span>
+                        <span class="change-24h red">-1.1%</span>
+                        <span class="market-cap">$1,263,130,000,000</span>
+                        <span class="volume-24h">$28,190,200,000</span>
+                        <span><canvas id="chart-1" width="100" height="30"></canvas></span>
+                    </div>
+                </div>
+                <!-- Ethereum Card -->
+                <div class="sub-card" id="ethereum-card">
+                    <div class="card-content">
+                        <span>2</span>
+                        <span class="crypto-name">Ethereum <span class="acronym">ETH</span></span>
+                        <span class="price">$3,401.57</span>
+                        <span class="change-24h red">-1.3%</span>
+                        <span class="market-cap">$408,951,000,000</span>
+                        <span class="volume-24h">$15,446,200,000</span>
+                        <span><canvas id="chart-2" width="100" height="30"></canvas></span>
+                    </div>
+                </div>
+                <!-- Tether Card -->
+                <div class="sub-card" id="tether-card">
+                    <div class="card-content">
+                        <span>3</span>
+                        <span class="crypto-name">Tether <span class="acronym">USDT</span></span>
+                        <span class="price">$1.00</span>
+                        <span class="change-24h green">+0.02%</span>
+                        <span class="market-cap">$62,498,123,000</span>
+                        <span class="volume-24h">$92,190,200,000</span>
+                        <span><canvas id="chart-3" width="100" height="30"></canvas></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="coins_infos/coins_infos.js"></script>
+</body>
+</html>

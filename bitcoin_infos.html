@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bitcoin Infos</title>
+    <!-- MATERIAL ICONS -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Icons+Outlined" rel="stylesheet">
+    <!-- GOOGLE FONTS -->
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="coins_infos/bitcoin_infos/bitcoin_infos.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <div class="main-sidebar">
+            <div class="sidebar">
+                <ul class="list-items">
+                    <li class="item">
+                        <a href="webtracker.html">
+                            <span class="material-icons-outlined">home</span>
+                            <span>Accueil</span>
+                        </a>
+                    </li>
+                    <li class="item">
+                        <a href="trades.html">
+                            <span class="material-icons-outlined">swap_vert</span>
+                            <span>Trades</span>
+                        </a>
+                    </li>
+                    <li class="item">
+                        <a href="actualites.html">
+                            <span class="material-icons-outlined">article</span>
+                            <span>Actualités</span>
+                            <span class="news-count">2</span>
+                        </a>
+                    </li>
+                    <li class="item">
+                        <a href="coins_infos.html">
+                            <span class="material-icons-outlined">info</span>
+                            <span>Coins infos</span>
+                        </a>
+                    </li>
+                </ul>
+                <ul class="list-items bottom">
+                    <li class="item">
+                        <a href="parametres.html">
+                            <span class="material-icons-outlined">settings</span>
+                            <span>Paramètres</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="main-container">
+            <h1 class="main-title">Bitcoin</h1>
+            <div class="main-card">
+                <div class="cards-container">
+                    <div class="card">
+                        <div class="tradingview-widget-container">
+                            <div id="symbol-info-widget"></div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="tradingview-widget-container">
+                            <div id="symbol-overview-widget"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="main-card">
+                <div class="right-card1">
+                    <a href="https://bitcoin.org" target="_blank" class="link">
+                        <span class="material-icons-outlined">language</span>
+                    </a>
+                </div>
+                <div class="right-card2">
+                    <a href="https://x.com/Bitcoin" target="_blank" class="link">
+                        <img src="Pictures/twitter.svg" alt="Twitter" class="twitter">
+                    </a>
+                </div>
+                <div class="right-card3">
+                    <a href="https://github.com/bitcoin/bitcoin" target="_blank" class="link">
+                        <img src="Pictures/github.svg" alt="Github" class="github">
+                    </a>
+                </div>
+                <div class="right-card4">
+                    <a href="https://bitcoin.org/bitcoin.pdf" target="_blank" class="link">
+                        <img src="Pictures/whitepaper.svg" alt="whitepaper" class="whitepaper">
+                    </a>
+                </div>
+                <div class="content-card">
+                    <div class="content-header">
+                        <h2>Sommaire</h2>
+                        <ul>
+                            <li><a href="#section1">1. Qu'est ce que le Bitcoin (BTC) ?</a></li>
+                            <li><a href="#section2">2. Quels rôles joue la blockchain Bitcoin ?</a></li>
+                            <li><a href="#section3">3. Comment le Bitcoin est-il produit ?</a></li>
+                            <li><a href="#section4">4. Comment la valeur du Bitcoin est-elle fixée ?</a></li>
+                            <li><a href="#section5">5. Quels sont les avantages de Bitcoin ?</a></li>
+                            <li><a href="#section6">6. Quels sont les inconvénients de Bitcoin ?</a></li>
+                            <li><a href="#section7">7. Quel futur pour Bitcoin ?</a></li>
+                        </ul>
+                    </div>
+                    <div class="content-card">
+                        <div class="content-header-2">
+                            <h2>1. Qu'est ce que le Bitcoin (BTC) ?</h2>
+                        </div>
+                        <div class="content-body">
+                            <p>Dans un contexte <u>économique, financier et monétaire marqué par la crise économique de 2008</u>, ce contexte a conduit à la méfiance de la population vis-à-vis des 
+                                gouvernements et des systèmes financiers traditionnels.</p>
+                            <p>C'est dans ce contexte que <u>Satoshi Nakamoto</u> a publié en 2008 le "white paper" de Bitcoin, intitulé "Bitcoin : un système de paiement éléctronique pair-à-pair".</p>
+                            <p>Le Bitcoin est actuellement la plus grande cryptomonnaie au monde pour parler de capitalisation. Elle a été conçue pour répondre à un objectif bien précis : créer
+                                de l'argent liquide sous forme électronique...</p>
+                            <p>En d'autres termes, sa technologie permet, tout comme les monnaies fiduciaires, d'<u>échanger de l'argent avec autrui, et ce, sans utiliser d'intermédiaire centralisé</u>
+                                comme des banques. Son unité de compte est donc le $BTC.</p>
+                            <p>L'un des avantages du Bitcoin, c'est qu'aucune banque ne régule les fonds qui circulent sur son réseau, ce qui <u>garantit la vie privée et la sécurité financière de
+                                ses utilisateurs</u>.</p>
+                        </div>
+                        <div class="content-header-2">
+                            <h2>2. Quels rôles joue la blockchain Bitcoin ?</h2>
+                        </div>
+                        <div class="content-body">
+                            <p>La blockchain est la technologie sur laquelle repose la cryptomonnaie Bitcoin. <u>Elle est comparable à un registre de compte numérique qui enregistre et archive la 
+                                totalité des actions effectuées avec des bitcoins</u>. À noter que la blockchain n'enregistre pas les transactions les unes à la suite des autres, mais plutôt par 
+                                paquets, également nommés "blocs". Ces blocs sont intégrés à la blockchain les uns à la suite des autres. Chacun d'entre eux contient de nombreuses transactions et 
+                                est relié au bloc qui le précède et le suit, d'où le terme blockchain pour "<u>chaîne de blocs</u>".</p> 
+                            <p>Ce qui différencie la technologie blockchain des technologies déjà existantes, c'est que cette technologie est décentralisée,
+                                transparente et immuable.</p>
+                            <p>- <span class="definition">Décentralisation</span> : le registre de compte de la blockchain Bitcoin est conservé par plusieurs milliers de "noeuds" partout dans le monde.
+                                <u>Les noeuds représentent des serveurs gérés par des personnes et entreprises sur lesquels est stockée la blockchain</u>. Quiconque est en mesure de déployer un noeud, 
+                                sous réserve d'avoir la puissance informatique adaptée.</p>
+                            <p>- <span class="definition">Transparence</span> : l'ensemble des informations enregistrées sur la blockchain sont accessibles publiquement sur internet. pour garantir la
+                                vie privée des individus, chaque utilisateur doit opérer sous un pseudonyme composé d'une suite de chiffres et de lettres tel que "1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa". 
+                                Ainsi, <u>la vie privée des individus est garantie</u> tout en assurant la surveillance des mouvements de fonds associés à des activités illégales.</p>
+                            <p>- <span class="definition">Immuable</span> : la blockchain fonctionne sur le consensus de milliers de personnes qui ne se connaissent pas, il est impossible de modifier 
+                                une information déjà enregistrée sur son registre de compte. En effet, si une modification illégitime apparaît sur la blockchain, comme la duplication de bitcoins, 
+                                <u>la transparence des transactions permet au serveur de rejeter l'opération</u>. Ainsi, cela dissuade les acteurs malveillants de l'écosystème et permet l'évolution 
+                                pérenne du réseau en matière de sécurité.</p>
+                            <p>C'est donc grâce à ces 3 atouts que la <u>blockchain bitcoin assure un service extrêmement sécurisé, partout dans le monde et le tout sans interruption</u>. Quiconque 
+                                ayant une connexion internet est en état d'envoyer de l'argent sans passer par les institutions financières traditionnelles grâce à la blockchain bitcoin.</p>
+                            <p><span class="example">Par exemple, pour réaliser un transfert de 1000 euros depuis la France afin d'obtenir des wons en Corée du Sud, certains intermédiaires proposent
+                                des solutions contre un certain taux de commission. Cependant, ce type d'opérations est impossible dans le sens inverse, pour transformer des wons en euros, il est
+                                nécessaire de passer par des banques demandant des frais plus importants, des délais plus longs et l'accès à certains documents personnels.</span></p>
+                            <p><span class="example">À l'inverse, avec Bitcoin, ces 1000 euros peuvent être envoyés et reçus en quelques minutes seulement, peu importe l'heure et le jour de la semaine,
+                                sans demander d'autorisations quelconques à une entreprise. Cela vaut pour n'importe quel lieu à travers le monde.</span></p>
+                            <p>La blockchain Bitcoin est également dîtes <u>pair-to-pair</u>, elle ne stocke pas l'argent de ses détenteurs elle n'est juste qu'un registre de compte qui enregistre 
+                                les données relatives aux transactions. Par conséquent, <u>chaque détenteur de Bitcoins est le seul souverain de ses fonds</u>.</p>
+                        </div>
+                        <div class="content-header-2">
+                            <h2>3. Comment le Bitcoin est-il produit ?</h2>
+                        </div>
+                        <div class="content-body">
+                            <p>Pour générer de nouveaux BTC, le protocole Bitcoin à intégrer le principe du <u>Proof of Work</u>. Bitcoin fait donc appel à des entités (particuliers ou entreprises) 
+                                qui sont surnommées des mineurs. <u>Leurs rôles principal est d'inscrire dans la blockchain les nouvelles transactions des utilisateurs, le tout sous forme de blocs. 
+                                En échange, ils sont récompensés en Bitcoins</u>, d'où l'expression miner du Bitcoin.</p>
+                            <p>Un bloc de transactions est généré environ toutes les 10 minutes et chacun d'entre eux est lié à une prime de <u>3,125 $BTC</u> (cette récompense est divisée par 2 
+                                tous les 4 ans via le processus de halving).</p>
+                            <p><u>Le protocole a choisi de départager les mineurs en fonction de leur puissance de calcul</u> déployée pour résoudre une fonction cryptographique complexe. Plus la
+                                puissance de calcul d'un mineur est grande, plus la probabilité qu'il résolve cette énigme informatique sera importante. C'est ce qui permet de s'assurer que n'importe 
+                                qui ne peut pas créer de bitcoin comme il le veut, ce qui dénaturerait son utilité de monnaie.</p>
+                            <p><u>C'est un système autonome et décentralisé</u>, et ces deux qualités ont grandement participé au succès du Bitcoin au fil des années.</p>
+                        </div>
+                        <div class="content-header-2">
+                            <h2>4. Comment la valeur du Bitcoin est-elle fixée ?</h2>
+                        </div>
+                        <div class="content-body">
+                            <p>Comme toute chose, la valeur du Bitcoin est fixée par 2 principaux facteurs : <u>sa rareté</u>, <u>et son utilité</u>, même si sa spéculation peut être un troisième 
+                                facteur légitime.</p>
+                            <p>Dès le départ, Satoshi Nakamoto avait prévu que la <u>quantité maximale de Bitcoins serait de 21 millions d'unités</u>. Cela rajoute au Bitcoin une rareté qui en fait 
+                                une denrée précieuse, comme l'or ou le pétrole : plus une chose est rare, plus elle est chère.</p>
+                            <p>En plus de la limite de 21 millions, un autre mécanisme vient renforcer la valeur du bitcoin : <u>le Halving</u>. Il s'agit d'un événement qui a lieu tous les 4 ans, 
+                                et lors duquel <u>la somme récoltée par les mineurs est divisée par 2</u>. Au tout début du Bitcoin, les mineurs recevaient 50 Bitcoins pour chaque nouveau bloc, et 
+                                lors du premier Halving, en 2012, la récompense a été divisée par 2, passant à 25 Bitcoins. Et ce, ainsi de suite jusqu'au dernier Halving de 2024, passant le nombre 
+                                de Bitcoin à 3,125.</p>
+                            <p>De plus, avec le temps et avec la popularité croissante du Bitcoin, <u>de plus en plus de commerces et de plateformes d'échange ont commencés à accepter la cryptomonnaie 
+                                comme moyen de paiement</u>, augmentant ainsi mécaniquement son utilité et sa valeur.</p>
+                            <p>Enfin, depuis quelques années, <u>le Bitcoin s'insère de plus en plus dans une logique boursière</u> : tout un marché de trading s'est créé autour de la cryptomonnaie, 
+                                ce qui contribue à faire varier les prix. Lorsque son prix monte, cette période est appelée le "bull market" et quand les prix descendent, elle est appelée "bear market".
+                            </p>
+                        </div>
+                        <div class="content-header-2">
+                            <h2>5. Quels sont les avantages de Bitcoin ?</h2>
+                        </div>
+                        <div class="content-body">
+                            <p>- Les transferts sont quasiment <u>instantanés</u> (moins de 10 minutes).</p>
+                            <p>- Les frais de transferts sont <u>nuls</u>. Les frais de paiement sont eux inférieurs aux autres solutions plus traditionnelles (Paypal, CB...).</p>
+                            <p>- Il n'y a <u>aucune limite</u> aux montants pouvant être transférés.</p>
+                            <p>- Les échanges se font à un <u>niveau mondial</u>, sans intermédiaire pour le stockage et le transfert.</p>
+                            <p>- <u>Tout le monde</u> peut échanger des bitcoins.</p>
+                            <p>- C'est un <u>système décentralisé</u>, ne dépendant d'aucune institution.</p>
+                            <p>- La <u>transparence totale des échanges</u> est garantie : chaque transaction est enregistrée dans la blockchain qui est publique.</p>
+                            <p>- C'est une <u>opportunité d'investissement</u> attractive, les gains peuvent être rapides.</p>
+                        </div>
+                        <div class="content-header-2">
+                            <h2>6. Quels sont les inconvénients de Bitcoin ?</h2>
+                        </div>
+                        <div class="content-body">
+                            <p>- Le <u>système est encore méconnu</u>. Tout le monde ou presque a entendu parler du Bitcoin, mais cette notion reste peu comprise par le grand public.</p>
+                            <p>- Les <u>transactions sont irréversibles</u>. Il n'est pas possible d'annuler un paiement en Bitcoin une fois fait, même en cas d'erreur.</p>
+                            <p>- Les utilisateurs doivent prendre des <u>précautions particulières pour bien sécuriser leurs portefeuilles</u>, car les risques de piratage sont élevés en vue de
+                                la nouveauté de la technologie.</p>
+                            <p>- Le Bitcoin est assujetti aux différents événements politiques, économiques... Cela lui porte une <u>très forte volatilité</u> par rapport à son prix.</p>
+                        </div>
+                        <div class="content-header-2">
+                            <h2>7. Quel futur pour Bitcoin ?</h2>
+                        </div>
+                        <div class="content-body">
+                            <p>L'avenir du Bitcoin demeure incertain, de par sa volatilité et les événements l'influençant que personne ne peut prévoir... Si vous souhaitez savoir quel sera le prix du
+                                <u>Bitcoin en 2025</u>, il devrait osciller autour de <u>123 000 dollars</u>. Toutefois, cette prédiction n'est possible que si la hausse se poursuit. Dans le cas 
+                                contraire, il devrait se négocier à environ <u>67 000 dollars minimum</u> ou <u>71 000 dollars en moyenne</u>.</p>
+                            <p>Les adeptes du Bitcoin sont convaincus que la crypto continuera d'augmenter au fil du temps. Mais la réalité ne ressemble pas toujours aux espérances. Dans les prévisions
+                                <u>Bitcoin 2030</u>, il est possible qu'ils atteignent de nouveau ATH et enregistre donc de nouveaux niveaux de prix. Le cours devrait se maintenir autour de 
+                                <u>178 000 dollars minimum</u>. La moyenne quant à elle, devrait s'estimer dans les <u>183 000 dollars</u> avec une valeur maximale d'approximativement <u>190 000 
+                                dollars</u>.</p>
+                            <p>Selon toute vraisemblance, <u>le Bitcoin devrait battre tous les records en 2050</u>. Les analystes pensent que l'offre limitée et la demande croissante propulseront 
+                                le BTC à des sommets jamais atteints, soit <u>500 000 dollars</u>. Les 21 millions de Bitcoin devraient tous être mis en circulation d'ici 2040.</p>
+                        </div>
+                    </div>
+                        <!-- Additional sections go here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="coins_infos/bitcoin_infos/bitcoin_infos.js"></script>
+</body>
+</html>
