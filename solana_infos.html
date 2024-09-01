@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solana Infos</title>
+    <!-- MATERIAL ICONS -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Icons+Outlined" rel="stylesheet">
+    <!-- GOOGLE FONTS -->
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="coins_infos/solana_infos/solana_infos.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <div class="main-sidebar">
+            <div class="sidebar">
+                <ul class="list-items">
+                    <li class="item">
+                        <a href="webtracker.html">
+                            <span class="material-icons-outlined">home</span>
+                            <span>Accueil</span>
+                        </a>
+                    </li>
+                    <li class="item">
+                        <a href="trades.html">
+                            <span class="material-icons-outlined">swap_vert</span>
+                            <span>Trades</span>
+                        </a>
+                    </li>
+                    <li class="item">
+                        <a href="actualites.html">
+                            <span class="material-icons-outlined">article</span>
+                            <span>Actualités</span>
+                            <span class="news-count">2</span>
+                        </a>
+                    </li>
+                    <li class="item">
+                        <a href="coins_infos.html">
+                            <span class="material-icons-outlined">info</span>
+                            <span>Coins infos</span>
+                        </a>
+                    </li>
+                </ul>
+                <ul class="list-items bottom">
+                    <li class="item">
+                        <a href="parametres.html">
+                            <span class="material-icons-outlined">settings</span>
+                            <span>Paramètres</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="main-container">
+            <h1 class="main-title">Solana</h1>
+            <div class="main-card">
+                <div class="cards-container">
+                    <div class="card">
+                        <div class="tradingview-widget-container">
+                            <div id="symbol-info-widget"></div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="tradingview-widget-container">
+                            <div id="symbol-overview-widget"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="main-card">
+                <div class="right-card1">
+                    <a href="https://solana.com/fr" target="_blank" class="link">
+                        <span class="material-icons-outlined">language</span>
+                    </a>
+                </div>
+                <div class="right-card2">
+                    <a href="https://x.com/Solana" target="_blank" class="link">
+                        <img src="Pictures/twitter.svg" alt="Twitter" class="twitter">
+                    </a>
+                </div>
+                <div class="right-card3">
+                    <a href="https://github.com/solana-labs/solana" target="_blank" class="link">
+                        <img src="Pictures/github.svg" alt="Github" class="github">
+                    </a>
+                </div>
+                <div class="right-card4">
+                    <a href="https://solana.com/solana-whitepaper.pdf" target="_blank" class="link">
+                        <img src="Pictures/whitepaper.svg" alt="whitepaper" class="whitepaper">
+                    </a>
+                </div>
+                <div class="content-card">
+                    <div class="content-header">
+                        <h2>Sommaire</h2>
+                        <ul>
+                            <li><a href="#section1">1. Qu'est-ce que le Solana (SOL) ?</a></li>
+                            <li><a href="#section2">2. Solana, une architecture spécifique ?</a></li>
+                            <li><a href="#section3">3. Une blockchain plus écologique ?</a></li>
+                            <li><a href="#section4">4. La rapidité : promesse principale de Solana ?</a></li>
+                            <li><a href="#section5">5. Solana, dans les NFT et la finance décentralisée (DeFi) ?</a></li>
+                            <li><a href="#section6">6. Quels sont les avantages de Solana ?</a></li>
+                            <li><a href="#section7">7. Quels sont les inconvénients de Solana ?</a></li>
+                            <li><a href="#section8">8. Quel futur pour Solana ?</a></li>
+                        </ul>
+                    </div>
+                    <div class="content-card">
+                        <div class="content-header-2">
+                            <h2>1. Qu'est-ce que le Solana (SOL) ?</h2>
+                        </div>
+                        <div class="content-body">
+                            <p>Solana est une infrastructure ouverte permettant de créer des applications cryptographiques évolutives. L'architecture est résistante à la censure, rapide et sécurisée.
+                                Elle est conçue pour facilité une adoption à l'échelle mondiale.</p>
+                            <p>Pour maintenir le temps sur la blockchain, Solana utilise un processus innovant connu sous le nom de Proof of History (preuve d'histoire). PoH n'est pas un mécanisme de
+                                consensus, mais il joue un rôle important dans le mécanisme de Proof of Stake (preuve d'enjeu) de Solana.</p>
+                            <p>Le résultat de PoH et des autres innovations clé de Solana constitue un réseau hautement évolutif. En fait, Solana est capable d'effectuer un débit maximal de 50 000
+                                transactions par seconde. La blockchain reste peu coûteuse et rapide à mesure qu'elle évolue, avec des frais de transaction moyens de 0.00025$, un temps de blocage
+                                généralement inférieur à une seconde et une finalité inférieure à une seconde.</p>
+                            <p>Solana maintient également la capacité à pouvoir être composé entre les projets de l'écosystème grâce à son état global unique, ce qui signifie qu'il n'est pas 
+                                nécessairen de s'intégrer à de multiples shards ou de Layer 2.</p>
+                            <p><span class="definition">Shards</span> : Le sharding se présente comme une solution pour surmonter un défi majeur : la scalabilité. Pour faire simple, cette technique
+                                repose sur le principe de diviser une base de données plus large, comme une blockchain, en fragments plus petits et gérables, appelés "shards".</p>
+                        </div>
+                        <div class="content-header-2">
+                            <h2>2. Solana, une architecture spécifique ?</h2>
+                        </div>
+                        <div class="content-body">
+                            <p>Dans les blockchains basées sur la preuve d'enjeu traditionnelles, chaque noeud transmet les transactions confirmées ou rejetées uniquement en fonction de son horloge
+                                locale, et règle les divergences ultérieurement. Ce qui peut devenir problématique lorsqu'il s'agit de parvenir à un consensus sur la validité des transactions, comme
+                                sur l'ordre dans lequel elles ont eu lieu. Mais, surtout, cela peut entraîner un retard dans le délai de confirmation, voire le rejet du bloc, et donc réduire la 
+                                vitesse des transactions.</p> 
+                            <p>Le protocole blockchain de Solana promet une préservation de nombreuses caractéristiques décentralisées tout en réglant ce souci de scalabilité.</p>
+                            <p>SA méthode de consensus recourant à la preuve d'histoire (Proof-of-History) permet d'ajouter l'élément temps au grand livre de la blockchain Solana, tout en vérifiant
+                                de manière cryptographique le passage du temps entre deux événements. Ainsi, elle fournit un ordre chronologique relatif des événements, qui ne dépend pas des horloges
+                                locales des noeuds.</p>
+                            <p>Pour ce faire, un noeud du réseau est choisi comme leader et est chargé de générer une séquence de Proof-of-History (PoH). Ce leader séquence les messages pour une
+                                efficacité et un débit maximum. La sortie ordonnée est envoyée aux noeuds réplicateurs appelés validateurs, qui effectuent la vérification de l'algorithme de consensus.
+                                À tout moment, il n'y a pas qu'un seul leader sur le réseau, qui est choisi par un système de votes.</p>
+                            <p>L'architecture de Solana fait également appel à plusieurs solutions intéressantes :</p>
+                            <p>- Le protrocole de propagation des blocs Turbine, qui regroupe les données devant être transférées entre les noeuds en plus petits paquets, afin de mieux ménager la 
+                                bande passante du réseau et d'augmenter la vitesse de traitement des transactions.</p>
+                            <p>- Le moteur Sealevel qui réalise le traitement parallèle des transactions, en exploitant mieux les processeurs multicoeurs. D'ailleurs, Solana est la première blockchain
+                                au monde à avoir mis en place une exécution en parallèle des smarts-contracts.</p>
+                            <p>- La solution de gestion de memory pool Gulf Stream, qui réduit le nombre de transactions non confirmées, en repoussant la transmission des transactions à l'extrémité
+                                du réseau pour diminuer la charge mémoire et le temps de confirmation.</p>
+                        </div>
+                        <div class="content-header-2">
+                            <h2>3. Une blockchain plus écologique ?</h2>
+                        </div>
+                        <div class="content-body">
+                            <p>Avant son passage à la preuve d'enjeu (Proof-of-Stake) en 2022, Ethereum avait recours à la preuve de travail (Proof-of-Work), une méthode qui avait ses avantages,
+                                mais qui était particulièrement énergivore, et qui freinait le nombre de transactions pouvant être traitées (15 à 30 par seconde au maximum)... Cette transition
+                                d'Ethereum vers la preuve d'enjeu est censée régler ce problème, en réduisant jusqu'à 99% la quantité d'énergie requise et en permettant jusqu'à 100 000 opérations
+                                par seconde. En tout cas, c'est l'objectif souhaite, si tout se passe bien.</p>
+                            <p>En attendant, la blockchain Solana a, elle, utilisé la preuve d'enjeu pour assurer la validation des transactions, dès son origine. Ce qui l'a rendue aussitôt plus 
+                                écologique et plus rapide que les chaînes de bloc utilisant la preuve de travail, telles que Bitcoin ou Ethereum avant sa version 2022.</p>
+                            <p>En 2021, Solana était déjà en mesure de traiter plus de 50 000 à 60 000 transactions par seconde, le tout en prélevant des commissions minimes... Il s'agit là d'un
+                                net avantage concurrentiel !</p>
+                            <p>La monnaie native de cette blockchain est également appelée Solana ($SOL) sur les plateformes d'échanges. Celle-ci joue par ailleurs un rôle central en matière de
+                                Proof-of-Stake, car les noeuds de validation du réseau de Solana le sécurisent en mettant en jeu des jetons SOL. Un procédé peu gourmand en énergie.</p>
+                            <p>Les validateurs de la blockchain qui sécurisent bien le réseau sont récompensés en recevant des tokens SOL additionnels, ceux qui tentent de tricher ou qui n'assurent
+                                pas leurs engagements les perdent.</p>
+                        </div>
+                        <div class="content-header-2">
+                            <h2>4. La rapidité : promesse principale de Solana ?</h2>
+                        </div>
+                        <div class="content-body">
+                            <p>Solana utilise donc une technologie appelée Proof-of-History qui, en théorie, aide le réseau à déterminer plus efficacement la date des transactions, et assure son
+                                évolutivité. Il ne s'agit pas d'un mécanisme de consensus classique, mais d'une solution assez innovante prenant la forme d'une horloge cryptographique décentralisée,
+                                qui rend la plateforme plus rapide et efficace, puisque les validateurs n'ont pas besoin de communiquer entre eux pour pouvoir valider un bloc sur la blockchain.
+                                Chaque noeud possédant sa propre horloge...</p>
+                            <p>Pour y parvenir, Solana met en oeuvre un algorithme, dit de Tolérance de panne byzantine pratique, abrégé pBFT (pour "practical Byzantine Fault Tolerance"), qui
+                                utilise les horloges cryptographiques des noeuds pour les aider à atteindre le consensus sans avoir à s'envoyer un vaste flot de communications. Cet algorithme, 
+                                reposant sur la preuve d'histoire, permet ainsi d'améliorer considérablement la vitesse des transactions.</p>
+                            <p>Les noeuds se mettent d'accord sur l'ordre temporel des événements enregistrés sur la blockchain, dans le cadre d'un intervalle de temps optimal, dit le "slot time", au
+                                cours duquel un validateur va soumettre un bloc au réseau.</p>
+                            <p>Dans le cas de Solana, cet intervalle est normalement de 400 millisecondes. Grâce à ce mode d'enregistrement des transactions, Solana peut facilement garder une trace
+                                des événements, et surtout de leur ordre.</p>
+                            <p>Selon les développeurs de Solana, cette technologie, couplée à d'autres innovations, permet d'accélérer significativement la vitesse des transactions tout en assurant
+                                une bonne sécurité sur la blockchain. C'est ce qui la rend capable de traiter plus de 65 000 transactions par seconde, sans passer par des réseaux de seconde couche.</p>
+                        </div>
+                        <div class="content-header-2">
+                            <h2>5. Solana, dans les NFT et la finance décentralisée (DeFi) ?</h2>
+                        </div>
+                        <div class="content-body">
+                            <p>Comme sur Ethereum, les développeurs peuvent y développer des applications décentralisées. Mais une différence fondamentale entre Ethereum et Solana est que les
+                               smarts-contracts sont écrits en Rust, un langage de programmation moderne et efficace. Rust est aujourd'hui utilisé par un nombre croissant de projets informatiques, et 
+                               les développeurs potentiels n'auront donc pas besoin d'apprendre un nouveau langage comme Solidity...</p>
+                            <p>En prenant en compte la facilité de développement, les efforts marketing des équipes, la capacité de la blockchain Solana et ses frais d'utilisation très faibles, on 
+                                comprend mieux pourquoi le projet à vu fleurir tout un ensemble de projets autour de la finance décentralisée et des NFT en 2021. Un phénomène qui se vérifie en 
+                                observant la TVL (Total Value Locked), une mesure qui comptabilise la valeur bloquée dans les projets de l'écosystème Solana.</p>
+                            <p>Selon DefiLlama, un site qui suit les projets financiers décentralisés, Solana est actuellement la quatrième plus grande blockchain en termes de TVL, à égalité avec 
+                                celle d'Avalanche (AVAX), avec un total d'environ 2.7 milliards de dollars bloqués dans les projets sur ses réseaux en juillet 2022.</p>
+                            <p>Solana arrive derrière les chaînes de bloc Ethereum (50 milliards de dollars), Binance Smart Chain (6 milliards de dollars), et Tron (5 milliards de dollars).</p>
+                        </div>
+                        <div class="content-header-2">
+                            <h2>6. Quels sont les avantages de Solana ?</h2>
+                        </div>
+                        <div class="content-body">
+                            <p>- Scalabilité : Il s'agit de loin, du plus grand avantage de Solana par rapport à ses concurrents. Conçue pour être scalable, la blockchain offre des temps de traitement 
+                                très rapide.</p>
+                            <p>- Coûts moins élevés : Solana n'exige pas autant de ressources, ce qui signifie que les frais de transaction sont beaucoup moins élevés. En moyenne, les frais de 
+                                transaction de Solana s'élèvent à moins d'un centime d'euro. Les frais de transaction d'Ethereum s'élèvent en moyenne à 8 dollars.</p>
+                            <p>- Impact environnemental : Solana exigeant moins de ressources, il s'agit d'une alternative plus écologique. L'impact carbone du réseau Solana est de 128g de CO2/kWh.</p>
+                        </div>
+                        <div class="content-header-2">
+                            <h2>7. Quels sont les inconvénients de Solana ?</h2>
+                        </div>
+                        <div class="content-body">
+                            <p>- Stabilité : Tous les logiciels informatiques sont susceptibles d'être affectés par des bugs. Solana ne fait pas d'exception. Toutes les nouvelles blockchains peuvent 
+                                être confrontées à des problèmes de stabilité, mais ceux-ci peuvent être facilement résolus.</p>
+                            <p>- Comparaisons avec Ethereum : Ethereum détiendra toujours le privilège du premier arrivé. En tant que nouveau venu, Solana doit encore se surpasser pour battre son 
+                                concurrent le plus expérimenté.</p>
+                            <p>- Centralisation possible : Le système hybride de Solana pourrait conduire à une centralisation. Alors que la blockchain elle-même est décentralisée par nature, le 
+                                mécanisme PoS pourrait avoir l'effet inverse, dans la mesure où un petit nombre de noeuds tend à concentrer un grand nombre de crypto SOL.</p>
+                        </div>
+                        <div class="content-header-2">
+                            <h2>8. Quel futur pour Solana ?</h2>
+                        </div>
+                        <div class="content-body">
+                            <p>Ce qui est sûr, c'est que depuis bientôt 4 ans, l'écosystème de Solana est en pleine effervescence. Évidemment, il y a eu des hauts et des bas, et le protocole est 
+                                encore très jeune. Il va falloir voir comment la team compte résoudre les problèmes et si elle continuera d'avancer dans la bonne direction pour rester compétitif et 
+                                continuer d'attirer toujours plus de monde sur son réseau.</p>
+                        </div>
+                    </div>
+                        <!-- Additional sections go here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="coins_infos/solana_infos/solana_infos.js"></script>
+</body>
+</html>
