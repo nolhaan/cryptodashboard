@@ -1,4 +1,4 @@
-const cryptoIds = ['bitcoin', 'ethereum', 'tether', 'solana'];  // Ajoutez solana
+const cryptoIds = ['bitcoin', 'ethereum', 'tether', 'solana', 'xrp'];  // CryptoIds
 
 async function fetchCryptoData() {
     try {
@@ -123,6 +123,8 @@ async function fetchCryptoData() {
                             window.location.href = 'tether_infos.html';
                         } else if (crypto.id === 'solana') {  // Condition pour Solana
                             window.location.href = 'solana_infos.html';
+                        } else if (crypto.id === 'xrp') {  // Condition pour XRP
+                            window.location.href = 'ripple_infos.html';
                         }
                     });
                 }
