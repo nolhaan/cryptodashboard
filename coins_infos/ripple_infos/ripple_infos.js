@@ -9,7 +9,7 @@ function initializeWidgets() {
     symbolInfoWidgetScript.src = 'https://s3.tradingview.com/external-embedding/embed-widget-symbol-info.js';
     symbolInfoWidgetScript.async = true;
     symbolInfoWidgetScript.innerHTML = JSON.stringify({
-        "symbol": "XRP:SOLUSD",
+        "symbol": "BINANCE:XRPUSD",
         "colorTheme": "dark",
         "isTransparent": false,
         "locale": "fr",
@@ -28,27 +28,27 @@ function initializeWidgets() {
         "symbols": [
             [
                 "Binance",
-                "BINANCE:SOLUSD"
+                "BINANCE:XRPUSD"
             ],
             [
                 "Bitstamp",
-                "BITSTAMP:SOLUSD"
+                "BITSTAMP:XRPUSD"
             ],
             [
                 "Coinbase",
-                "COINBASE:SOLUSD"
+                "COINBASE:XRPUSD"
             ],
             [
                 "Bitfinex",
-                "BITFINEX:SOLUSD"
+                "BITFINEX:XRPUSD"
             ],
             [
                 "Kraken",
-                "KRAKEN:SOLUSD"
+                "KRAKEN:XRPUSD"
             ],
             [
                 "Crypto.com",
-                "CRYPTOCOM:SOLUSD"
+                "CRYPTOCOM:XRPUSD"
             ],
         ],
         "chartOnly": false,
