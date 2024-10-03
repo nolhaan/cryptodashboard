@@ -2,8 +2,7 @@ const TRADES_PER_PAGE = 10;
 let currentPage = 1;
 
 document.addEventListener('DOMContentLoaded', () => {
-    compressExistingImages(); // Compresser les images existantes lors du chargement
-    loadTrades();
+    loadTradesFromJson(); // Charger les trades depuis le fichier JSON externe
 
     document.getElementById('trade-form').addEventListener('submit', function (e) {
         e.preventDefault();
@@ -15,97 +14,26 @@ document.addEventListener('DOMContentLoaded', () => {
         const buy = parseFloat(document.getElementById('buy').value);
         const sell = parseFloat(document.getElementById('sell').value);
         const comments = document.getElementById('comments').value;
-        const screenshot = document.getElementById('screenshot').files[0];
+        const screenshot = document.getElementById('screenshot').value; // Utiliser directement le lien de l'image
 
         const profit = (sell - buy) * quantity;
         const roi = ((sell - buy) / buy) * 100;
 
-        if (screenshot) {
-            const reader = new FileReader();
-            reader.onloadend = function () {
-                const img = new Image();
-                img.src = reader.result;
-                
-                img.onload = function () {
-                    const canvas = document.createElement('canvas');
-                    const ctx = canvas.getContext('2d');
-                    
-                    const MAX_WIDTH = 800;
-                    const MAX_HEIGHT = 800;
-                    let width = img.width;
-                    let height = img.height;
+        const trade = {
+            entryDate,
+            longShort,
+            crypto,
+            quantity: parseFloat(quantity.toFixed(8)),
+            buy: parseFloat(buy.toFixed(8)),
+            sell: parseFloat(sell.toFixed(8)),
+            profit: parseFloat(profit.toFixed(8)),
+            roi: parseFloat(roi.toFixed(2)),
+            comments,
+            screenshot // Utiliser directement l'URL de l'image
+        };
 
-                    if (width > height) {
-                        if (width > MAX_WIDTH) {
-                            height *= MAX_WIDTH / width;
-                            width = MAX_WIDTH;
-                        }
-                    } else {
-                        if (height > MAX_HEIGHT) {
-                            width *= MAX_HEIGHT / height;
-                            height = MAX_HEIGHT;
-                        }
-                    }
-                    canvas.width = width;
-                    canvas.height = height;
-
-                    ctx.drawImage(img, 0, 0, width, height);
-
-                    const screenshotBase64 = canvas.toDataURL('image/jpeg', 0.7);
-
-                    const trade = {
-                        entryDate,
-                        longShort,
-                        crypto,
-                        quantity: parseFloat(quantity.toFixed(8)),
-                        buy: parseFloat(buy.toFixed(8)),
-                        sell: parseFloat(sell.toFixed(8)),
-                        profit: parseFloat(profit.toFixed(8)),
-                        roi: parseFloat(roi.toFixed(2)),
-                        comments,
-                        screenshot: screenshotBase64
-                    };
-
-                    if (e.target.dataset.index !== undefined) {
-                        const index = parseInt(e.target.dataset.index, 10);
-                        updateTrade(trade, index);
-                        delete e.target.dataset.index;
-                    } else {
-                        saveTrade(trade);
-                    }
-
-                    updateTotalBalance();
-                    document.getElementById('trade-form').reset();
-                    loadTrades(); // Recharger les transactions pour mettre à jour le tableau
-                };
-            };
-            reader.readAsDataURL(screenshot);
-        } else {
-            const trade = {
-                entryDate,
-                longShort,
-                crypto,
-                quantity: parseFloat(quantity.toFixed(8)),
-                buy: parseFloat(buy.toFixed(8)),
-                sell: parseFloat(sell.toFixed(8)),
-                profit: parseFloat(profit.toFixed(8)),
-                roi: parseFloat(roi.toFixed(2)),
-                comments,
-                screenshot: ''
-            };
-
-            if (e.target.dataset.index !== undefined) {
-                const index = parseInt(e.target.dataset.index, 10);
-                updateTrade(trade, index);
-                delete e.target.dataset.index;
-            } else {
-                saveTrade(trade);
-            }
-
-            updateTotalBalance();
-            document.getElementById('trade-form').reset();
-            loadTrades(); // Reload trades to update the table
-        }
+        addTradeToTable(trade);
+        document.getElementById('trade-form').reset();
     });
 
     document.getElementById('prev-page').addEventListener('click', () => changePage(currentPage - 1));
@@ -133,7 +61,10 @@ function addTradeToTable(trade) {
         <td class="profit-${trade.profit >= 0 ? 'positive' : 'negative'}">${formatNumber(trade.profit, 2)}$</td>
         <td class="roi-${trade.roi >= 0 ? 'positive' : 'negative'}">${formatNumber(trade.roi, 2)}%</td>
         <td>${trade.comments}</td>
-        <td>${trade.screenshot ? `<img src="${trade.screenshot}" alt="screenshot" width="50">` : ''}</td>
+        <td>
+            ${trade.screenshot ? `<a href="${trade.screenshot}" target="_blank">
+                                  <img src="${trade.screenshot}" alt="screenshot" width="50"></a>` : ''}
+        </td>
         <td>
             <button class="edit-trade" onclick="editTrade(this)">✏️</button>
             <button class="delete-trade" onclick="deleteTrade(this)">✖</button>
@@ -143,28 +74,28 @@ function addTradeToTable(trade) {
     tradesArchive.appendChild(newRow);
 }
 
-function saveTrade(trade) {
-    let trades = JSON.parse(localStorage.getItem('trades')) || [];
-    trades.push(trade);
-    localStorage.setItem('trades', JSON.stringify(trades));
+function loadTradesFromJson() {
+    fetch('trades.json') // Remplace par le chemin correct vers ton fichier JSON
+        .then(response => response.json())
+        .then(jsonTrades => {
+            if (!Array.isArray(jsonTrades)) {
+                throw new Error('Le fichier JSON n\'est pas un tableau.');
+            }
+
+            const tradesArchive = document.getElementById('trades-archive');
+            tradesArchive.innerHTML = ''; // Efface les trades existants
+
+            jsonTrades.forEach(trade => addTradeToTable(trade));
+            updateTotalBalance(jsonTrades);
+            updatePagination(jsonTrades.length);
+        })
+        .catch(error => console.error('Erreur lors du chargement des trades depuis JSON:', error));
 }
 
-function loadTrades() {
-    const tradesArchive = document.getElementById('trades-archive');
-    tradesArchive.innerHTML = ''; // Clear the table
-    const trades = JSON.parse(localStorage.getItem('trades')) || [];
-    const start = (currentPage - 1) * TRADES_PER_PAGE;
-    const end = start + TRADES_PER_PAGE;
-    const tradesToDisplay = trades.slice(start, end);
-    tradesToDisplay.forEach(trade => addTradeToTable(trade));
-    updateTotalBalance();
-    updatePagination(trades.length);
-}
 
-function updateTotalBalance() {
-    const trades = JSON.parse(localStorage.getItem('trades')) || [];
+function updateTotalBalance(trades) {
     let totalBalance = trades.reduce((acc, trade) => acc + parseFloat(trade.profit), 0);
-    localStorage.setItem('totalBalance', totalBalance.toFixed(8));
+    document.getElementById('total-balance').textContent = totalBalance.toFixed(8);
 }
 
 function updatePagination(totalTrades) {
@@ -175,110 +106,53 @@ function updatePagination(totalTrades) {
 }
 
 function changePage(page) {
-    const totalTrades = JSON.parse(localStorage.getItem('trades')).length;
-    const totalPages = Math.ceil(totalTrades / TRADES_PER_PAGE);
-    if (page >= 1 && page <= totalPages) {
-        currentPage = page;
-        loadTrades();
-    }
+    fetch('trades.json') // Remplacez par le chemin correct vers votre fichier JSON
+        .then(response => response.json())
+        .then(jsonTrades => {
+            const totalPages = Math.ceil(jsonTrades.length / TRADES_PER_PAGE);
+            if (page >= 1 && page <= totalPages) {
+                currentPage = page;
+
+                const start = (currentPage - 1) * TRADES_PER_PAGE;
+                const end = start + TRADES_PER_PAGE;
+                const tradesToDisplay = jsonTrades.slice(start, end);
+
+                const tradesArchive = document.getElementById('trades-archive');
+                tradesArchive.innerHTML = ''; // Clear existing trades
+                tradesToDisplay.forEach(trade => addTradeToTable(trade));
+
+                updateTotalBalance(jsonTrades);
+                updatePagination(jsonTrades.length);
+            }
+        });
 }
 
 function deleteTrade(button) {
     const row = button.parentElement.parentElement;
-    const index = Array.from(row.parentElement.children).indexOf(row);
-    const pageIndex = (currentPage - 1) * TRADES_PER_PAGE + index;
     row.remove();
-    removeTradeFromStorage(pageIndex);
-    updateTotalBalance();
-    loadTrades(); // Reload trades to update the table
-}
-
-function removeTradeFromStorage(index) {
-    let trades = JSON.parse(localStorage.getItem('trades')) || [];
-    trades.splice(index, 1);
-    localStorage.setItem('trades', JSON.stringify(trades));
+    // Note: En retirant le stockage local, la suppression de trade ne persistera pas.
 }
 
 function editTrade(button) {
     const row = button.parentElement.parentElement;
-    const index = Array.from(row.parentElement.children).indexOf(row);
-    const pageIndex = (currentPage - 1) * TRADES_PER_PAGE + index;
-    const trades = JSON.parse(localStorage.getItem('trades')) || [];
-    const trade = trades[pageIndex];
-
-    document.getElementById('entry-date').value = trade.entryDate;
-    document.getElementById('long-short').value = trade.longShort;
-    document.getElementById('crypto').value = trade.crypto;
-    document.getElementById('quantity').value = trade.quantity;
-    document.getElementById('buy').value = trade.buy;
-    document.getElementById('sell').value = trade.sell;
-    document.getElementById('comments').value = trade.comments;
-
-    document.getElementById('trade-form').dataset.index = pageIndex;
-
-    row.remove();
-    removeTradeFromStorage(pageIndex);
-    updateTotalBalance();
-}
-
-function updateTrade(trade, index) {
-    let trades = JSON.parse(localStorage.getItem('trades')) || [];
-    trades.splice(index, 0, trade);
-    localStorage.setItem('trades', JSON.stringify(trades));
-    loadTrades(); // Reload trades to update the table
-}
-
-function compressImage(imageData, callback) {
-    const img = new Image();
-    img.src = imageData;
-
-    img.onload = function () {
-        const canvas = document.createElement('canvas');
-        const ctx = canvas.getContext('2d');
-
-        const MAX_WIDTH = 800;
-        const MAX_HEIGHT = 800;
-        let width = img.width;
-        let height = img.height;
-
-        if (width > height) {
-            if (width > MAX_WIDTH) {
-                height *= MAX_WIDTH / width;
-                width = MAX_WIDTH;
-            }
-        } else {
-            if (height > MAX_HEIGHT) {
-                width *= MAX_HEIGHT / height;
-                height = MAX_HEIGHT;
-            }
-        }
-        canvas.width = width;
-        canvas.height = height;
-
-        ctx.drawImage(img, 0, 0, width, height);
-
-        const compressedImageData = canvas.toDataURL('image/jpeg', 0.7);
-        callback(compressedImageData);
+    const tradeData = {
+        entryDate: row.cells[0].innerText,
+        longShort: row.cells[1].innerText,
+        crypto: row.cells[2].innerText,
+        quantity: parseFloat(row.cells[3].innerText),
+        buy: parseFloat(row.cells[4].innerText),
+        sell: parseFloat(row.cells[5].innerText),
+        profit: parseFloat(row.cells[6].innerText.replace('$', '')),
+        roi: parseFloat(row.cells[7].innerText.replace('%', '')),
+        comments: row.cells[8].innerText,
+        screenshot: row.cells[9].querySelector('img')?.src || ''
     };
-}
 
-function compressExistingImages() {
-    let trades = JSON.parse(localStorage.getItem('trades')) || [];
-    let updated = false;
-
-    trades.forEach((trade, index) => {
-        if (trade.screenshot && trade.screenshot.startsWith('data:image/')) {
-            compressImage(trade.screenshot, (compressedImageData) => {
-                trades[index].screenshot = compressedImageData;
-                updated = true;
-                
-                localStorage.setItem('trades', JSON.stringify(trades));
-                loadTrades();
-            });
-        }
-    });
-
-    if (updated) {
-        alert("All existing images have been compressed!");
-    }
+    document.getElementById('entry-date').value = tradeData.entryDate;
+    document.getElementById('long-short').value = tradeData.longShort;
+    document.getElementById('crypto').value = tradeData.crypto;
+    document.getElementById('quantity').value = tradeData.quantity;
+    document.getElementById('buy').value = tradeData.buy;
+    document.getElementById('sell').value = tradeData.sell;
+    document.getElementById('comments').value = tradeData.comments;
 }
