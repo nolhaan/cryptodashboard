@@ -1,7 +1,14 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const apiUrl = 'http://localhost:8080/https://cryptopanic.com/api/v1/posts/?auth_token=2412dad07cc82ee6b005f95be11e121bfc34304c&public=true';
+    const apiUrl = 'https://cryptopanic.com/api/v1/posts/?auth_token=2412dad07cc82ee6b005f95be11e121bfc34304c&public=true';
     const newsContainer = document.getElementById('news-container');
     const newsCountElement = document.getElementById('news-count');
+    
+    // Vérifiez si l'élément existe dans le DOM
+    if (!newsContainer || !newsCountElement) {
+        console.error('newsContainer ou newsCountElement est introuvable dans le DOM.');
+        return;
+    }
+
     let seenArticles = JSON.parse(localStorage.getItem('seenArticles')) || [];
 
     function fetchNews() {
@@ -40,14 +47,17 @@ document.addEventListener('DOMContentLoaded', function() {
 
                 newsCountElement.textContent = unseenCount;
             })
-            .catch(error => console.error('Error fetching news:', error));
+            .catch(error => {
+                console.error('Error fetching news:', error);
+                newsContainer.innerHTML = '<p>Failed to load news. Please try again later.</p>';
+            });
     }
 
     function markArticleAsSeen(articleUrl) {
         if (!seenArticles.includes(articleUrl)) {
             seenArticles.push(articleUrl);
             localStorage.setItem('seenArticles', JSON.stringify(seenArticles));
-            fetchNews();  // Update the news count after marking as seen
+            fetchNews();  // Met à jour le nombre de nouvelles après avoir marqué comme vu
         }
     }
 
@@ -59,8 +69,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Mark articles as seen when clicked
     newsContainer.addEventListener('click', function(event) {
-        if (event.target.tagName === 'A' && event.target.classList.contains('news-item')) {
-            markArticleAsSeen(event.target.href);
+        const target = event.target.closest('.news-item');
+        if (target && target.tagName === 'A') {
+            markArticleAsSeen(target.href);
         }
     });
 });

@@ -36,8 +36,17 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('trade-form').reset();
     });
 
-    document.getElementById('prev-page').addEventListener('click', () => changePage(currentPage - 1));
-    document.getElementById('next-page').addEventListener('click', () => changePage(currentPage + 1));
+    document.getElementById('prev-page').addEventListener('click', () => {
+        fetch('2. trades/trades.json') // Charger les trades à chaque changement de page
+            .then(response => response.json())
+            .then(data => changePage(currentPage - 1, data.trades));
+    });
+
+    document.getElementById('next-page').addEventListener('click', () => {
+        fetch('2. trades/trades.json') // Charger les trades à chaque changement de page
+            .then(response => response.json())
+            .then(data => changePage(currentPage + 1, data.trades));
+    });
 });
 
 function formatNumber(num, decimals) {
@@ -63,7 +72,7 @@ function addTradeToTable(trade) {
         <td>${trade.comments}</td>
         <td>
             ${trade.screenshot ? `<a href="${trade.screenshot}" target="_blank">
-                                  <img src="${trade.screenshot}" alt="screenshot" width="50"></a>` : ''}
+                                  <img src="${trade.screenshot}" alt="screenshot" style="width: 50px; height: auto; cursor: pointer;"></a>` : ''}
         </td>
         <td>
             <button class="edit-trade" onclick="editTrade(this)">✏️</button>
@@ -75,23 +84,31 @@ function addTradeToTable(trade) {
 }
 
 function loadTradesFromJson() {
-    fetch('trades.json') // Remplace par le chemin correct vers ton fichier JSON
+    fetch('2. trades/trades.json') // Assure-toi que le chemin vers le fichier JSON est correct
         .then(response => response.json())
-        .then(jsonTrades => {
+        .then(data => {
+            const jsonTrades = data.trades;
+
             if (!Array.isArray(jsonTrades)) {
-                throw new Error('Le fichier JSON n\'est pas un tableau.');
+                throw new Error('Le fichier JSON ne contient pas un tableau dans la clé "trades".');
             }
 
-            const tradesArchive = document.getElementById('trades-archive');
-            tradesArchive.innerHTML = ''; // Efface les trades existants
-
-            jsonTrades.forEach(trade => addTradeToTable(trade));
-            updateTotalBalance(jsonTrades);
-            updatePagination(jsonTrades.length);
+            displayTradesByPage(jsonTrades); // Affiche les trades de la page actuelle
+            updatePagination(jsonTrades.length); // Met à jour la pagination
         })
         .catch(error => console.error('Erreur lors du chargement des trades depuis JSON:', error));
 }
 
+function displayTradesByPage(trades) {
+    const start = (currentPage - 1) * TRADES_PER_PAGE;
+    const end = start + TRADES_PER_PAGE;
+    const tradesToDisplay = trades.slice(start, end);
+
+    const tradesArchive = document.getElementById('trades-archive');
+    tradesArchive.innerHTML = ''; // Efface les trades existants
+
+    tradesToDisplay.forEach(trade => addTradeToTable(trade));
+}
 
 function updateTotalBalance(trades) {
     let totalBalance = trades.reduce((acc, trade) => acc + parseFloat(trade.profit), 0);
@@ -100,31 +117,20 @@ function updateTotalBalance(trades) {
 
 function updatePagination(totalTrades) {
     const totalPages = Math.ceil(totalTrades / TRADES_PER_PAGE);
-    document.getElementById('pagination').innerHTML = `Page ${currentPage} of ${totalPages}`;
+    
+    document.getElementById('pagination').innerHTML = `Page ${currentPage} sur ${totalPages}`;
     document.getElementById('prev-page').disabled = currentPage === 1;
     document.getElementById('next-page').disabled = currentPage === totalPages;
 }
 
-function changePage(page) {
-    fetch('trades.json') // Remplacez par le chemin correct vers votre fichier JSON
-        .then(response => response.json())
-        .then(jsonTrades => {
-            const totalPages = Math.ceil(jsonTrades.length / TRADES_PER_PAGE);
-            if (page >= 1 && page <= totalPages) {
-                currentPage = page;
+function changePage(page, trades) {
+    const totalPages = Math.ceil(trades.length / TRADES_PER_PAGE);
 
-                const start = (currentPage - 1) * TRADES_PER_PAGE;
-                const end = start + TRADES_PER_PAGE;
-                const tradesToDisplay = jsonTrades.slice(start, end);
-
-                const tradesArchive = document.getElementById('trades-archive');
-                tradesArchive.innerHTML = ''; // Clear existing trades
-                tradesToDisplay.forEach(trade => addTradeToTable(trade));
-
-                updateTotalBalance(jsonTrades);
-                updatePagination(jsonTrades.length);
-            }
-        });
+    if (page >= 1 && page <= totalPages) {
+        currentPage = page;
+        displayTradesByPage(trades); // Met à jour les trades affichés
+        updatePagination(trades.length); // Met à jour la pagination
+    }
 }
 
 function deleteTrade(button) {
