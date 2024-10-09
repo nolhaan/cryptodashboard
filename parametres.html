@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Paramètres</title>
 
+    <!-- ICON -->
+    <link rel="icon" href="Pictures/logo.png" type="image/png">
+
     <!-- MATERIAL ICONS -->
     <link href="https://fonts.googleapis.com/css2?family=Material+Icons+Outlined" rel="stylesheet">
 
@@ -18,7 +21,6 @@
 <body>
     <div class="dashboard-container">
         <div class="main-sidebar">
-            <!-- Include your sidebar content here -->
             <div class="sidebar">
                 <ul class="list-items">
                     <li class="item">
@@ -74,11 +76,6 @@
                             <input type="email" id="email" value="nolhanmsct@gmail.com" readonly>
                             <span class="material-icons-outlined edit-icon" onclick="enableEdit('email')">edit</span>
                         </div>
-                        <label for="password">Mot de passe :</label>
-                        <div class="input-group">
-                            <input type="password" id="password" value="Nomsct76!" readonly>
-                            <span class="material-icons-outlined edit-icon" onclick="enableEdit('password')">edit</span>
-                        </div>
                         <button type="submit">Sauvegarder</button>
                     </form>
                 </div>
@@ -107,29 +104,8 @@
                         <input type="password" id="current-password" name="current-password">
                         <label for="new-password">Nouveau mot de passe:</label>
                         <input type="password" id="new-password" name="new-password">
-                        <label for="2fa">Authentification à deux facteurs:</label>
-                        <input type="checkbox" id="2fa" name="2fa">
                         <button type="submit">Sauvegarder</button>
                     </form>
-                </div>
-
-                <div class="settings-section" id="notification-settings">
-                    <h2>Notifications et Alertes</h2>
-                    <form>
-                        <label for="email-notifications">Notifications par email:</label>
-                        <input type="checkbox" id="email-notifications" name="email-notifications">
-                        <label for="sms-notifications">Notifications par SMS:</label>
-                        <input type="checkbox" id="sms-notifications" name="sms-notifications">
-                        <label for="price-alerts">Alertes de prix:</label>
-                        <input type="checkbox" id="price-alerts" name="price-alerts">
-                        <button type="submit">Sauvegarder</button>
-                    </form>
-                </div>
-
-                <div class="settings-section" id="support-settings">
-                    <h2>Support et Aide</h2>
-                    <p>Pour toute assistance, veuillez contacter notre support client via le formulaire de contact ou par téléphone.</p>
-                    <button onclick="contactSupport()">Contacter le Support</button>
                 </div>
             </div>
         </div>

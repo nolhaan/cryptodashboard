@@ -21,36 +21,9 @@ document.addEventListener('DOMContentLoaded', function() {
         // Handle security settings save logic here
         alert('Paramètres de sécurité sauvegardés');
     });
-
-    // Notification Settings
-    document.querySelector('#notification-settings form').addEventListener('submit', function(event) {
-        event.preventDefault();
-        // Handle notification settings save logic here
-        alert('Notifications et alertes sauvegardées');
-    });
 });
 
-// Support and Help
-function contactSupport() {
-    // Handle contact support logic here
-    alert('Contactez le support à support@votresite.com ou appelez le 01 23 45 67 89');
-}
-
-// JavaScript for handling settings
-
-// JavaScript for handling settings
-
-// JavaScript for handling settings
-
-document.addEventListener('DOMContentLoaded', function() {
-    // Profile Settings
-    document.querySelector('#profile-settings form').addEventListener('submit', function(event) {
-        event.preventDefault();
-        // Handle profile settings save logic here
-        alert('Profil sauvegardé');
-    });
-});
-
+// Function to enable editing of fields
 function enableEdit(fieldId) {
     var field = document.getElementById(fieldId);
     field.readOnly = false;
@@ -72,6 +45,7 @@ function enableEdit(fieldId) {
     }
 }
 
+// Function to set the cursor at the end of the input field
 function setCursorToEnd(field) {
     field.focus();
     var length = field.value.length;

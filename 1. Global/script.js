@@ -155,72 +155,65 @@ document.addEventListener('DOMContentLoaded', function() {
         "container_id": "crypto-overview"
     });
 
-    // Variables de balance
-    let balance = -3.8818;
-    let initialBalance = 1000;
-    let totalBalance = balance + initialBalance;
+    // Récupérer les données des trades à partir du fichier trades.json
+    fetch('2. trades/trades.json') // Mets ici le chemin correct de ton fichier JSON
+    .then(response => response.json())
+    .then(data => {
+        let trades = data.trades || data; // Si `data.trades` existe, sinon `data` lui-même
 
-    // Fonction de mise à jour de la balance
-    function updateBalance(newTradeAmount) {
-        balance += newTradeAmount;
-        totalBalance = initialBalance + balance;
+        if (!Array.isArray(trades)) {
+            console.error('Les données reçues ne sont pas un tableau:', trades);
+            return;
+        }
+
+        let totalBalance = 1000; // Balance initiale
+        let balance = 0;
+
+        // Calculer la balance en additionnant les profits de chaque trade
+        trades.forEach(trade => {
+            let profit = parseFloat(trade.profit);
+            if (!isNaN(profit)) {
+                balance += profit;
+            } else {
+                console.error('Valeur de profit invalide:', trade.profit);
+            }
+        });
+
+        totalBalance += balance;
+
         const totalBalanceElement = document.getElementById('total-balance');
         if (totalBalanceElement) {
-            totalBalanceElement.innerText = `$${Number(totalBalance).toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 2 })}`;
+            totalBalanceElement.innerText = `$${totalBalance.toFixed(2)}`;
         } else {
-            console.error('Element with ID "total-balance" not found');
+            console.error('Élément avec l\'ID "total-balance" non trouvé');
         }
-    }
 
-    // Simuler l'ajout d'un trade
-    document.addEventListener('tradeAdded', function(event) {
-        const newTradeAmount = event.detail.amount;
-        updateBalance(newTradeAmount);
-    });
+        // Affichage des changements Today, 7 Days, 30 Days (simulés ici pour l'exemple)
+        let todayChange = 0;
+        let weekChange = 0;
+        let monthChange = 0;
 
-    // Exemples d'utilisation de l'événement "tradeAdded"
-    // Pour ajouter un trade, vous pouvez déclencher l'événement comme ceci :
-    // const event = new CustomEvent('tradeAdded', { detail: { amount: 100 } });
-    // document.dispatchEvent(event);
+        const todayChangePercent = (todayChange / totalBalance) * 100;
+        const weekChangePercent = (weekChange / totalBalance) * 100;
+        const monthChangePercent = (monthChange / totalBalance) * 100;
 
-    // Calculate changes for "Today", "7 Days", "30 Days"
-    const todayDate = new Date(); // Current date
-    const past7DaysDate = new Date(todayDate);
-    past7DaysDate.setDate(todayDate.getDate() - 7);
-    const past30DaysDate = new Date(todayDate);
-    past30DaysDate.setDate(todayDate.getDate() - 30);
+        const todayChangeElement = document.getElementById('today-change');
+        const weekChangeElement = document.getElementById('week-change');
+        const monthChangeElement = document.getElementById('month-change');
 
-    let todayChange = 0;
-    let weekChange = 0;
-    let monthChange = 0;
+        if (todayChangeElement) {
+            todayChangeElement.innerText = `${todayChangePercent.toFixed(2)}% ${todayChangePercent < 0 ? '🔻' : '🔺'}`;
+        }
 
-    const todayChangePercent = (todayChange / initialBalance) * 100;
-    const weekChangePercent = (weekChange / initialBalance) * 100;
-    const monthChangePercent = (monthChange / initialBalance) * 100;
+        if (weekChangeElement) {
+            weekChangeElement.innerText = `${weekChangePercent.toFixed(2)}% ${weekChangePercent < 0 ? '🔻' : '🔺'}`;
+        }
 
-    console.log(`Today Change: ${todayChangePercent}%`);
-    console.log(`Week Change: ${weekChangePercent}%`);
-    console.log(`Month Change: ${monthChangePercent}%`);
+        if (monthChangeElement) {
+            monthChangeElement.innerText = `${monthChangePercent.toFixed(2)}% ${monthChangePercent < 0 ? '🔻' : '🔺'}`;
+        }
 
-    const todayChangeElement = document.getElementById('today-change');
-    const weekChangeElement = document.getElementById('week-change');
-    const monthChangeElement = document.getElementById('month-change');
+    })
+    .catch(error => console.error('Erreur lors du chargement des trades:', error));
 
-    if (todayChangeElement) {
-        todayChangeElement.innerText = `${todayChangePercent.toFixed(2)}% ${todayChangePercent < 0 ? '🔻' : '🔺'}`;
-    } else {
-        console.error('Element with ID "today-change" not found');
-    }
-
-    if (weekChangeElement) {
-        weekChangeElement.innerText = `${weekChangePercent.toFixed(2)}% ${weekChangePercent < 0 ? '🔻' : '🔺'}`;
-    } else {
-        console.error('Element with ID "week-change" not found');
-    }
-
-    if (monthChangeElement) {
-        monthChangeElement.innerText = `${monthChangePercent.toFixed(2)}% ${monthChangePercent < 0 ? '🔻' : '🔺'}`;
-    } else {
-        console.error('Element with ID "month-change" not found');
-    }
 });

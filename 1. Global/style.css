@@ -193,9 +193,9 @@ a:hover {
 
 .total-balance h2 {
     font-size: 1rem; /* Taille du texte de "Total Balance" */
-    color: var(--white); /* Couleur du texte de "Total Balance" */
+    color: var(--yellow); /* Couleur du texte de "Total Balance" */
     text-transform: uppercase; /* Mettre le texte en majuscule */
-    font-weight: normal;
+    font-weight: bold;
 }
 
 #total-balance {
@@ -234,8 +234,8 @@ a:hover {
 
 .summary h3 {
     font-size: 1rem;
-    font-weight: normal;
-    color: #9db3be; /* Couleur du texte des titres */
+    font-weight: bold;
+    color: var(--yellow); /* Couleur du texte des titres */
 }
 
 .summary .value {
@@ -322,6 +322,8 @@ a:hover {
 .crypto-chart-title {
     font-weight: normal; /* Vous pouvez changer 'normal' par la valeur que vous souhaitez (par exemple, bold, 600, etc.) */
     font-size: 27px;
+    color: var(--yellow);
+    font-weight: bold;
 }
 
 .chart-header-line {
@@ -403,86 +405,4 @@ a:hover {
     height: 50px; /* Ajustez la hauteur de l'image */
     border-radius: 50%; /* Pour une image ronde */
     object-fit: cover; /* Assure que l'image garde ses proportions */
-}
-
-
-/* Taille d'écran mobile (max-width: 768px) */
-@media (max-width: 768px) {
-    .dashboard-container {
-        grid-template-columns: 1fr; /* Une seule colonne pour mobile */
-        grid-template-areas: 
-            "sidebar"
-            "main";
-    }
-
-    .main-sidebar {
-        width: 100%; /* Sidebar occupe toute la largeur de l'écran */
-        height: auto; /* Ajuste la hauteur automatiquement */
-        margin-top: 0; /* Supprimer l'espacement supérieur */
-        position: static; /* Plus de positionnement fixe */
-        padding: 10px; /* Réduire l'espacement interne */
-    }
-
-    .list-items .item a {
-        padding: 12px 1rem; /* Réduire la taille des éléments de la liste */
-        font-size: 1rem; /* Réduire la taille du texte */
-    }
-
-    .main-container {
-        padding: 10px; /* Réduire le padding interne */
-    }
-
-    .main-title {
-        font-size: 1.8rem; /* Réduire la taille du texte */
-    }
-
-    .main-card {
-        width: 100%; /* Occupe toute la largeur disponible */
-        margin-top: 10px;
-        padding: 1rem; /* Réduire l'espacement interne */
-    }
-
-    .balance-section {
-        flex-direction: column; /* Empiler les éléments */
-        align-items: flex-start; /* Aligner les éléments au début */
-    }
-
-    .cards-summary {
-        flex-direction: column; /* Cartes en colonne */
-    }
-
-    .cards-container {
-        flex-direction: column; /* Empiler les cartes verticalement */
-        gap: 10px; /* Espacement entre les cartes */
-    }
-
-    .card {
-        height: auto; /* Laisser la hauteur s'ajuster automatiquement */
-    }
-
-    .crypto-chart-card {
-        margin-bottom: 1rem; /* Réduire l'espacement en bas */
-    }
-}
-
-/* Tablettes (max-width: 1024px) */
-@media (max-width: 1024px) {
-    .dashboard-container {
-        grid-template-columns: 1fr; /* Réduire à une colonne */
-        grid-template-areas: 
-            "sidebar"
-            "main";
-    }
-
-    .main-sidebar {
-        width: 250px; /* Réduire légèrement la largeur de la sidebar */
-    }
-
-    .main-title {
-        font-size: 2rem; /* Ajuster la taille du titre */
-    }
-
-    .cards-summary {
-        gap: 0.5rem; /* Réduire l'espacement */
-    }
 }
