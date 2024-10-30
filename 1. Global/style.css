@@ -170,6 +170,58 @@ a:hover {
     text-align: center; /* Center align the text */
 }
 
+/* Menu burger caché par défaut */
+.burger-menu {
+    display: none;
+    height: 0;
+    width: 100vw;
+    right: 2rem;
+    position: absolute;
+    top: 80px;
+    overflow: hidden;
+    z-index: 1000;
+    border-radius: 10px;
+    background-color: transparent; /* Supprime le fond noir */
+}
+
+/* Quand le menu est ouvert */
+.burger-menu.open {
+    display: none; /* Passe à flex pour gérer la mise en page */
+    height: 100vh; /* Menu occupe toute la hauteur */
+    flex-direction: column; /* Aligne les éléments en colonne */
+    justify-content: flex-start; /* Aligne les items vers le haut */
+    align-items: center; /* Centre horizontalement */
+}
+
+/* Style du bouton burger */
+.burger-menu-button {
+    display: none;
+    color: var(--text-color-secondary);
+    font-size: 2rem;
+    position: fixed;
+    cursor: pointer;
+    top: 50px !important;
+    right: 50px !important;
+    z-index: 1100;
+}
+
+/* Ajustement des éléments du menu */
+.burger-menu li {
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%; /* Les items prennent toute la largeur */
+}
+
+.burger-menu .list-items {
+    width: 100%;
+    display: flex;
+    flex-direction: column; /* Assure que les éléments sont en colonne */
+    justify-content: center;
+    align-items: center;
+}
+
 .main-card {
     background-color: #262626; /* Couleur de fond de la carte principale */
     padding: 2rem;
@@ -405,4 +457,113 @@ a:hover {
     height: 50px; /* Ajustez la hauteur de l'image */
     border-radius: 50%; /* Pour une image ronde */
     object-fit: cover; /* Assure que l'image garde ses proportions */
+}
+
+@media (max-width: 1800px) {
+    .main-sidebar{
+        width: auto;
+    }
+}
+
+@media (max-width: 1750px) {
+    .main-card {
+        width: 100%; /* Ajuste la largeur pour éviter le dépassement */
+    }
+
+    .list-items .item,
+    .list-items.list-items.bottom .item {
+        display: none;
+    }
+
+    .dashboard-container {
+        display: grid;
+        grid-template-columns: 1fr; /* Utilise une seule colonne */
+        max-width: 1200px; /* Largeur maximale pour éviter le débordement */
+        margin: 0 auto; /* Centre horizontalement */
+        padding: 20px; /* Ajoute un padding pour éviter que le contenu touche les bords */
+        gap: 2rem; /* Espace entre les éléments */
+    }
+
+    .main-container {
+        margin: 0 auto;
+        width: 100%;
+    }
+
+    .burger-menu-button {
+        display: block !important;
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        z-index: 150;
+        cursor: pointer;
+    }
+
+    .burger-menu.burger-menu.open {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        position: fixed;
+        width: 100%;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.7); /* Assombrit légèrement le fond */
+        transition: left 0.3s ease;
+    }
+
+    /* Menu visible quand 'menu-open' est active */
+    body.menu-open .burger-menu {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    /* Flou du contenu principal quand le menu est ouvert */
+    body.menu-open .main-container,
+    body.menu-open .main-card,
+    body.menu-open .cards-container,
+    body.menu-open .crypto-chart-card,
+    body.menu-open .tradingview-widget-container {
+        filter: blur(5px);
+    }
+
+    /* Style des items du menu burger */
+    .burger-menu a {
+        display: block;
+        padding: 15px 20px;
+        text-align: center;
+        text-decoration: none;
+        font-size: 18px;
+        color: #fff;
+        width: 100%;
+    }
+
+    .burger-menu a:hover {
+        background-color: #444;
+    }
+}
+
+@media (max-width: 1200px) {
+    .dashboard-container {
+        padding: 10px;
+        max-width: 100%; /* Supprime la largeur maximale */
+    }
+    
+    .main-card,
+    .cards-container,
+    .crypto-chart-card,
+    .tradingview-widget-container {
+        width: 100%; /* Prend toute la largeur pour les petits écrans */
+        margin: 0 auto; /* Centre chaque section individuellement */
+    }
+}
+
+/* Styles pour petits écrans */
+@media (max-width: 576px) {
+    .burger-menu {
+        width: 200px;
+    }
+
+    .burger-menu-button {
+        top: 10px;
+        right: 10px;
+    }
 }

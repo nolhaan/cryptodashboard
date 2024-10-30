@@ -1,19 +1,4 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const openSidebar = document.querySelector('#openSidebar');
-    const closeSidebar = document.querySelector('.closeSidebar');
-    const sidebar = document.querySelector('.main-sidebar');
-
-    if (openSidebar) {
-        openSidebar.addEventListener('click', () => {
-            sidebar.style.left = '0%';
-        });
-    }
-
-    if (closeSidebar) {
-        closeSidebar.addEventListener('click', () => {
-            sidebar.style.left = '-100%';
-        });
-    }
 
     // Configuration des widgets TradingView
     function createTradingViewWidget(containerId, widgetConfig) {
