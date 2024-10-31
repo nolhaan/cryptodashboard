@@ -1,6 +1,6 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
 
-    // Configuration des widgets TradingView
+    // Fonction pour créer un widget TradingView avec une configuration donnée
     function createTradingViewWidget(containerId, widgetConfig) {
         const script = document.createElement('script');
         script.type = 'text/javascript';
@@ -13,41 +13,103 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    createTradingViewWidget('btc-mini-chart', {
-        "symbol": "BINANCE:BTCUSDT",
-        "width": 220,
-        "height": 180,
-        "locale": "fr",
-        "dateRange": "1D",
-        "colorTheme": "dark",
-        "isTransparent": true,
-        "autosize": false,
-        "largeChartUrl": ""
-    });
+    // Fonction pour ajuster la taille des widgets selon la largeur de la fenêtre
+    function adjustWidgetSize() {
+        const screenWidth = window.innerWidth;
+        let widgetWidth, widgetHeight;
 
-    createTradingViewWidget('eth-mini-chart', {
-        "symbol": "BINANCE:ETHUSDT",
-        "width": 220,
-        "height": 180,
-        "locale": "fr",
-        "dateRange": "1D",
-        "colorTheme": "dark",
-        "isTransparent": true,
-        "autosize": false,
-        "largeChartUrl": ""
-    });
+        if (screenWidth < 768) { // Pour les petits écrans (smartphones)
+            widgetWidth = '100%';
+            widgetHeight = 150;
+        } else if (screenWidth < 1024) { // Pour les écrans moyens (tablettes)
+            widgetWidth = '100%';
+            widgetHeight = 200;
+        } else if (screenWidth < 1750) { // Pour les écrans larges en dessous de 1750px
+            widgetWidth = '100%';
+            widgetHeight = 250;
+        } else { // Écrans très larges
+            widgetWidth = 220;
+            widgetHeight = 180;
+        }
 
-    createTradingViewWidget('mcap-mini-chart', {
-        "symbol": "CRYPTOCAP:TOTAL",
-        "width": 220,
-        "height": 180,
-        "locale": "fr",
-        "dateRange": "1D",
-        "colorTheme": "dark",
-        "isTransparent": true,
-        "autosize": false,
-        "largeChartUrl": ""
-    });
+        // Supprimer les widgets existants avant de les recréer
+        document.getElementById('btc-mini-chart').innerHTML = '';
+        document.getElementById('eth-mini-chart').innerHTML = '';
+        document.getElementById('mcap-mini-chart').innerHTML = '';
+        document.getElementById('market-quotes-widget').innerHTML = '';
+
+        // Créer les widgets avec les nouvelles dimensions
+        createTradingViewWidget('btc-mini-chart', {
+            "symbol": "BINANCE:BTCUSDT",
+            "width": widgetWidth,
+            "height": widgetHeight,
+            "locale": "fr",
+            "dateRange": "1D",
+            "colorTheme": "dark",
+            "isTransparent": true,
+            "autosize": false,
+            "largeChartUrl": ""
+        });
+
+        createTradingViewWidget('eth-mini-chart', {
+            "symbol": "BINANCE:ETHUSDT",
+            "width": widgetWidth,
+            "height": widgetHeight,
+            "locale": "fr",
+            "dateRange": "1D",
+            "colorTheme": "dark",
+            "isTransparent": true,
+            "autosize": false,
+            "largeChartUrl": ""
+        });
+
+        createTradingViewWidget('mcap-mini-chart', {
+            "symbol": "CRYPTOCAP:TOTAL",
+            "width": widgetWidth,
+            "height": widgetHeight,
+            "locale": "fr",
+            "dateRange": "1D",
+            "colorTheme": "dark",
+            "isTransparent": true,
+            "autosize": false,
+            "largeChartUrl": ""
+        });
+
+        // Widget de données de marché
+        const marketDataScript = document.createElement('script');
+        marketDataScript.src = 'https://s3.tradingview.com/external-embedding/embed-widget-market-overview.js';
+        marketDataScript.async = true;
+        marketDataScript.innerHTML = JSON.stringify({
+            "width": screenWidth < 1750 ? '100%' : 300,
+            "height": 300,
+            "locale": "fr",
+            "colorTheme": "dark",
+            "showChart": false,
+            "isTransparent": true,
+            "tabs": [
+                {
+                    "title": "Indices",
+                    "symbols": [
+                        { "s": "FOREXCOM:DJI", "d": "Dow Jones" },
+                        { "s": "FOREXCOM:DJI", "d": "Dow Jones" },
+                        { "s": "OANDA:FR40EUR", "d": "CAC 40" },
+                        { "s": "OANDA:EURUSD", "d": "EURO USD" }
+                    ],
+                    "originalTitle": "Indices"
+                }
+            ]
+        });
+        const marketQuotesWidgetContainer = document.getElementById('market-quotes-widget');
+        if (marketQuotesWidgetContainer) {
+            marketQuotesWidgetContainer.appendChild(marketDataScript);
+        }
+    }
+
+    // Initialisation des widgets avec la taille adaptée
+    adjustWidgetSize();
+
+    // Ajuste la taille des widgets lorsque la fenêtre est redimensionnée
+    window.addEventListener('resize', adjustWidgetSize);
 
     // Ajout du widget d'analyse technique
     const taScript = document.createElement('script');
@@ -55,9 +117,9 @@ document.addEventListener('DOMContentLoaded', function() {
     taScript.async = true;
     taScript.innerHTML = JSON.stringify({
         "interval": "1D",
-        "width": 307,
+        "width": "100%",
         "isTransparent": true,
-        "height": 300,
+        "height": 400,
         "symbol": "BINANCE:BTCUSD",
         "showIntervalTabs": false,
         "locale": "fr",
@@ -76,55 +138,7 @@ document.addEventListener('DOMContentLoaded', function() {
         taWidgetContainer.appendChild(taScript);
     }
 
-    // Widget pour les données de marché
-    const marketDataScript = document.createElement('script');
-    marketDataScript.src = 'https://s3.tradingview.com/external-embedding/embed-widget-market-overview.js';
-    marketDataScript.async = true;
-    marketDataScript.innerHTML = JSON.stringify({
-        "width": 300,
-        "height": 300,
-        "locale": "fr",
-        "colorTheme": "dark",
-        "showChart": false,
-        "isTransparent": true,
-        "largeChartUrl": "",
-        "plotLineColorGrowing": "rgba(33, 150, 243, 1)",
-        "plotLineColorFalling": "rgba(33, 150, 243, 1)",
-        "gridLineColor": "rgba(240, 243, 250, 1)",
-        "scaleFontColor": "rgba(255, 255, 255, 1)",
-        "belowLineFillColorGrowing": "rgba(33, 150, 243, 0.12)",
-        "belowLineFillColorFalling": "rgba(33, 150, 243, 0.12)",
-        "symbolActiveColor": "rgba(33, 150, 243, 0.12)",
-        "tabs": [
-            {
-                "title": "Indices",
-                "symbols": [
-                    {
-                        "s": "à laisser pour que ça s'affiche correctement",
-                        "d": "jsp pourquoi"
-                    },
-                    {
-                        "s": "FOREXCOM:DJI",
-                        "d": "Dow Jones"
-                    },
-                    {
-                        "s": "OANDA:FR40EUR",
-                        "d": "CAC 40"
-                    },
-                    {
-                        "s": "OANDA:EURUSD",
-                        "d": "EURO USD"
-                    },
-                ],
-                "originalTitle": "Indices"
-            }
-        ]
-    });
-    const marketQuotesWidgetContainer = document.getElementById('market-quotes-widget');
-    if (marketQuotesWidgetContainer) {
-        marketQuotesWidgetContainer.appendChild(marketDataScript);
-    }
-
+    // Ajout d'un widget d'aperçu du marché crypto
     new TradingView.widget({
         "width": "100%",
         "height": 500,
@@ -142,63 +156,61 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Récupérer les données des trades à partir du fichier trades.json
     fetch('2. trades/trades.json') // Mets ici le chemin correct de ton fichier JSON
-    .then(response => response.json())
-    .then(data => {
-        let trades = data.trades || data; // Si `data.trades` existe, sinon `data` lui-même
+        .then(response => response.json())
+        .then(data => {
+            let trades = data.trades || data;
 
-        if (!Array.isArray(trades)) {
-            console.error('Les données reçues ne sont pas un tableau:', trades);
-            return;
-        }
-
-        let totalBalance = 1000; // Balance initiale
-        let balance = 0;
-
-        // Calculer la balance en additionnant les profits de chaque trade
-        trades.forEach(trade => {
-            let profit = parseFloat(trade.profit);
-            if (!isNaN(profit)) {
-                balance += profit;
-            } else {
-                console.error('Valeur de profit invalide:', trade.profit);
+            if (!Array.isArray(trades)) {
+                console.error('Les données reçues ne sont pas un tableau:', trades);
+                return;
             }
-        });
 
-        totalBalance += balance;
+            let totalBalance = 1000; // Balance initiale
+            let balance = 0;
 
-        const totalBalanceElement = document.getElementById('total-balance');
-        if (totalBalanceElement) {
-            totalBalanceElement.innerText = `$${totalBalance.toFixed(2)}`;
-        } else {
-            console.error('Élément avec l\'ID "total-balance" non trouvé');
-        }
+            trades.forEach(trade => {
+                let profit = parseFloat(trade.profit);
+                if (!isNaN(profit)) {
+                    balance += profit;
+                } else {
+                    console.error('Valeur de profit invalide:', trade.profit);
+                }
+            });
 
-        // Affichage des changements Today, 7 Days, 30 Days (simulés ici pour l'exemple)
-        let todayChange = 0;
-        let weekChange = 0;
-        let monthChange = 0;
+            totalBalance += balance;
 
-        const todayChangePercent = (todayChange / totalBalance) * 100;
-        const weekChangePercent = (weekChange / totalBalance) * 100;
-        const monthChangePercent = (monthChange / totalBalance) * 100;
+            const totalBalanceElement = document.getElementById('total-balance');
+            if (totalBalanceElement) {
+                totalBalanceElement.innerText = `$${totalBalance.toFixed(2)}`;
+            } else {
+                console.error('Élément avec l\'ID "total-balance" non trouvé');
+            }
 
-        const todayChangeElement = document.getElementById('today-change');
-        const weekChangeElement = document.getElementById('week-change');
-        const monthChangeElement = document.getElementById('month-change');
+            let todayChange = 0;
+            let weekChange = 0;
+            let monthChange = 0;
 
-        if (todayChangeElement) {
-            todayChangeElement.innerText = `${todayChangePercent.toFixed(2)}% ${todayChangePercent < 0 ? '🔻' : '🔺'}`;
-        }
+            const todayChangePercent = (todayChange / totalBalance) * 100;
+            const weekChangePercent = (weekChange / totalBalance) * 100;
+            const monthChangePercent = (monthChange / totalBalance) * 100;
 
-        if (weekChangeElement) {
-            weekChangeElement.innerText = `${weekChangePercent.toFixed(2)}% ${weekChangePercent < 0 ? '🔻' : '🔺'}`;
-        }
+            const todayChangeElement = document.getElementById('today-change');
+            const weekChangeElement = document.getElementById('week-change');
+            const monthChangeElement = document.getElementById('month-change');
 
-        if (monthChangeElement) {
-            monthChangeElement.innerText = `${monthChangePercent.toFixed(2)}% ${monthChangePercent < 0 ? '🔻' : '🔺'}`;
-        }
+            if (todayChangeElement) {
+                todayChangeElement.innerText = `${todayChangePercent.toFixed(2)}% ${todayChangePercent < 0 ? '🔻' : '🔺'}`;
+            }
 
-    })
-    .catch(error => console.error('Erreur lors du chargement des trades:', error));
+            if (weekChangeElement) {
+                weekChangeElement.innerText = `${weekChangePercent.toFixed(2)}% ${weekChangePercent < 0 ? '🔻' : '🔺'}`;
+            }
+
+            if (monthChangeElement) {
+                monthChangeElement.innerText = `${monthChangePercent.toFixed(2)}% ${monthChangePercent < 0 ? '🔻' : '🔺'}`;
+            }
+
+        })
+        .catch(error => console.error('Erreur lors du chargement des trades:', error));
 
 });

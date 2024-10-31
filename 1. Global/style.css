@@ -1,14 +1,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&display=swap');
 
 :root {
-    --light-gray: #ECEAE7; /* Gris clair */
-    --black: #000000; /* Noir */
-    --sidebar-background: #262626; /* Couleur de fond de la sidebar */
-    --yellow: #F0D85A; /* Jaune */
-    --white: #FFFFFF; /* Blanc */
-  
-    --text-color-primary: #FFFFFF; /* Blanc */
-    --text-color-secondary: #F0D85A; /* Jaune */
+    --light-gray: #ECEAE7;
+    /* Gris clair */
+    --black: #000000;
+    /* Noir */
+    --sidebar-background: #262626;
+    /* Couleur de fond de la sidebar */
+    --yellow: #F0D85A;
+    /* Jaune */
+    --white: #FFFFFF;
+    /* Blanc */
+
+    --text-color-primary: #FFFFFF;
+    /* Blanc */
+    --text-color-secondary: #F0D85A;
+    /* Jaune */
     --text-color-third: #9db3be;
 
     --box-shadow-card: 8px 8px 32px rgba(0, 0, 0, 0.15);
@@ -23,7 +30,9 @@
     --border-radius-card: var(--padding-card);
 }
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -38,6 +47,7 @@ html {
 body {
     background-color: var(--black);
     color: var(--text-color-primary);
+    width: 100vw;
     height: 100vh;
     transition: background-color .3s ease-in-out, color 0.3s ease-in-out;
 }
@@ -74,7 +84,8 @@ a:hover {
 
 .dashboard-container {
     display: grid;
-    grid-template-columns: 1.5fr 8.5fr; /* Adjusted to give more space to main container */
+    grid-template-columns: 1.5fr 8.5fr;
+    /* Adjusted to give more space to main container */
     grid-template-areas: "sidebar main";
     gap: 2rem;
     height: 100%;
@@ -82,29 +93,36 @@ a:hover {
 
 .main-sidebar {
     grid-area: sidebar;
-    height: 90vh; /* Ensure the sidebar takes full height */
-    width: 280px; /* Reduced width */
+    height: 90vh;
+    /* Ensure the sidebar takes full height */
+    width: 280px;
+    /* Reduced width */
     padding: 20px 0 20px 16px;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start; /* Align items to the top */
-    margin-top: 97px; /* Align with main card */
+    justify-content: flex-start;
+    /* Align items to the top */
+    margin-top: 97px;
+    /* Align with main card */
     position: fixed;
 }
 
 .main-sidebar .sidebar {
     display: flex;
     flex-direction: column;
-    height: 100%; /* Ensure it takes the full height */
+    height: 100%;
+    /* Ensure it takes the full height */
 }
 
 .sidebar .list-items {
     width: 100%;
-    padding-left: 0; /* Remove default padding */
+    padding-left: 0;
+    /* Remove default padding */
 }
 
 .sidebar .list-items.bottom {
-    margin-top: auto; /* Push to the bottom */
+    margin-top: auto;
+    /* Push to the bottom */
 }
 
 .list-items li {
@@ -118,21 +136,25 @@ a:hover {
     font-weight: normal;
     gap: 12px;
     width: 100%;
-    padding: 16px 1.5rem; /* Adjust padding for better alignment */
+    padding: 16px 1.5rem;
+    /* Adjust padding for better alignment */
     font-size: 1.2rem;
     font-weight: normal;
     transition: all .3s ease-in-out;
-    color: var(--white); /* Blanc */
+    color: var(--white);
+    /* Blanc */
     background-color: var(--sidebar-background);
     border-radius: var(--border-radius-12);
 }
 
 .list-items .item a:hover span:not(.material-icons-outlined) {
-    color: var(--white); /* Maintenir la couleur du texte en blanc */
+    color: var(--white);
+    /* Maintenir la couleur du texte en blanc */
 }
 
 .list-items .item a:hover .material-icons-outlined {
-    color: var(--yellow); /* Changer la couleur des icônes en jaune */
+    color: var(--yellow);
+    /* Changer la couleur des icônes en jaune */
 }
 
 .list-items .item a:active,
@@ -148,7 +170,8 @@ a:hover {
     text-align: center;
     color: var(--white);
     padding: 0 8px;
-    margin-left: auto; /* Align the count to the right */
+    margin-left: auto;
+    /* Align the count to the right */
     background-color: var(--black);
     border-radius: 10px;
 }
@@ -158,16 +181,22 @@ a:hover {
 .main-container {
     grid-area: main;
     padding: 20px 0;
-    background-color: var(--black); /* Noir */
+    background-color: var(--black);
+    /* Noir */
 }
 
 .main-title {
-    margin-top: 1rem; /* Reduce the distance from the top */
-    margin-bottom: 1rem; /* Reduce the distance from the bottom */
+    margin-top: 1rem;
+    /* Reduce the distance from the top */
+    margin-bottom: 1rem;
+    /* Reduce the distance from the bottom */
     line-height: 1.8;
-    color: var(--yellow); /* Jaune */
-    font-size: 2.5rem; /* Increase the font size */
-    text-align: center; /* Center align the text */
+    color: var(--yellow);
+    /* Jaune */
+    font-size: 2.5rem;
+    /* Increase the font size */
+    text-align: center;
+    /* Center align the text */
 }
 
 /* Menu burger caché par défaut */
@@ -181,16 +210,22 @@ a:hover {
     overflow: hidden;
     z-index: 1000;
     border-radius: 10px;
-    background-color: transparent; /* Supprime le fond noir */
+    background-color: transparent;
+    /* Supprime le fond noir */
 }
 
 /* Quand le menu est ouvert */
 .burger-menu.open {
-    display: none; /* Passe à flex pour gérer la mise en page */
-    height: 100vh; /* Menu occupe toute la hauteur */
-    flex-direction: column; /* Aligne les éléments en colonne */
-    justify-content: flex-start; /* Aligne les items vers le haut */
-    align-items: center; /* Centre horizontalement */
+    display: none;
+    /* Passe à flex pour gérer la mise en page */
+    height: 100vh;
+    /* Menu occupe toute la hauteur */
+    flex-direction: column;
+    /* Aligne les éléments en colonne */
+    justify-content: flex-start;
+    /* Aligne les items vers le haut */
+    align-items: center;
+    /* Centre horizontalement */
 }
 
 /* Style du bouton burger */
@@ -211,24 +246,29 @@ a:hover {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 100%; /* Les items prennent toute la largeur */
+    width: 100%;
+    /* Les items prennent toute la largeur */
 }
 
 .burger-menu .list-items {
     width: 100%;
     display: flex;
-    flex-direction: column; /* Assure que les éléments sont en colonne */
+    flex-direction: column;
+    /* Assure que les éléments sont en colonne */
     justify-content: center;
     align-items: center;
 }
 
 .main-card {
-    background-color: #262626; /* Couleur de fond de la carte principale */
+    background-color: #262626;
+    /* Couleur de fond de la carte principale */
     padding: 2rem;
     border-radius: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    width: 100%; /* Largeur de la carte principale */
-    max-width: 1560px; /* Reduced max-width */
+    width: 100%;
+    /* Largeur de la carte principale */
+    max-width: 1560px;
+    /* Reduced max-width */
     margin-top: 20px;
     margin-bottom: 2rem;
 }
@@ -244,15 +284,20 @@ a:hover {
 }
 
 .total-balance h2 {
-    font-size: 1rem; /* Taille du texte de "Total Balance" */
-    color: var(--yellow); /* Couleur du texte de "Total Balance" */
-    text-transform: uppercase; /* Mettre le texte en majuscule */
+    font-size: 1rem;
+    /* Taille du texte de "Total Balance" */
+    color: var(--yellow);
+    /* Couleur du texte de "Total Balance" */
+    text-transform: uppercase;
+    /* Mettre le texte en majuscule */
     font-weight: bold;
 }
 
 #total-balance {
-    font-size: 2.5rem; /* Adjust the size to match your preference */
-    color: #fff; /* Color of the balance text */
+    font-size: 2.5rem;
+    /* Adjust the size to match your preference */
+    color: #fff;
+    /* Color of the balance text */
     display: inline-block;
 }
 
@@ -287,7 +332,8 @@ a:hover {
 .summary h3 {
     font-size: 1rem;
     font-weight: bold;
-    color: var(--yellow); /* Couleur du texte des titres */
+    color: var(--yellow);
+    /* Couleur du texte des titres */
 }
 
 .summary .value {
@@ -298,11 +344,13 @@ a:hover {
 }
 
 .summary .value.negative {
-    color: #e74c3c; /* Couleur négative */
+    color: #e74c3c;
+    /* Couleur négative */
 }
 
 .summary .value.positive {
-    color: #2ecc71; /* Couleur positive */
+    color: #2ecc71;
+    /* Couleur positive */
 }
 
 .summary .value span.material-icons-outlined {
@@ -317,17 +365,22 @@ a:hover {
 }
 
 .card {
-    background-color: black; /* Couleur de fond des sous-cartes */
+    background-color: black;
+    /* Couleur de fond des sous-cartes */
     padding: 1rem;
     border-radius: 12px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: center; /* Alignement centré */
-    flex: 1; /* Allow cards to grow and shrink */
+    text-align: center;
+    /* Alignement centré */
+    flex: 1;
+    /* Allow cards to grow and shrink */
     height: 208px;
     position: relative;
     display: flex;
-    align-items: center; /* Centre verticalement */
-    justify-content: center; /* Centre horizontalement */
+    align-items: center;
+    /* Centre verticalement */
+    justify-content: center;
+    /* Centre horizontalement */
 }
 
 .card .tradingview-widget-container {
@@ -339,8 +392,10 @@ a:hover {
 }
 
 .card-chart {
-    width: 100%; /* Full width */
-    height: 100px; /* Height adjusted */
+    width: 100%;
+    /* Full width */
+    height: 100px;
+    /* Height adjusted */
     position: relative;
     overflow: hidden;
 }
@@ -359,31 +414,41 @@ a:hover {
 
 .crypto-chart {
     margin-top: 3rem;
-    margin-bottom: 2rem; /* Ajouter un espace en bas de la carte principale */
+    margin-bottom: 2rem;
+    /* Ajouter un espace en bas de la carte principale */
 }
 
 .crypto-chart-card {
-    background-color: black; /* Couleur de fond de la carte */
+    background-color: black;
+    /* Couleur de fond de la carte */
     padding: 2rem;
     border-radius: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    width: 100%; /* Largeur de la carte */
-    margin-bottom: -2rem; /* Espace en bas de la carte */
+    width: 100%;
+    /* Largeur de la carte */
+    margin-bottom: -2rem;
+    /* Espace en bas de la carte */
 }
 
 .crypto-chart-title {
-    font-weight: normal; /* Vous pouvez changer 'normal' par la valeur que vous souhaitez (par exemple, bold, 600, etc.) */
+    font-weight: normal;
+    /* Vous pouvez changer 'normal' par la valeur que vous souhaitez (par exemple, bold, 600, etc.) */
     font-size: 27px;
     color: var(--yellow);
     font-weight: bold;
 }
 
 .chart-header-line {
-    width: 100%; /* S'étend sur toute la largeur du conteneur */
-    height: 2px; /* Hauteur de la ligne */
-    background-color: #262626; /* Couleur grise */
-    margin-top: 8px; /* Espace au-dessus de la ligne */
-    margin-bottom: 16px; /* Espace en dessous de la ligne */
+    width: 100%;
+    /* S'étend sur toute la largeur du conteneur */
+    height: 2px;
+    /* Hauteur de la ligne */
+    background-color: #262626;
+    /* Couleur grise */
+    margin-top: 8px;
+    /* Espace au-dessus de la ligne */
+    margin-bottom: 16px;
+    /* Espace en dessous de la ligne */
 }
 
 .crypto-chart .ro-title {
@@ -398,7 +463,8 @@ a:hover {
     font-weight: 600;
     transition: 0.3s ease-in-out;
     padding-right: 28px;
-    color: var(--yellow); /* Jaune */
+    color: var(--yellow);
+    /* Jaune */
 }
 
 .crypto-chart .ro-title a:hover {
@@ -407,7 +473,8 @@ a:hover {
 
 .crypto-chart table {
     width: 100%;
-    background-color: var(--black); /* Noir */
+    background-color: var(--black);
+    /* Noir */
     padding: var(--padding-card);
     border-radius: var(--border-radius-card);
     box-shadow: var(--box-shadow-card);
@@ -415,59 +482,47 @@ a:hover {
     transition: box-shadow 0.3s ease-in-out;
     overflow: hidden;
     border-spacing: 0;
-    color: var(--white); /* Blanc */
+    color: var(--white);
+    /* Blanc */
 }
 
 /* Updated TA Widget Styles */
 #ta-widget {
-    width: 300px; /* Adjusted width */
-    height: 300px; /* Adjusted height */
-    overflow: hidden; /* Ensure no scrollbars */
-    background-color: transparent; /* Fond transparent */
+    width: 300px;
+    /* Adjusted width */
+    height: 300px;
+    /* Adjusted height */
+    overflow: hidden;
+    /* Ensure no scrollbars */
+    background-color: transparent;
+    /* Fond transparent */
     border-radius: 8px;
     padding: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    color: var(--white); /* Texte en blanc */
+    color: var(--white);
+    /* Texte en blanc */
     position: relative;
 }
 
-/* Header styles for profile */
-.header-right {
-    display: flex;
-    justify-content: flex-end; /* Aligne la photo à droite */
-    align-items: center;
-    gap: 1rem; /* Espace entre les éléments */
-    margin-bottom: 1rem; /* Espace en bas de l'en-tête */
-    margin-right: 40px; /* Espace à droite */
-}
-
-.header-right .profile {
-    display: flex;
-    align-items: center;
-    gap: 1rem; /* Espace entre l'image et les infos */
-}
-
-.header-right .profile .profile-info {
-    font-size: 16px;
-    color: var(--white); /* Couleur du texte en blanc */
-}
-
-.header-right .profile .profile-image img {
-    width: 50px; /* Ajustez la largeur de l'image */
-    height: 50px; /* Ajustez la hauteur de l'image */
-    border-radius: 50%; /* Pour une image ronde */
-    object-fit: cover; /* Assure que l'image garde ses proportions */
-}
-
 @media (max-width: 1800px) {
-    .main-sidebar{
+    .main-sidebar {
         width: auto;
     }
 }
 
 @media (max-width: 1750px) {
+    .dashboard-container {
+        display: grid;
+        grid-template-columns: 1fr;
+        max-width: 100%;
+        margin: 0 auto;
+        padding: 20px;
+        gap: 2rem;
+    }
+
     .main-card {
-        width: 100%; /* Ajuste la largeur pour éviter le dépassement */
+        width: 1350px;
+        /* Ajuste la largeur pour éviter le dépassement */
     }
 
     .list-items .item,
@@ -475,45 +530,101 @@ a:hover {
         display: none;
     }
 
-    .dashboard-container {
-        display: grid;
-        grid-template-columns: 1fr; /* Utilise une seule colonne */
-        max-width: 1200px; /* Largeur maximale pour éviter le débordement */
-        margin: 0 auto; /* Centre horizontalement */
-        padding: 20px; /* Ajoute un padding pour éviter que le contenu touche les bords */
-        gap: 2rem; /* Espace entre les éléments */
-    }
-
     .main-container {
         margin: 0 auto;
-        width: 100%;
+        max-width: 1500px;
+        /* Augmente la largeur maximale pour centrer les widgets */
+        padding-right: 30px;
+    }
+
+    .cards-container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        /* 3 colonnes pour les 3 premières cartes */
+        grid-template-rows: auto auto;
+        /* Deux lignes */
+        gap: 1rem;
+        justify-content: center;
+        /* Centre les widgets */
+    }
+
+    #btc-mini-chart,
+    #eth-mini-chart,
+    #mcap-mini-chart,
+    #market-quotes-widget,
+    #ta-widget {
+        width: 90%;
+        height: 100%;
+    }
+
+    /* Positionnement des widgets */
+    .card:nth-child(1) {
+        grid-column: 1 / 2;
+        /* Première colonne, première ligne */
+        grid-row: 1 / 2;
+    }
+
+    .card:nth-child(2) {
+        grid-column: 2 / 3;
+        /* Deuxième colonne, première ligne */
+        grid-row: 1 / 2;
+    }
+
+    .card:nth-child(3) {
+        grid-column: 3 / 4;
+        /* Troisième colonne, première ligne */
+        grid-row: 1 / 2;
+    }
+
+    .card:nth-child(4) {
+        grid-column: 3 / 4;
+        /* Troisième colonne, deuxième ligne */
+        grid-row: 2 / 3;
+    }
+
+    .card:nth-child(5) {
+        grid-column: 1 / 3;
+        /* Première colonne, deuxième ligne (2 cartes) */
+        grid-row: 2 / 3;
+    }
+
+    #ta-widget {
+        width: 300px;
+        /* Adjusted width */
+        height: 305px;
+        /* Adjusted height */
+        left: -10px;
+        overflow: hidden;
+        /* Ensure no scrollbars */
+        background-color: transparent;
+        /* Fond transparent */
+        border-radius: 8px;
+        padding: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        color: var(--white);
+        /* Texte en blanc */
+        position: relative;
     }
 
     .burger-menu-button {
         display: block !important;
         position: fixed;
-        top: 20px;
-        right: 20px;
+        top: 50px !important;
+        right: 50px !important;
         z-index: 150;
         cursor: pointer;
     }
 
     .burger-menu.burger-menu.open {
         display: flex;
+        left: 5px;
         flex-direction: column;
         justify-content: flex-start;
         align-items: center;
         position: fixed;
         width: 100%;
         height: 100vh;
-        background-color: rgba(0, 0, 0, 0.7); /* Assombrit légèrement le fond */
         transition: left 0.3s ease;
-    }
-
-    /* Menu visible quand 'menu-open' est active */
-    body.menu-open .burger-menu {
-        left: 50%;
-        transform: translateX(-50%);
     }
 
     /* Flou du contenu principal quand le menu est ouvert */
@@ -522,7 +633,7 @@ a:hover {
     body.menu-open .cards-container,
     body.menu-open .crypto-chart-card,
     body.menu-open .tradingview-widget-container {
-        filter: blur(5px);
+        filter: blur(8px);
     }
 
     /* Style des items du menu burger */
@@ -532,7 +643,10 @@ a:hover {
         text-align: center;
         text-decoration: none;
         font-size: 18px;
-        color: #fff;
+        color: var(--yellow);
+        /* Blanc */
+        background-color: var(--sidebar-background);
+        border-radius: var(--border-radius-12);
         width: 100%;
     }
 
@@ -544,15 +658,18 @@ a:hover {
 @media (max-width: 1200px) {
     .dashboard-container {
         padding: 10px;
-        max-width: 100%; /* Supprime la largeur maximale */
+        max-width: 100%;
+        /* Supprime la largeur maximale */
     }
-    
+
     .main-card,
     .cards-container,
     .crypto-chart-card,
     .tradingview-widget-container {
-        width: 100%; /* Prend toute la largeur pour les petits écrans */
-        margin: 0 auto; /* Centre chaque section individuellement */
+        width: 100%;
+        /* Prend toute la largeur pour les petits écrans */
+        margin: 0 auto;
+        /* Centre chaque section individuellement */
     }
 }
 

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,7 +9,9 @@
 
     <!-- ICON -->
     <link rel="icon" href="Pictures/logo.png" type="image/png">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <!-- MATERIAL ICONS -->
     <link href="https://fonts.googleapis.com/css2?family=Material+Icons+Outlined" rel="stylesheet">
@@ -26,6 +29,7 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
 </head>
+
 <body>
     <div class="dashboard-container">
         <div class="burger-menu-button">
@@ -34,7 +38,7 @@
             <div class="burger-menu-button">
                 <span class="material-icons-outlined">menu</span>
             </div>
-            
+
             <div class="burger-menu">
                 <ul>
                     <li><a href="webtracker.html">Accueil</a></li>
@@ -83,7 +87,7 @@
                     </li>
                 </ul>
             </div>
-        </div>        
+        </div>
 
         <div class="main-container">
             <h1 class="main-title">Dashboard</h1>
@@ -93,20 +97,23 @@
                 <div class="balance-section">
                     <div class="total-balance">
                         <h2>Total Balance</h2>
-                         <p id="total-balance">1000<span class="decimal-amount">.00</span></p>
+                        <p id="total-balance">1000<span class="decimal-amount">.00</span></p>
                     </div>
                     <div class="cards-summary">
                         <div class="summary">
                             <h3>Today</h3>
-                            <p class="value" id="today-change">0.00% <span class="material-icons-outlined">trending_up</span></p>
+                            <p class="value" id="today-change">0.00% <span
+                                    class="material-icons-outlined">trending_up</span></p>
                         </div>
                         <div class="summary">
                             <h3>7 Days</h3>
-                            <p class="value" id="week-change">0.00% <span class="material-icons-outlined">trending_up</span></p>
+                            <p class="value" id="week-change">0.00% <span
+                                    class="material-icons-outlined">trending_up</span></p>
                         </div>
                         <div class="summary">
                             <h3>30 Days</h3>
-                            <p class="value" id="month-change">0.00% <span class="material-icons-outlined">trending_up</span></p>
+                            <p class="value" id="month-change">0.00% <span
+                                    class="material-icons-outlined">trending_up</span></p>
                         </div>
                     </div>
                 </div>
@@ -125,13 +132,13 @@
                         <div class="tradingview-widget-container">
                             <div id="mcap-mini-chart"></div>
                         </div>
-                    </div>                                        
+                    </div>
                     <div class="card">
                         <div class="tradingview-widget-container">
                             <div id="ta-widget"></div>
                         </div>
                     </div>
-                    <!-- Market Quotes Widget Card -->
+                    <!-- @ Quotes Widget Card -->
                     <div class="card">
                         <div class="tradingview-widget-container">
                             <div id="market-quotes-widget"></div>
@@ -143,7 +150,7 @@
                     <div class="crypto-chart-card">
                         <div class="ro-title">
                             <h2 class="crypto-chart-title">Crypto Chart</h2>
-                            <a href="#" class="Show all"></a> 
+                            <a href="#" class="Show all"></a>
                         </div>
                         <div class="chart-header-line"></div> <!-- Ajout de la ligne grise ici -->
                         <div class="tradingview-widget-container">
@@ -162,25 +169,26 @@
         });
     </script>
 
-<script>
-    // Sélection des éléments
-const burgerMenuButton = document.querySelector('.burger-menu-button');
-const burgerMenu = document.querySelector('.burger-menu');
-const body = document.body;
+    <script>
+        // Sélection des éléments
+        const burgerMenuButton = document.querySelector('.burger-menu-button');
+        const burgerMenu = document.querySelector('.burger-menu');
+        const body = document.body;
 
-// Ajout d'un event listener pour gérer l'ouverture et la fermeture du menu
-burgerMenuButton.addEventListener('click', () => {
-    if (!burgerMenu.classList.contains('open')) {
-        burgerMenu.classList.add('open');
-        body.classList.add('menu-open'); // Empêche le scroll de la page si nécessaire
-    } else {
-        burgerMenu.classList.remove('open');
-        body.classList.remove('menu-open');
-    }
-});
+        // Ajout d'un event listener pour gérer l'ouverture et la fermeture du menu
+        burgerMenuButton.addEventListener('click', () => {
+            if (!burgerMenu.classList.contains('open')) {
+                burgerMenu.classList.add('open');
+                body.classList.add('menu-open'); // Empêche le scroll de la page si nécessaire
+            } else {
+                burgerMenu.classList.remove('open');
+                body.classList.remove('menu-open');
+            }
+        });
 
-</script>
+    </script>
 
     <script src="1. Global/script.js"></script>
 </body>
+
 </html>
