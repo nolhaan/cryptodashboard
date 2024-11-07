@@ -117,7 +117,7 @@ function updateTotalBalance(trades) {
 
 function updatePagination(totalTrades) {
     const totalPages = Math.ceil(totalTrades / TRADES_PER_PAGE);
-    
+
     document.getElementById('pagination').innerHTML = `Page ${currentPage} sur ${totalPages}`;
     document.getElementById('prev-page').disabled = currentPage === 1;
     document.getElementById('next-page').disabled = currentPage === totalPages;

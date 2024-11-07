@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,11 +14,29 @@
 
     <!-- GOOGLE FONTS -->
     <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-   
+
     <link rel="stylesheet" href="2. trades/trades.css">
 </head>
+
 <body>
     <div class="dashboard-container">
+        <div class="burger-menu-button">
+            <span class="material-icons-outlined">menu</span>
+
+            <div class="burger-menu-button">
+                <span class="material-icons-outlined">menu</span>
+            </div>
+
+            <div class="burger-menu">
+                <ul>
+                    <li><a href="webtracker.html">Accueil</a></li>
+                    <li><a href="trades.html">Trades</a></li>
+                    <li><a href="actualites.html">Actualités</a></li>
+                    <li><a href="coins_infos.html">Coins infos</a></li>
+                    <li><a href="parametres.html">Paramètres</a></li>
+                </ul>
+            </div>
+        </div>
         <div class="main-sidebar">
             <div class="sidebar">
                 <ul class="list-items">
@@ -135,6 +154,34 @@
             </div>
         </div>
     </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const totalBalance = localStorage.getItem('totalBalance') || 0;
+            document.getElementById('total-balance').textContent = parseFloat(totalBalance).toFixed(8);
+        });
+    </script>
+
+    <script>
+        // Sélection des éléments
+        const burgerMenuButton = document.querySelector('.burger-menu-button');
+        const burgerMenu = document.querySelector('.burger-menu');
+        const body = document.body;
+
+        // Ajout d'un event listener pour gérer l'ouverture et la fermeture du menu
+        burgerMenuButton.addEventListener('click', () => {
+            if (!burgerMenu.classList.contains('open')) {
+                burgerMenu.classList.add('open');
+                body.classList.add('menu-open'); // Empêche le scroll de la page si nécessaire
+            } else {
+                burgerMenu.classList.remove('open');
+                body.classList.remove('menu-open');
+            }
+        });
+
+    </script>
+
     <script src="2. trades/trades.js"></script>
 </body>
+
 </html>

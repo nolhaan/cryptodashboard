@@ -1,16 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&display=swap');
 
 :root {
-    --light-gray: #ECEAE7; 
-    --black: #000000; 
-    --sidebar-background: #262626; 
-    --card-background: #1e1e1e; 
-    --header-background: #333333; 
-    --yellow: #FFE873; 
-    --white: #FFFFFF; 
+    --light-gray: #ECEAE7;
+    --black: #000000;
+    --sidebar-background: #262626;
+    --card-background: #1e1e1e;
+    --header-background: #333333;
+    --yellow: #FFE873;
+    --white: #FFFFFF;
 
-    --text-color-primary: #FFFFFF; 
-    --text-color-secondary: #FFE873; 
+    --text-color-primary: #FFFFFF;
+    --text-color-secondary: #FFE873;
     --text-color-third: #9db3be;
 
     --box-shadow-card: 8px 8px 32px rgba(0, 0, 0, 0.15);
@@ -24,7 +24,9 @@
     --border-radius-12: 12px;
 }
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -39,6 +41,7 @@ html {
 body {
     background-color: var(--black);
     color: var(--text-color-primary);
+    width: 100vw;
     height: 100vh;
     transition: background-color .3s ease-in-out, color 0.3s ease-in-out;
 }
@@ -75,7 +78,7 @@ a:hover {
 
 .dashboard-container {
     display: grid;
-    grid-template-columns: 1.5fr 8.5fr; 
+    grid-template-columns: 1.5fr 8.5fr;
     grid-template-areas: "sidebar main";
     gap: 2rem;
     height: 100%;
@@ -83,29 +86,30 @@ a:hover {
 
 .main-sidebar {
     grid-area: sidebar;
-    height: 90vh; 
-    width: 280px; 
+    height: 90vh;
+    width: 280px;
     padding: 20px 0 20px 16px;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start; 
+    justify-content: flex-start;
     position: fixed;
-    margin-top: 97px; /* Adjusted margin to lower the sidebar */
+    margin-top: 97px;
+    /* Adjusted margin to lower the sidebar */
 }
 
 .main-sidebar .sidebar {
     display: flex;
     flex-direction: column;
-    height: 100%; 
+    height: 100%;
 }
 
 .sidebar .list-items {
     width: 100%;
-    padding-left: 0; 
+    padding-left: 0;
 }
 
 .sidebar .list-items.bottom {
-    margin-top: auto; 
+    margin-top: auto;
 }
 
 .list-items li {
@@ -119,21 +123,21 @@ a:hover {
     font-weight: normal;
     gap: 12px;
     width: 100%;
-    padding: 16px 1.5rem; 
+    padding: 16px 1.5rem;
     font-size: 1.2rem;
     font-weight: normal;
     transition: all .3s ease-in-out;
-    color: var(--white); 
+    color: var(--white);
     background-color: var(--sidebar-background);
     border-radius: var(--border-radius-12);
 }
 
 .list-items .item a:hover span:not(.material-icons-outlined) {
-    color: var(--white); 
+    color: var(--white);
 }
 
 .list-items .item a:hover .material-icons-outlined {
-    color: var(--yellow); 
+    color: var(--yellow);
 }
 
 .list-items .item a:active,
@@ -149,9 +153,24 @@ a:hover {
     text-align: center;
     color: var(--white);
     padding: 0 8px;
-    margin-left: auto; 
+    margin-left: auto;
     background-color: var(--black);
     border-radius: 10px;
+}
+
+.main-container {
+    grid-area: main;
+    padding: 20px 0;
+    background-color: var(--black);
+}
+
+.main-title {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    line-height: 1.8;
+    color: var(--yellow);
+    font-size: 2.5rem;
+    text-align: center;
 }
 
 .main-card {
@@ -160,30 +179,75 @@ a:hover {
     border-radius: 20px;
     box-shadow: var(--box-shadow-card);
     width: 100%;
-    height: auto; 
-    max-width: 1560px; 
+    height: auto;
+    max-width: 1560px;
     margin-top: 20px;
     display: flex;
-    flex-direction: column; /* Changed to column for stacking */
+    flex-direction: column;
+    /* Changed to column for stacking */
 }
 
-.main-container {
-    grid-area: main;
-    padding: 20px 0;
-    background-color: var(--black); 
+.burger-menu {
+    display: none;
+    height: 0;
+    width: 100vw;
+    right: 2rem;
+    position: absolute;
+    top: 80px;
+    overflow: hidden;
+    z-index: 1000;
+    border-radius: 10px;
+    background-color: transparent;
+    /* Supprime le fond noir */
 }
 
-.main-title {
-    margin-top: 1rem; 
-    margin-bottom: 1rem; 
-    line-height: 1.8;
-    color: var(--yellow); 
-    font-size: 2.5rem; 
-    text-align: center; 
+/* Quand le menu est ouvert */
+.burger-menu.open {
+    display: none;
+    /* Passe à flex pour gérer la mise en page */
+    height: 100vh;
+    /* Menu occupe toute la hauteur */
+    flex-direction: column;
+    /* Aligne les éléments en colonne */
+    justify-content: flex-start;
+    /* Aligne les items vers le haut */
+    align-items: center;
+    /* Centre horizontalement */
+}
+
+/* Style du bouton burger */
+.burger-menu-button {
+    display: none;
+    color: var(--text-color-secondary);
+    font-size: 2rem;
+    position: fixed;
+    cursor: pointer;
+    top: 50px !important;
+    right: 50px !important;
+    z-index: 1100;
+}
+
+/* Ajustement des éléments du menu */
+.burger-menu li {
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    /* Les items prennent toute la largeur */
+}
+
+.burger-menu .list-items {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    /* Assure que les éléments sont en colonne */
+    justify-content: center;
+    align-items: center;
 }
 
 .archive-container {
-    width: 100%; 
+    width: 100%;
     overflow-x: auto;
     margin-top: 20px;
 }
@@ -197,7 +261,8 @@ thead {
     background-color: var(--header-background);
 }
 
-th, td {
+th,
+td {
     padding: 1rem;
     text-align: center;
     border-bottom: 1px solid var(--light-gray);
@@ -229,7 +294,8 @@ td {
 label {
     margin-bottom: 5px;
     font-weight: 500;
-    color: var(--yellow); /* Titres en jaune */
+    color: var(--yellow);
+    /* Titres en jaune */
 }
 
 /* Uniformisation des arrière-plans des inputs */
@@ -239,12 +305,15 @@ input[type="number"],
 select,
 textarea {
     padding: 8px;
-    border: 1px solid var(--card-background); /* Bordure de la même couleur que la carte */
+    border: 1px solid var(--card-background);
+    /* Bordure de la même couleur que la carte */
     border-radius: var(--border-radius-4);
-    background-color: #3d3d3d; /* Fond gris uniforme */
+    background-color: #3d3d3d;
+    /* Fond gris uniforme */
     color: var(--text-color-primary);
     font-size: 1rem;
-    transition: border-color 0.3s ease-in-out; /* Transition pour la bordure */
+    transition: border-color 0.3s ease-in-out;
+    /* Transition pour la bordure */
 }
 
 /* Contour des inputs devient jaune au hover/focus */
@@ -257,16 +326,21 @@ input[type="date"]:focus,
 input[type="text"]:focus,
 input[type="number"]:focus,
 select:focus {
-    border-color: var(--yellow) !important; /* Bordure jaune au survol ou au focus */
-    outline: none; /* Enlève le contour par défaut */
+    border-color: var(--yellow) !important;
+    /* Bordure jaune au survol ou au focus */
+    outline: none;
+    /* Enlève le contour par défaut */
 }
 
 textarea {
     resize: none;
     height: 100px;
-    background-color: #3d3d3d; /* Fond gris uniforme */
-    border: 1px solid var(--card-background); /* Bordure de la même couleur que la carte */
-    border-radius: var(--border-radius-4); /* Correction du border-radius */
+    background-color: #3d3d3d;
+    /* Fond gris uniforme */
+    border: 1px solid var(--card-background);
+    /* Bordure de la même couleur que la carte */
+    border-radius: var(--border-radius-4);
+    /* Correction du border-radius */
 }
 
 /* Style du bouton */
@@ -301,18 +375,23 @@ button[type="submit"]:hover {
 .long {
     color: green;
 }
+
 .short {
     color: red;
 }
+
 .profit-positive {
     color: green;
 }
+
 .profit-negative {
     color: red;
 }
+
 .roi-positive {
     color: green;
 }
+
 .roi-negative {
     color: red;
 }
@@ -325,9 +404,12 @@ button[type="submit"]:hover {
 }
 
 #pagination-controls button {
-    background-color: var(--header-background); /* Même fond que la carte */
-    border: 1px solid var(--card-background); /* Bordure même couleur que la carte */
-    color: var(--text-color-secondary); /* Texte en jaune par défaut */
+    background-color: var(--header-background);
+    /* Même fond que la carte */
+    border: 1px solid var(--card-background);
+    /* Bordure même couleur que la carte */
+    color: var(--text-color-secondary);
+    /* Texte en jaune par défaut */
     padding: 10px 20px;
     margin: 0 10px;
     border-radius: var(--border-radius-8);
@@ -344,12 +426,139 @@ button[type="submit"]:hover {
 
 /* Au survol : bordure et texte deviennent jaunes */
 #pagination-controls button:not(:disabled):hover {
-    background-color: var(--card-background); /* Conserver le fond de la carte */
-    border-color: var(--yellow); /* Bordure devient jaune */
-    color: var(--yellow); /* Texte devient jaune */
+    background-color: var(--card-background);
+    /* Conserver le fond de la carte */
+    border-color: var(--yellow);
+    /* Bordure devient jaune */
+    color: var(--yellow);
+    /* Texte devient jaune */
 }
 
 #pagination {
     font-size: 20px;
     color: var(--text-color-primary);
+}
+
+@media (max-width: 1800px) {
+    .main-sidebar {
+        width: auto;
+    }
+}
+
+@media (max-width: 1750px) {
+    .dashboard-container {
+        display: grid;
+        grid-template-columns: 1fr;
+        max-width: 100%;
+        margin: 0 auto;
+        padding: 20px;
+        gap: 2rem;
+    }
+
+    .main-card {
+        max-width: 1400px;
+        /* Permet à la carte de prendre toute la largeur */
+        margin: 10px;
+        /* Ajuste la marge si nécessaire */
+        padding: var(--padding-card);
+        /* Assure que le padding est respecté */
+    }
+
+    #trade-form {
+        grid-template-columns: 1fr;
+        /* Passe les éléments du formulaire en une seule colonne */
+    }
+
+    .input-group {
+        width: 100%;
+        /* Ajuste la largeur des champs */
+    }
+
+    .list-items .item,
+    .list-items.list-items.bottom .item {
+        display: none;
+    }
+
+    .main-container {
+        margin: 0 auto;
+        max-width: 1400px;
+        /* Augmente la largeur maximale pour centrer les widgets */
+        padding-right: 30px;
+    }
+
+    .burger-menu-button {
+        display: block !important;
+        position: fixed;
+        top: 50px !important;
+        right: 50px !important;
+        z-index: 150;
+        cursor: pointer;
+    }
+
+    .burger-menu.burger-menu.open {
+        display: flex;
+        left: 5px;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        transition: left 0.3s ease;
+    }
+
+    /* Flou du contenu principal quand le menu est ouvert */
+    body.menu-open .main-container,
+    body.menu-open .main-card,
+    body.menu-open .cards-container {
+        filter: blur(8px);
+    }
+
+    /* Style des items du menu burger */
+    .burger-menu a {
+        display: block;
+        padding: 15px 20px;
+        text-align: center;
+        align-items: center;
+        text-decoration: none;
+        font-size: 18px;
+        color: var(--yellow);
+        background-color: var(--sidebar-background);
+        border-radius: var(--border-radius-12);
+        width: 100%;
+    }
+
+    .burger-menu a:hover {
+        background-color: #444;
+    }
+}
+
+@media (max-width: 1200px) {
+    .dashboard-container {
+        padding: 10px;
+        max-width: 100%;
+        /* Supprime la largeur maximale */
+    }
+
+    .main-card,
+    .cards-container,
+    .crypto-chart-card,
+    .tradingview-widget-container {
+        width: 100%;
+        /* Prend toute la largeur pour les petits écrans */
+        margin: 0 auto;
+        /* Centre chaque section individuellement */
+    }
+}
+
+/* Styles pour petits écrans */
+@media (max-width: 576px) {
+    .burger-menu {
+        width: 200px;
+    }
+
+    .burger-menu-button {
+        top: 10px;
+        right: 10px;
+    }
 }
