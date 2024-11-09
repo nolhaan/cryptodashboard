@@ -2,20 +2,13 @@
 
 :root {
     --light-gray: #ECEAE7;
-    /* Gris clair */
     --black: #000000;
-    /* Noir */
     --sidebar-background: #262626;
-    /* Couleur de fond de la sidebar */
     --yellow: #F0D85A;
-    /* Jaune */
     --white: #FFFFFF;
-    /* Blanc */
 
     --text-color-primary: #FFFFFF;
-    /* Blanc */
     --text-color-secondary: #F0D85A;
-    /* Jaune */
     --text-color-third: #9db3be;
 
     --box-shadow-card: 8px 8px 32px rgba(0, 0, 0, 0.15);
@@ -85,7 +78,6 @@ a:hover {
 .dashboard-container {
     display: grid;
     grid-template-columns: 1.5fr 8.5fr;
-    /* Adjusted to give more space to main container */
     grid-template-areas: "sidebar main";
     gap: 2rem;
     height: 100%;
@@ -94,16 +86,12 @@ a:hover {
 .main-sidebar {
     grid-area: sidebar;
     height: 90vh;
-    /* Ensure the sidebar takes full height */
     width: 280px;
-    /* Reduced width */
     padding: 20px 0 20px 16px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    /* Align items to the top */
     margin-top: 97px;
-    /* Align with main card */
     position: fixed;
 }
 
@@ -111,18 +99,15 @@ a:hover {
     display: flex;
     flex-direction: column;
     height: 100%;
-    /* Ensure it takes the full height */
 }
 
 .sidebar .list-items {
     width: 100%;
     padding-left: 0;
-    /* Remove default padding */
 }
 
 .sidebar .list-items.bottom {
     margin-top: auto;
-    /* Push to the bottom */
 }
 
 .list-items li {
@@ -137,24 +122,20 @@ a:hover {
     gap: 12px;
     width: 100%;
     padding: 16px 1.5rem;
-    /* Adjust padding for better alignment */
     font-size: 1.2rem;
     font-weight: normal;
     transition: all .3s ease-in-out;
     color: var(--white);
-    /* Blanc */
     background-color: var(--sidebar-background);
     border-radius: var(--border-radius-12);
 }
 
 .list-items .item a:hover span:not(.material-icons-outlined) {
     color: var(--white);
-    /* Maintenir la couleur du texte en blanc */
 }
 
 .list-items .item a:hover .material-icons-outlined {
     color: var(--yellow);
-    /* Changer la couleur des icônes en jaune */
 }
 
 .list-items .item a:active,
@@ -171,35 +152,25 @@ a:hover {
     color: var(--white);
     padding: 0 8px;
     margin-left: auto;
-    /* Align the count to the right */
     background-color: var(--black);
     border-radius: 10px;
 }
-
-/*============ Main ============*/
 
 .main-container {
     grid-area: main;
     padding: 20px 0;
     background-color: var(--black);
-    /* Noir */
 }
 
 .main-title {
     margin-top: 1rem;
-    /* Reduce the distance from the top */
     margin-bottom: 1rem;
-    /* Reduce the distance from the bottom */
     line-height: 1.8;
     color: var(--yellow);
-    /* Jaune */
     font-size: 2.5rem;
-    /* Increase the font size */
     text-align: center;
-    /* Center align the text */
 }
 
-/* Menu burger caché par défaut */
 .burger-menu {
     display: none;
     height: 0;
@@ -211,24 +182,16 @@ a:hover {
     z-index: 1000;
     border-radius: 10px;
     background-color: transparent;
-    /* Supprime le fond noir */
 }
 
-/* Quand le menu est ouvert */
 .burger-menu.open {
     display: none;
-    /* Passe à flex pour gérer la mise en page */
     height: 100vh;
-    /* Menu occupe toute la hauteur */
     flex-direction: column;
-    /* Aligne les éléments en colonne */
     justify-content: flex-start;
-    /* Aligne les items vers le haut */
     align-items: center;
-    /* Centre horizontalement */
 }
 
-/* Style du bouton burger */
 .burger-menu-button {
     display: none;
     color: var(--text-color-secondary);
@@ -240,35 +203,29 @@ a:hover {
     z-index: 1100;
 }
 
-/* Ajustement des éléments du menu */
 .burger-menu li {
     padding: 1rem;
     display: flex;
     align-items: center;
     justify-content: center;
     width: 100%;
-    /* Les items prennent toute la largeur */
 }
 
 .burger-menu .list-items {
     width: 100%;
     display: flex;
     flex-direction: column;
-    /* Assure que les éléments sont en colonne */
     justify-content: center;
     align-items: center;
 }
 
 .main-card {
     background-color: #262626;
-    /* Couleur de fond de la carte principale */
     padding: 2rem;
     border-radius: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     width: 100%;
-    /* Largeur de la carte principale */
     max-width: 1560px;
-    /* Reduced max-width */
     margin-top: 20px;
     margin-bottom: 2rem;
 }
@@ -285,19 +242,14 @@ a:hover {
 
 .total-balance h2 {
     font-size: 1rem;
-    /* Taille du texte de "Total Balance" */
     color: var(--yellow);
-    /* Couleur du texte de "Total Balance" */
     text-transform: uppercase;
-    /* Mettre le texte en majuscule */
     font-weight: bold;
 }
 
 #total-balance {
     font-size: 2.5rem;
-    /* Adjust the size to match your preference */
     color: #fff;
-    /* Color of the balance text */
     display: inline-block;
 }
 
@@ -333,7 +285,6 @@ a:hover {
     font-size: 1rem;
     font-weight: bold;
     color: var(--yellow);
-    /* Couleur du texte des titres */
 }
 
 .summary .value {
@@ -345,12 +296,10 @@ a:hover {
 
 .summary .value.negative {
     color: #e74c3c;
-    /* Couleur négative */
 }
 
 .summary .value.positive {
     color: #2ecc71;
-    /* Couleur positive */
 }
 
 .summary .value span.material-icons-outlined {
@@ -366,21 +315,16 @@ a:hover {
 
 .card {
     background-color: black;
-    /* Couleur de fond des sous-cartes */
     padding: 1rem;
     border-radius: 12px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
-    /* Alignement centré */
     flex: 1;
-    /* Allow cards to grow and shrink */
     height: 208px;
     position: relative;
     display: flex;
     align-items: center;
-    /* Centre verticalement */
     justify-content: center;
-    /* Centre horizontalement */
 }
 
 .card .tradingview-widget-container {
@@ -393,9 +337,7 @@ a:hover {
 
 .card-chart {
     width: 100%;
-    /* Full width */
     height: 100px;
-    /* Height adjusted */
     position: relative;
     overflow: hidden;
 }
@@ -415,24 +357,19 @@ a:hover {
 .crypto-chart {
     margin-top: 3rem;
     margin-bottom: 2rem;
-    /* Ajouter un espace en bas de la carte principale */
 }
 
 .crypto-chart-card {
     background-color: black;
-    /* Couleur de fond de la carte */
     padding: 2rem;
     border-radius: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     width: 100%;
-    /* Largeur de la carte */
     margin-bottom: -2rem;
-    /* Espace en bas de la carte */
 }
 
 .crypto-chart-title {
     font-weight: normal;
-    /* Vous pouvez changer 'normal' par la valeur que vous souhaitez (par exemple, bold, 600, etc.) */
     font-size: 27px;
     color: var(--yellow);
     font-weight: bold;
@@ -440,15 +377,10 @@ a:hover {
 
 .chart-header-line {
     width: 100%;
-    /* S'étend sur toute la largeur du conteneur */
     height: 2px;
-    /* Hauteur de la ligne */
     background-color: #262626;
-    /* Couleur grise */
     margin-top: 8px;
-    /* Espace au-dessus de la ligne */
     margin-bottom: 16px;
-    /* Espace en dessous de la ligne */
 }
 
 .crypto-chart .ro-title {
@@ -464,7 +396,6 @@ a:hover {
     transition: 0.3s ease-in-out;
     padding-right: 28px;
     color: var(--yellow);
-    /* Jaune */
 }
 
 .crypto-chart .ro-title a:hover {
@@ -474,7 +405,6 @@ a:hover {
 .crypto-chart table {
     width: 100%;
     background-color: var(--black);
-    /* Noir */
     padding: var(--padding-card);
     border-radius: var(--border-radius-card);
     box-shadow: var(--box-shadow-card);
@@ -483,24 +413,17 @@ a:hover {
     overflow: hidden;
     border-spacing: 0;
     color: var(--white);
-    /* Blanc */
 }
 
-/* Updated TA Widget Styles */
 #ta-widget {
     width: 300px;
-    /* Adjusted width */
     height: 300px;
-    /* Adjusted height */
     overflow: hidden;
-    /* Ensure no scrollbars */
     background-color: transparent;
-    /* Fond transparent */
     border-radius: 8px;
     padding: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     color: var(--white);
-    /* Texte en blanc */
     position: relative;
 }
 
@@ -522,7 +445,6 @@ a:hover {
 
     .main-card {
         width: 1350px;
-        /* Ajuste la largeur pour éviter le dépassement */
     }
 
     .list-items .item,
@@ -533,19 +455,15 @@ a:hover {
     .main-container {
         margin: 0 auto;
         max-width: 1500px;
-        /* Augmente la largeur maximale pour centrer les widgets */
         padding-right: 30px;
     }
 
     .cards-container {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-        /* 3 colonnes pour les 3 premières cartes */
         grid-template-rows: auto auto;
-        /* Deux lignes */
         gap: 1rem;
         justify-content: center;
-        /* Centre les widgets */
     }
 
     #btc-mini-chart,
@@ -557,52 +475,41 @@ a:hover {
         height: 100%;
     }
 
-    /* Positionnement des widgets */
     .card:nth-child(1) {
         grid-column: 1 / 2;
-        /* Première colonne, première ligne */
         grid-row: 1 / 2;
     }
 
     .card:nth-child(2) {
         grid-column: 2 / 3;
-        /* Deuxième colonne, première ligne */
         grid-row: 1 / 2;
     }
 
     .card:nth-child(3) {
         grid-column: 3 / 4;
-        /* Troisième colonne, première ligne */
         grid-row: 1 / 2;
     }
 
     .card:nth-child(4) {
         grid-column: 3 / 4;
-        /* Troisième colonne, deuxième ligne */
         grid-row: 2 / 3;
     }
 
     .card:nth-child(5) {
         grid-column: 1 / 3;
-        /* Première colonne, deuxième ligne (2 cartes) */
         grid-row: 2 / 3;
     }
 
     #ta-widget {
         width: 300px;
-        /* Adjusted width */
         height: 305px;
-        /* Adjusted height */
         left: -10px;
         overflow: hidden;
-        /* Ensure no scrollbars */
         background-color: transparent;
-        /* Fond transparent */
         border-radius: 8px;
         padding: 10px;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         color: var(--white);
-        /* Texte en blanc */
         position: relative;
     }
 
@@ -627,7 +534,6 @@ a:hover {
         transition: left 0.3s ease;
     }
 
-    /* Flou du contenu principal quand le menu est ouvert */
     body.menu-open .main-container,
     body.menu-open .main-card,
     body.menu-open .cards-container,
@@ -636,7 +542,6 @@ a:hover {
         filter: blur(8px);
     }
 
-    /* Style des items du menu burger */
     .burger-menu a {
         display: block;
         padding: 15px 20px;
@@ -644,7 +549,6 @@ a:hover {
         text-decoration: none;
         font-size: 18px;
         color: var(--yellow);
-        /* Blanc */
         background-color: var(--sidebar-background);
         border-radius: var(--border-radius-12);
         width: 100%;
@@ -659,7 +563,6 @@ a:hover {
     .dashboard-container {
         padding: 10px;
         max-width: 100%;
-        /* Supprime la largeur maximale */
     }
 
     .main-card,
@@ -667,13 +570,10 @@ a:hover {
     .crypto-chart-card,
     .tradingview-widget-container {
         width: 100%;
-        /* Prend toute la largeur pour les petits écrans */
         margin: 0 auto;
-        /* Centre chaque section individuellement */
     }
 }
 
-/* Styles pour petits écrans */
 @media (max-width: 576px) {
     .burger-menu {
         width: 200px;

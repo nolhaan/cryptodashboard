@@ -7,25 +7,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
 
-    <!-- ICON -->
     <link rel="icon" href="Pictures/logo.png" type="image/png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
         integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    <!-- MATERIAL ICONS -->
     <link href="https://fonts.googleapis.com/css2?family=Material+Icons+Outlined" rel="stylesheet">
 
-    <!-- GOOGLE FONTS -->
     <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="1. Global/style.css">
 
-    <!-- TradingView Widget -->
     <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
-    <!-- Chart.js -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
 </head>
@@ -34,20 +29,15 @@
     <div class="dashboard-container">
         <div class="burger-menu-button">
             <span class="material-icons-outlined">menu</span>
-
-            <div class="burger-menu-button">
-                <span class="material-icons-outlined">menu</span>
-            </div>
-
-            <div class="burger-menu">
-                <ul>
-                    <li><a href="webtracker.html">Accueil</a></li>
-                    <li><a href="trades.html">Trades</a></li>
-                    <li><a href="actualites.html">Actualités</a></li>
-                    <li><a href="coins_infos.html">Coins infos</a></li>
-                    <li><a href="parametres.html">Paramètres</a></li>
-                </ul>
-            </div>
+        </div>
+        <div class="burger-menu">
+            <ul>
+                <li><a href="webtracker.html">Accueil</a></li>
+                <li><a href="trades.html">Trades</a></li>
+                <li><a href="actualites.html">Actualités</a></li>
+                <li><a href="coins_infos.html">Coins infos</a></li>
+                <li><a href="parametres.html">Paramètres</a></li>
+            </ul>
         </div>
         <div class="main-sidebar">
             <div class="sidebar">
@@ -92,7 +82,6 @@
         <div class="main-container">
             <h1 class="main-title">Dashboard</h1>
 
-            <!-- MAIN CARD -->
             <div class="main-card">
                 <div class="balance-section">
                     <div class="total-balance">
@@ -138,21 +127,19 @@
                             <div id="ta-widget"></div>
                         </div>
                     </div>
-                    <!-- @ Quotes Widget Card -->
                     <div class="card">
                         <div class="tradingview-widget-container">
                             <div id="market-quotes-widget"></div>
                         </div>
                     </div>
                 </div>
-                <!--Crypto Chart-->
                 <section class="crypto-chart">
                     <div class="crypto-chart-card">
                         <div class="ro-title">
                             <h2 class="crypto-chart-title">Crypto Chart</h2>
-                            <a href="#" class="Show all"></a>
+                            <a href="#" class="show-all-link">Show all</a>
                         </div>
-                        <div class="chart-header-line"></div> <!-- Ajout de la ligne grise ici -->
+                        <div class="chart-header-line"></div>
                         <div class="tradingview-widget-container">
                             <div id="crypto-overview"></div>
                         </div>
@@ -165,21 +152,20 @@
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const totalBalance = localStorage.getItem('totalBalance') || 0;
-            document.getElementById('total-balance').textContent = parseFloat(totalBalance).toFixed(8);
+            document.getElementById('total-balance').innerHTML = `${parseFloat(totalBalance).toFixed(2)}<span class="decimal-amount">.00</span>`;
+
         });
     </script>
 
     <script>
-        // Sélection des éléments
         const burgerMenuButton = document.querySelector('.burger-menu-button');
         const burgerMenu = document.querySelector('.burger-menu');
         const body = document.body;
 
-        // Ajout d'un event listener pour gérer l'ouverture et la fermeture du menu
         burgerMenuButton.addEventListener('click', () => {
             if (!burgerMenu.classList.contains('open')) {
                 burgerMenu.classList.add('open');
-                body.classList.add('menu-open'); // Empêche le scroll de la page si nécessaire
+                body.classList.add('menu-open');
             } else {
                 burgerMenu.classList.remove('open');
                 body.classList.remove('menu-open');

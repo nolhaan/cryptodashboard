@@ -1,6 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
 
-    // Fonction pour créer un widget TradingView avec une configuration donnée
     function createTradingViewWidget(containerId, widgetConfig) {
         const script = document.createElement('script');
         script.type = 'text/javascript';
@@ -13,32 +12,29 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    // Fonction pour ajuster la taille des widgets selon la largeur de la fenêtre
     function adjustWidgetSize() {
         const screenWidth = window.innerWidth;
         let widgetWidth, widgetHeight;
 
-        if (screenWidth < 768) { // Pour les petits écrans (smartphones)
+        if (screenWidth < 768) {
             widgetWidth = '100%';
             widgetHeight = 150;
-        } else if (screenWidth < 1024) { // Pour les écrans moyens (tablettes)
+        } else if (screenWidth < 1024) {
             widgetWidth = '100%';
             widgetHeight = 200;
-        } else if (screenWidth < 1750) { // Pour les écrans larges en dessous de 1750px
+        } else if (screenWidth < 1750) {
             widgetWidth = '100%';
             widgetHeight = 250;
-        } else { // Écrans très larges
+        } else {
             widgetWidth = 220;
             widgetHeight = 180;
         }
 
-        // Supprimer les widgets existants avant de les recréer
         document.getElementById('btc-mini-chart').innerHTML = '';
         document.getElementById('eth-mini-chart').innerHTML = '';
         document.getElementById('mcap-mini-chart').innerHTML = '';
         document.getElementById('market-quotes-widget').innerHTML = '';
 
-        // Créer les widgets avec les nouvelles dimensions
         createTradingViewWidget('btc-mini-chart', {
             "symbol": "BINANCE:BTCUSDT",
             "width": widgetWidth,
@@ -75,7 +71,6 @@ document.addEventListener('DOMContentLoaded', function () {
             "largeChartUrl": ""
         });
 
-        // Widget de données de marché
         const marketDataScript = document.createElement('script');
         marketDataScript.src = 'https://s3.tradingview.com/external-embedding/embed-widget-market-overview.js';
         marketDataScript.async = true;
@@ -105,13 +100,10 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    // Initialisation des widgets avec la taille adaptée
     adjustWidgetSize();
 
-    // Ajuste la taille des widgets lorsque la fenêtre est redimensionnée
     window.addEventListener('resize', adjustWidgetSize);
 
-    // Ajout du widget d'analyse technique
     const taScript = document.createElement('script');
     taScript.src = 'https://s3.tradingview.com/external-embedding/embed-widget-technical-analysis.js';
     taScript.async = true;
@@ -138,7 +130,6 @@ document.addEventListener('DOMContentLoaded', function () {
         taWidgetContainer.appendChild(taScript);
     }
 
-    // Ajout d'un widget d'aperçu du marché crypto
     new TradingView.widget({
         "width": "100%",
         "height": 500,
@@ -154,8 +145,7 @@ document.addEventListener('DOMContentLoaded', function () {
         "container_id": "crypto-overview"
     });
 
-    // Récupérer les données des trades à partir du fichier trades.json
-    fetch('2. trades/trades.json') // Mets ici le chemin correct de ton fichier JSON
+    fetch('2. trades/trades.json')
         .then(response => response.json())
         .then(data => {
             let trades = data.trades || data;
@@ -165,7 +155,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 return;
             }
 
-            let totalBalance = 1000; // Balance initiale
+            let totalBalance = 1000;
             let balance = 0;
 
             trades.forEach(trade => {
