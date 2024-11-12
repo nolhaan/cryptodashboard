@@ -2,7 +2,7 @@ const TRADES_PER_PAGE = 10;
 let currentPage = 1;
 
 document.addEventListener('DOMContentLoaded', () => {
-    loadTradesFromJson(); // Charger les trades depuis le fichier JSON externe
+    loadTradesFromJson();
 
     document.getElementById('trade-form').addEventListener('submit', function (e) {
         e.preventDefault();
@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const buy = parseFloat(document.getElementById('buy').value);
         const sell = parseFloat(document.getElementById('sell').value);
         const comments = document.getElementById('comments').value;
-        const screenshot = document.getElementById('screenshot').value; // Utiliser directement le lien de l'image
+        const screenshot = document.getElementById('screenshot').value;
 
         const profit = (sell - buy) * quantity;
         const roi = ((sell - buy) / buy) * 100;
@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
             profit: parseFloat(profit.toFixed(8)),
             roi: parseFloat(roi.toFixed(2)),
             comments,
-            screenshot // Utiliser directement l'URL de l'image
+            screenshot
         };
 
         addTradeToTable(trade);
@@ -37,13 +37,13 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     document.getElementById('prev-page').addEventListener('click', () => {
-        fetch('2. trades/trades.json') // Charger les trades à chaque changement de page
+        fetch('2. trades/trades.json')
             .then(response => response.json())
             .then(data => changePage(currentPage - 1, data.trades));
     });
 
     document.getElementById('next-page').addEventListener('click', () => {
-        fetch('2. trades/trades.json') // Charger les trades à chaque changement de page
+        fetch('2. trades/trades.json')
             .then(response => response.json())
             .then(data => changePage(currentPage + 1, data.trades));
     });
@@ -84,7 +84,7 @@ function addTradeToTable(trade) {
 }
 
 function loadTradesFromJson() {
-    fetch('2. trades/trades.json') // Assure-toi que le chemin vers le fichier JSON est correct
+    fetch('2. trades/trades.json')
         .then(response => response.json())
         .then(data => {
             const jsonTrades = data.trades;
@@ -93,8 +93,8 @@ function loadTradesFromJson() {
                 throw new Error('Le fichier JSON ne contient pas un tableau dans la clé "trades".');
             }
 
-            displayTradesByPage(jsonTrades); // Affiche les trades de la page actuelle
-            updatePagination(jsonTrades.length); // Met à jour la pagination
+            displayTradesByPage(jsonTrades);
+            updatePagination(jsonTrades.length);
         })
         .catch(error => console.error('Erreur lors du chargement des trades depuis JSON:', error));
 }
@@ -105,7 +105,7 @@ function displayTradesByPage(trades) {
     const tradesToDisplay = trades.slice(start, end);
 
     const tradesArchive = document.getElementById('trades-archive');
-    tradesArchive.innerHTML = ''; // Efface les trades existants
+    tradesArchive.innerHTML = '';
 
     tradesToDisplay.forEach(trade => addTradeToTable(trade));
 }
@@ -128,15 +128,14 @@ function changePage(page, trades) {
 
     if (page >= 1 && page <= totalPages) {
         currentPage = page;
-        displayTradesByPage(trades); // Met à jour les trades affichés
-        updatePagination(trades.length); // Met à jour la pagination
+        displayTradesByPage(trades);
+        updatePagination(trades.length);
     }
 }
 
 function deleteTrade(button) {
     const row = button.parentElement.parentElement;
     row.remove();
-    // Note: En retirant le stockage local, la suppression de trade ne persistera pas.
 }
 
 function editTrade(button) {

@@ -94,7 +94,6 @@ a:hover {
     justify-content: flex-start;
     position: fixed;
     margin-top: 97px;
-    /* Adjusted margin to lower the sidebar */
 }
 
 .main-sidebar .sidebar {
@@ -184,7 +183,6 @@ a:hover {
     margin-top: 20px;
     display: flex;
     flex-direction: column;
-    /* Changed to column for stacking */
 }
 
 .burger-menu {
@@ -198,24 +196,16 @@ a:hover {
     z-index: 1000;
     border-radius: 10px;
     background-color: transparent;
-    /* Supprime le fond noir */
 }
 
-/* Quand le menu est ouvert */
 .burger-menu.open {
     display: none;
-    /* Passe à flex pour gérer la mise en page */
     height: 100vh;
-    /* Menu occupe toute la hauteur */
     flex-direction: column;
-    /* Aligne les éléments en colonne */
     justify-content: flex-start;
-    /* Aligne les items vers le haut */
     align-items: center;
-    /* Centre horizontalement */
 }
 
-/* Style du bouton burger */
 .burger-menu-button {
     display: none;
     color: var(--text-color-secondary);
@@ -227,21 +217,18 @@ a:hover {
     z-index: 1100;
 }
 
-/* Ajustement des éléments du menu */
 .burger-menu li {
     padding: 1rem;
     display: flex;
     align-items: center;
     justify-content: center;
     width: 100%;
-    /* Les items prennent toute la largeur */
 }
 
 .burger-menu .list-items {
     width: 100%;
     display: flex;
     flex-direction: column;
-    /* Assure que les éléments sont en colonne */
     justify-content: center;
     align-items: center;
 }
@@ -295,10 +282,8 @@ label {
     margin-bottom: 5px;
     font-weight: 500;
     color: var(--yellow);
-    /* Titres en jaune */
 }
 
-/* Uniformisation des arrière-plans des inputs */
 input[type="date"],
 input[type="text"],
 input[type="number"],
@@ -306,17 +291,13 @@ select,
 textarea {
     padding: 8px;
     border: 1px solid var(--card-background);
-    /* Bordure de la même couleur que la carte */
     border-radius: var(--border-radius-4);
     background-color: #3d3d3d;
-    /* Fond gris uniforme */
     color: var(--text-color-primary);
     font-size: 1rem;
     transition: border-color 0.3s ease-in-out;
-    /* Transition pour la bordure */
 }
 
-/* Contour des inputs devient jaune au hover/focus */
 input[type="date"]:hover,
 input[type="text"]:hover,
 input[type="number"]:hover,
@@ -327,23 +308,17 @@ input[type="text"]:focus,
 input[type="number"]:focus,
 select:focus {
     border-color: var(--yellow) !important;
-    /* Bordure jaune au survol ou au focus */
     outline: none;
-    /* Enlève le contour par défaut */
 }
 
 textarea {
     resize: none;
     height: 100px;
     background-color: #3d3d3d;
-    /* Fond gris uniforme */
     border: 1px solid var(--card-background);
-    /* Bordure de la même couleur que la carte */
     border-radius: var(--border-radius-4);
-    /* Correction du border-radius */
 }
 
-/* Style du bouton */
 button[type="submit"] {
     grid-column: span 2;
     padding: 10px 20px;
@@ -405,11 +380,8 @@ button[type="submit"]:hover {
 
 #pagination-controls button {
     background-color: var(--header-background);
-    /* Même fond que la carte */
     border: 1px solid var(--card-background);
-    /* Bordure même couleur que la carte */
     color: var(--text-color-secondary);
-    /* Texte en jaune par défaut */
     padding: 10px 20px;
     margin: 0 10px;
     border-radius: var(--border-radius-8);
@@ -417,21 +389,16 @@ button[type="submit"]:hover {
     transition: background-color 0.3s ease-in-out, border-color 0.3s ease-in-out;
 }
 
-/* Boutons désactivés */
 #pagination-controls button:disabled {
     background-color: var(--light-gray);
     cursor: not-allowed;
     display: none;
 }
 
-/* Au survol : bordure et texte deviennent jaunes */
 #pagination-controls button:not(:disabled):hover {
     background-color: var(--card-background);
-    /* Conserver le fond de la carte */
     border-color: var(--yellow);
-    /* Bordure devient jaune */
     color: var(--yellow);
-    /* Texte devient jaune */
 }
 
 #pagination {
@@ -457,21 +424,16 @@ button[type="submit"]:hover {
 
     .main-card {
         max-width: 1400px;
-        /* Permet à la carte de prendre toute la largeur */
         margin: 10px;
-        /* Ajuste la marge si nécessaire */
         padding: var(--padding-card);
-        /* Assure que le padding est respecté */
     }
 
     #trade-form {
         grid-template-columns: 1fr;
-        /* Passe les éléments du formulaire en une seule colonne */
     }
 
     .input-group {
         width: 100%;
-        /* Ajuste la largeur des champs */
     }
 
     .list-items .item,
@@ -482,7 +444,6 @@ button[type="submit"]:hover {
     .main-container {
         margin: 0 auto;
         max-width: 1400px;
-        /* Augmente la largeur maximale pour centrer les widgets */
         padding-right: 30px;
     }
 
@@ -507,14 +468,12 @@ button[type="submit"]:hover {
         transition: left 0.3s ease;
     }
 
-    /* Flou du contenu principal quand le menu est ouvert */
     body.menu-open .main-container,
     body.menu-open .main-card,
     body.menu-open .cards-container {
         filter: blur(8px);
     }
 
-    /* Style des items du menu burger */
     .burger-menu a {
         display: block;
         padding: 15px 20px;
@@ -537,7 +496,6 @@ button[type="submit"]:hover {
     .dashboard-container {
         padding: 10px;
         max-width: 100%;
-        /* Supprime la largeur maximale */
     }
 
     .main-card,
@@ -545,13 +503,10 @@ button[type="submit"]:hover {
     .crypto-chart-card,
     .tradingview-widget-container {
         width: 100%;
-        /* Prend toute la largeur pour les petits écrans */
         margin: 0 auto;
-        /* Centre chaque section individuellement */
     }
 }
 
-/* Styles pour petits écrans */
 @media (max-width: 576px) {
     .burger-menu {
         width: 200px;

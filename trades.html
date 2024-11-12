@@ -79,7 +79,6 @@
         <div class="main-container">
             <h1 class="main-title">Trades</h1>
 
-            <!-- MAIN CARD -->
             <div class="main-card trade-conditions">
                 <div class="input-container">
                     <form id="trade-form">
@@ -123,7 +122,6 @@
                 </div>
             </div>
 
-            <!-- ARCHIVE CARD -->
             <div class="main-card trade-archive">
                 <div class="archive-container">
                     <table>
@@ -163,16 +161,15 @@
     </script>
 
     <script>
-        // Sélection des éléments
+
         const burgerMenuButton = document.querySelector('.burger-menu-button');
         const burgerMenu = document.querySelector('.burger-menu');
         const body = document.body;
 
-        // Ajout d'un event listener pour gérer l'ouverture et la fermeture du menu
         burgerMenuButton.addEventListener('click', () => {
             if (!burgerMenu.classList.contains('open')) {
                 burgerMenu.classList.add('open');
-                body.classList.add('menu-open'); // Empêche le scroll de la page si nécessaire
+                body.classList.add('menu-open');
             } else {
                 burgerMenu.classList.remove('open');
                 body.classList.remove('menu-open');
