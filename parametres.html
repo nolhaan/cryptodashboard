@@ -1,25 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Paramètres</title>
 
-    <!-- ICON -->
     <link rel="icon" href="Pictures/logo.png" type="image/png">
 
-    <!-- MATERIAL ICONS -->
     <link href="https://fonts.googleapis.com/css2?family=Material+Icons+Outlined" rel="stylesheet">
 
-    <!-- GOOGLE FONTS -->
     <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="5. parametres/parametres.css">
-    
+
 </head>
+
 <body>
     <div class="dashboard-container">
+        <div class="burger-menu-button">
+            <span class="material-icons-outlined">menu</span>
+        </div>
+        <div class="burger-menu">
+            <ul>
+                <li><a href="webtracker.html">Accueil</a></li>
+                <li><a href="trades.html">Trades</a></li>
+                <li><a href="actualites.html">Actualités</a></li>
+                <li><a href="coins_infos.html">Coins infos</a></li>
+                <li><a href="parametres.html">Paramètres</a></li>
+            </ul>
+        </div>
         <div class="main-sidebar">
             <div class="sidebar">
                 <ul class="list-items">
@@ -61,7 +72,6 @@
         </div>
         <div class="main-container">
             <h1 class="main-title">Paramètres</h1>
-            <!-- Content for Paramètres -->
             <div class="settings-container">
                 <div class="settings-section" id="profile-settings">
                     <h2>Profil</h2>
@@ -110,6 +120,25 @@
             </div>
         </div>
     </div>
+
+    <script>
+        const burgerMenuButton = document.querySelector('.burger-menu-button');
+        const burgerMenu = document.querySelector('.burger-menu');
+        const body = document.body;
+
+        burgerMenuButton.addEventListener('click', () => {
+            if (!burgerMenu.classList.contains('open')) {
+                burgerMenu.classList.add('open');
+                body.classList.add('menu-open');
+            } else {
+                burgerMenu.classList.remove('open');
+                body.classList.remove('menu-open');
+            }
+        });
+
+    </script>
+
     <script src="5. parametres/parametres.js"></script>
 </body>
+
 </html>

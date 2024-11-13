@@ -1,16 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&display=swap');
 
 :root {
-    --light-gray: #ECEAE7; 
-    --black: #000000; 
-    --sidebar-background: #262626; 
-    --card-background: #1e1e1e; 
-    --header-background: #333333; 
-    --yellow: #FFE873; 
-    --white: #FFFFFF; 
+    --light-gray: #ECEAE7;
+    --black: #000000;
+    --sidebar-background: #262626;
+    --card-background: #1e1e1e;
+    --header-background: #333333;
+    --yellow: #FFE873;
+    --white: #FFFFFF;
 
-    --text-color-primary: #FFFFFF; 
-    --text-color-secondary: #FFE873; 
+    --text-color-primary: #FFFFFF;
+    --text-color-secondary: #FFE873;
     --text-color-third: #9db3be;
 
     --box-shadow-card: 8px 8px 32px rgba(0, 0, 0, 0.15);
@@ -24,7 +24,9 @@
     --border-radius-12: 12px;
 }
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -75,7 +77,7 @@ a:hover {
 
 .dashboard-container {
     display: grid;
-    grid-template-columns: 1.5fr 8.5fr; 
+    grid-template-columns: 1.5fr 8.5fr;
     grid-template-areas: "sidebar main";
     gap: 2rem;
     height: 100%;
@@ -83,29 +85,29 @@ a:hover {
 
 .main-sidebar {
     grid-area: sidebar;
-    height: 90vh; 
-    width: 280px; 
+    height: 90vh;
+    width: 280px;
     padding: 20px 0 20px 16px;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start; 
+    justify-content: flex-start;
     position: fixed;
-    margin-top: 97px; /* Adjusted margin to lower the sidebar */
+    margin-top: 97px;
 }
 
 .main-sidebar .sidebar {
     display: flex;
     flex-direction: column;
-    height: 100%; 
+    height: 100%;
 }
 
 .sidebar .list-items {
     width: 100%;
-    padding-left: 0; 
+    padding-left: 0;
 }
 
 .sidebar .list-items.bottom {
-    margin-top: auto; 
+    margin-top: auto;
 }
 
 .list-items li {
@@ -119,21 +121,21 @@ a:hover {
     font-weight: normal;
     gap: 12px;
     width: 100%;
-    padding: 16px 1.5rem; 
+    padding: 16px 1.5rem;
     font-size: 1.2rem;
     font-weight: normal;
     transition: all .3s ease-in-out;
-    color: var(--white); 
+    color: var(--white);
     background-color: var(--sidebar-background);
     border-radius: var(--border-radius-12);
 }
 
 .list-items .item a:hover span:not(.material-icons-outlined) {
-    color: var(--white); 
+    color: var(--white);
 }
 
 .list-items .item a:hover .material-icons-outlined {
-    color: var (--yellow); 
+    color: var(--yellow);
 }
 
 .list-items .item a:active,
@@ -149,18 +151,66 @@ a:hover {
     text-align: center;
     color: var(--white);
     padding: 0 8px;
-    margin-left: auto; 
+    margin-left: auto;
     background-color: var(--black);
     border-radius: 10px;
 }
 
 .main-title {
-    margin-top: 1rem; 
-    margin-bottom: 1rem; 
+    margin-top: 1rem;
+    margin-bottom: 1rem;
     line-height: 1.8;
-    color: var(--yellow); 
-    font-size: 2.5rem; 
-    text-align: center; 
+    color: var(--yellow);
+    font-size: 2.5rem;
+    text-align: center;
+}
+
+.burger-menu {
+    display: none;
+    height: 0;
+    width: 100vw;
+    right: 2rem;
+    position: absolute;
+    top: 80px;
+    overflow: hidden;
+    z-index: 1000;
+    border-radius: 10px;
+    background-color: transparent;
+}
+
+.burger-menu.open {
+    display: none;
+    height: 100vh;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.burger-menu-button {
+    display: none;
+    color: var(--text-color-secondary);
+    font-size: 2rem;
+    position: fixed;
+    cursor: pointer;
+    top: 50px !important;
+    right: 50px !important;
+    z-index: 1100;
+}
+
+.burger-menu li {
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.burger-menu .list-items {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .main-container {
@@ -181,7 +231,7 @@ a:hover {
 }
 
 .settings-section {
-    background-color: #262626; 
+    background-color: #262626;
     padding: 2rem;
     border-radius: var(--border-radius-12);
     box-shadow: var(--box-shadow-card-2);
@@ -226,7 +276,7 @@ a:hover {
     border: none;
     border-radius: var(--border-radius-4);
     cursor: pointer;
-    transition: background-color 0.3s ease-in-out;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
 }
 
 .settings-section form button:hover {
@@ -251,4 +301,129 @@ a:hover {
 
 .edit-icon:hover {
     color: var(--text-color-primary);
+}
+
+@media (max-width: 1800px) {
+    .main-sidebar {
+        width: auto;
+    }
+}
+
+@media (max-width: 1750px) {
+    .dashboard-container {
+        display: grid;
+        width: 100%;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+        justify-items: center;
+    }
+}
+
+.settings-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    justify-items: center;
+    width: 100%;
+    max-width: 1400px;
+}
+
+.settings-section {
+    width: 100%;
+    max-width: 400px;
+}
+
+.main-card {
+    width: 100%;
+}
+
+.list-items .item,
+.list-items.list-items.bottom .item {
+    display: none;
+}
+
+.main-container {
+    margin: 0 auto;
+    max-width: 1500px;
+    padding-right: 30px;
+}
+
+.cards-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    ;
+    grid-template-rows: auto auto;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.burger-menu-button {
+    display: block !important;
+    position: fixed;
+    top: 50px !important;
+    right: 50px !important;
+    z-index: 150;
+    cursor: pointer;
+}
+
+.burger-menu.burger-menu.open {
+    display: flex;
+    left: 5px;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    transition: left 0.3s ease;
+}
+
+body.menu-open .main-container,
+body.menu-open .main-card,
+body.menu-open .cards-container,
+body.menu-open .crypto-chart-card,
+body.menu-open .tradingview-widget-container {
+    filter: blur(8px);
+}
+
+.burger-menu a {
+    display: block;
+    padding: 15px 20px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 18px;
+    color: var(--yellow);
+    background-color: var(--sidebar-background);
+    border-radius: var(--border-radius-12);
+    width: 100%;
+}
+
+.burger-menu a:hover {
+    background-color: #444;
+}
+
+@media (max-width: 1200px) {
+    .dashboard-container {
+        padding: 10px;
+        max-width: 100%;
+    }
+
+    .main-card,
+    .cards-container,
+    .crypto-chart-card,
+    .tradingview-widget-container {
+        width: 100%;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 576px) {
+    .burger-menu {
+        width: 200px;
+    }
+
+    .burger-menu-button {
+        top: 10px;
+        right: 10px;
+    }
 }
