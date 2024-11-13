@@ -1,23 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Actualités</title>
-    
-    <!-- ICON -->
+
     <link rel="icon" href="Pictures/logo.png" type="image/png">
 
-    <!-- MATERIAL ICONS -->
     <link href="https://fonts.googleapis.com/css2?family=Material+Icons+Outlined" rel="stylesheet">
-    
-    <!-- GOOGLE FONTS -->
+
     <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="actualites/actualites.css">
 </head>
+
 <body>
     <div class="dashboard-container">
+        <div class="burger-menu-button">
+            <span class="material-icons-outlined">menu</span>
+        </div>
+        <div class="burger-menu">
+            <ul>
+                <li><a href="webtracker.html">Accueil</a></li>
+                <li><a href="trades.html">Trades</a></li>
+                <li><a href="actualites.html">Actualités</a></li>
+                <li><a href="coins_infos.html">Coins infos</a></li>
+                <li><a href="parametres.html">Paramètres</a></li>
+            </ul>
+        </div>
         <div class="main-sidebar">
             <div class="sidebar">
                 <ul class="list-items">
@@ -60,41 +71,67 @@
         <div class="main-container">
             <h1 class="main-title">Actualités</h1>
 
-            <!-- MAIN CARD -->
             <div class="main-card">
                 <div class="cards-container">
-                    <!-- CryptoPanic Widget -->
-                        <div class="card">
-                            <div class="cryptopanic-widget">   
-                                <iframe width="100%" scrolling="yes" allowtransparency="true" frameborder="0" src="https://cryptopanic.com/widgets/news/?bg_color=262626&amp;font_family=sans&amp;header_bg_color=000000&amp;header_text_color=FFFFFF&amp;link_color=ECEC53&amp;news_feed=recent&amp;posts_limit=100&amp;text_color=FFFFFF&amp;title=Latest%20News" height="100px"></iframe>
-                            </div>
-                        </div>    
-                        <div class="card">
-                            <div class="cryptopanic-widget">
-                                <iframe width="100%" scrolling="yes" allowtransparency="true" frameborder="0" src="https://cryptopanic.com/widgets/news/?bg_color=262626&amp;currencies=BTC&amp;font_family=sans&amp;header_bg_color=000000&amp;header_text_color=FFFFFF&amp;link_color=ECEC53&amp;news_feed=recent&amp;posts_limit=100&amp;text_color=FFFFFF&amp;title=Bitcoin%20News" height="100px"></iframe>
-                            </div>
+                    <div class="card">
+                        <div class="cryptopanic-widget">
+                            <iframe width="100%" scrolling="yes" allowtransparency="true" frameborder="0"
+                                src="https://cryptopanic.com/widgets/news/?bg_color=262626&amp;font_family=sans&amp;header_bg_color=000000&amp;header_text_color=FFFFFF&amp;link_color=ECEC53&amp;news_feed=recent&amp;posts_limit=100&amp;text_color=FFFFFF&amp;title=Latest%20News"
+                                height="100px"></iframe>
                         </div>
-                        <div class="card">
-                            <div class="cryptopanic-widget">
-                                <iframe width="100%" scrolling="yes" allowtransparency="true" frameborder="0" src="https://cryptopanic.com/widgets/news/?bg_color=262626&amp;currencies=ETH&amp;font_family=sans&amp;header_bg_color=000000&amp;header_text_color=FFFFFF&amp;link_color=ECEC53&amp;news_feed=recent&amp;posts_limit=100&amp;text_color=FFFFFF&amp;title=Ethereum%20News" height="100px"></iframe>
-                            </div>
+                    </div>
+                    <div class="card">
+                        <div class="cryptopanic-widget">
+                            <iframe width="100%" scrolling="yes" allowtransparency="true" frameborder="0"
+                                src="https://cryptopanic.com/widgets/news/?bg_color=262626&amp;currencies=BTC&amp;font_family=sans&amp;header_bg_color=000000&amp;header_text_color=FFFFFF&amp;link_color=ECEC53&amp;news_feed=recent&amp;posts_limit=100&amp;text_color=FFFFFF&amp;title=Bitcoin%20News"
+                                height="100px"></iframe>
                         </div>
-                        <div class="card">
-                            <div class="cryptopanic-widget">
-                                <iframe width="100%" scrolling="yes" allowtransparency="true" frameborder="0" src="https://cryptopanic.com/widgets/news/?bg_color=262626&amp;currencies=TRUMP&amp;font_family=sans&amp;header_bg_color=000000&amp;header_text_color=FFFFFF&amp;link_color=ECEC53&amp;news_feed=recent&amp;posts_limit=100&amp;text_color=FFFFFF&amp;title=Politics%20News" height="100px"></iframe>
-                            </div>
+                    </div>
+                    <div class="card">
+                        <div class="cryptopanic-widget">
+                            <iframe width="100%" scrolling="yes" allowtransparency="true" frameborder="0"
+                                src="https://cryptopanic.com/widgets/news/?bg_color=262626&amp;currencies=ETH&amp;font_family=sans&amp;header_bg_color=000000&amp;header_text_color=FFFFFF&amp;link_color=ECEC53&amp;news_feed=recent&amp;posts_limit=100&amp;text_color=FFFFFF&amp;title=Ethereum%20News"
+                                height="100px"></iframe>
                         </div>
-                </div>  
+                    </div>
+                    <div class="card">
+                        <div class="cryptopanic-widget">
+                            <iframe width="100%" scrolling="yes" allowtransparency="true" frameborder="0"
+                                src="https://cryptopanic.com/widgets/news/?bg_color=262626&amp;currencies=TRUMP&amp;font_family=sans&amp;header_bg_color=000000&amp;header_text_color=FFFFFF&amp;link_color=ECEC53&amp;news_feed=recent&amp;posts_limit=100&amp;text_color=FFFFFF&amp;title=Politics%20News"
+                                height="100px"></iframe>
+                        </div>
+                    </div>
+                </div>
                 <section class="trending-news">
                     <div class="trending-news-card">
-                        <iframe width="100%" scrolling="yes" allowtransparency="true" frameborder="0" src="https://cryptopanic.com/widgets/news/?bg_color=262626&amp;font_family=sans&amp;header_bg_color=000000&amp;header_text_color=FFFFFF&amp;link_color=ECEC53&amp;news_feed=trending&amp;posts_limit=100&amp;text_color=FFFFFF&amp;title=Trending%20News" height="550px"></iframe>
+                        <iframe width="100%" scrolling="yes" allowtransparency="true" frameborder="0"
+                            src="https://cryptopanic.com/widgets/news/?bg_color=262626&amp;font_family=sans&amp;header_bg_color=000000&amp;header_text_color=FFFFFF&amp;link_color=ECEC53&amp;news_feed=trending&amp;posts_limit=100&amp;text_color=FFFFFF&amp;title=Trending%20News"
+                            height="550px"></iframe>
                     </div>
                 </section>
             </div>
         </div>
     </div>
 
+    <script>
+        const burgerMenuButton = document.querySelector('.burger-menu-button');
+        const burgerMenu = document.querySelector('.burger-menu');
+        const body = document.body;
+
+        burgerMenuButton.addEventListener('click', () => {
+            if (!burgerMenu.classList.contains('open')) {
+                burgerMenu.classList.add('open');
+                body.classList.add('menu-open');
+            } else {
+                burgerMenu.classList.remove('open');
+                body.classList.remove('menu-open');
+            }
+        });
+
+    </script>
+
     <script src="https://static.cryptopanic.com/static/js/widgets.min.js"></script>
     <script src="actualites/actualites.js"></script>
 </body>
+
 </html>
