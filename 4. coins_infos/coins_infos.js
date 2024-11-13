@@ -1,8 +1,6 @@
-const cryptoIds = ['bitcoin', 'ethereum', 'tether', 'solana', 'xrp', 'binancecoin']; // CryptoIds
-let charts = {}; // Stocker les instances des graphiques
-let cryptoData = []; // Stocker les données pour le tri
+const cryptoIds = ['bitcoin', 'ethereum', 'tether', 'solana', 'xrp', 'binancecoin'];
+let cryptoData = [];
 
-// Fonction pour récupérer les données des cryptomonnaies
 async function fetchCryptoData() {
     try {
         const response = await axios.get('https://api.coincap.io/v2/assets', {
@@ -11,20 +9,18 @@ async function fetchCryptoData() {
             }
         });
 
-        cryptoData = response.data.data; // Stocker les données récupérées
-        sortAndDisplayData(); // Trier et afficher les données selon la sélection
+        cryptoData = response.data.data;
+        sortAndDisplayData();
     } catch (error) {
         console.error('Erreur lors de la récupération des données crypto:', error);
     }
 }
 
-// Fonction pour trier et afficher les données en fonction de la sélection
 function sortAndDisplayData() {
-    const sortOption = document.querySelector('#sort').value; // Récupérer la valeur de tri
+    const sortOption = document.querySelector('#sort').value;
 
-    let sortedData = [...cryptoData]; // Copier les données
+    let sortedData = [...cryptoData];
 
-    // Appliquer le tri en fonction de la sélection
     if (sortOption === 'top_gainers') {
         sortedData.sort((a, b) => parseFloat(b.changePercent24Hr) - parseFloat(a.changePercent24Hr));
     } else if (sortOption === 'top_losers') {
@@ -35,18 +31,15 @@ function sortAndDisplayData() {
         sortedData.sort((a, b) => parseFloat(a.marketCapUsd) - parseFloat(b.marketCapUsd));
     }
 
-    // Afficher les données triées
     displayCryptoData(sortedData);
 }
 
-// Fonction pour afficher les données des cryptomonnaies
 function displayCryptoData(data) {
     data.forEach(async (crypto, index) => {
         if (cryptoIds.includes(crypto.id)) {
             const cryptoElement = document.querySelectorAll('.sub-card')[index];
 
             if (cryptoElement) {
-                // Créer et ajouter l'élément image
                 const imgElement = document.createElement('img');
                 imgElement.src = `https://assets.coincap.io/assets/icons/${crypto.symbol.toLowerCase()}@2x.png`;
                 imgElement.alt = `${crypto.name} logo`;
@@ -59,21 +52,17 @@ function displayCryptoData(data) {
                 cryptoNameElement.textContent = `${crypto.name} `;
                 cryptoNameElement.prepend(imgElement);
 
-                // Ajouter l'acronyme
                 const acronymSpan = document.createElement('span');
                 acronymSpan.className = 'acronym';
                 acronymSpan.textContent = crypto.symbol.toUpperCase();
                 cryptoNameElement.appendChild(acronymSpan);
 
-                // Mettre à jour les autres détails
                 cryptoElement.querySelector('.price').textContent = `$${parseFloat(crypto.priceUsd).toFixed(2)}`;
-                
-                // Afficher le changement sur 24h avec la bonne couleur
+
                 const change24hElement = cryptoElement.querySelector('.change-24h');
                 const changePercent = parseFloat(crypto.changePercent24Hr).toFixed(2);
                 change24hElement.textContent = `${changePercent}%`;
 
-                // Appliquer la classe en fonction de la valeur positive ou négative
                 if (changePercent >= 0) {
                     change24hElement.classList.add('green');
                     change24hElement.classList.remove('red');
@@ -85,10 +74,8 @@ function displayCryptoData(data) {
                 cryptoElement.querySelector('.market-cap').textContent = `$${formatLargeNumbers(crypto.marketCapUsd)}`;
                 cryptoElement.querySelector('.volume-24h').textContent = `$${formatLargeNumbers(crypto.volumeUsd24Hr)}`;
 
-                // Mise à jour ou création des graphiques
                 updateOrCreateChart(cryptoElement, crypto, index);
 
-                // Ajouter un événement de clic pour rediriger vers la page de détails
                 cryptoElement.addEventListener('click', () => {
                     if (crypto.id === 'bitcoin') {
                         window.location.href = 'bitcoin_infos.html';
@@ -109,7 +96,6 @@ function displayCryptoData(data) {
     });
 }
 
-// Fonction pour créer ou mettre à jour les graphiques
 function updateOrCreateChart(cryptoElement, crypto, index) {
     axios.get(`https://api.coincap.io/v2/assets/${crypto.id}/history`, {
         params: {
@@ -175,7 +161,6 @@ function updateOrCreateChart(cryptoElement, crypto, index) {
     });
 }
 
-// Fonction pour formater les grands nombres
 function formatLargeNumbers(num) {
     num = parseFloat(num);
     if (num >= 1e12) return (num / 1e12).toFixed(2) + 'T';
@@ -184,7 +169,6 @@ function formatLargeNumbers(num) {
     return num.toLocaleString();
 }
 
-// Fonction de recherche
 function searchCrypto() {
     const searchInput = document.querySelector('#search');
     if (!searchInput) return;
@@ -206,11 +190,10 @@ function searchCrypto() {
     });
 }
 
-// Initialiser
 document.addEventListener('DOMContentLoaded', () => {
     fetchCryptoData();
-    setInterval(fetchCryptoData, 60000);  // Mise à jour toutes les 60 secondes
+    setInterval(fetchCryptoData, 60000);
 
-    document.querySelector('#sort').addEventListener('change', sortAndDisplayData); // Écouter les changements de tri
+    document.querySelector('#sort').addEventListener('change', sortAndDisplayData);
     searchCrypto();
 });
