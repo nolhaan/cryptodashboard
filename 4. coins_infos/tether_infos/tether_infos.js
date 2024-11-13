@@ -3,13 +3,12 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function initializeWidgets() {
-    // Symbol Info Widget for Tether
     const symbolInfoWidgetScript = document.createElement('script');
     symbolInfoWidgetScript.type = 'text/javascript';
     symbolInfoWidgetScript.src = 'https://s3.tradingview.com/external-embedding/embed-widget-symbol-info.js';
     symbolInfoWidgetScript.async = true;
     symbolInfoWidgetScript.innerHTML = JSON.stringify({
-        "symbol": "BITSTAMP:USDTUSD",  // Adapted for Tether
+        "symbol": "BITSTAMP:USDTUSD",
         "colorTheme": "dark",
         "isTransparent": false,
         "locale": "fr",
@@ -19,7 +18,6 @@ function initializeWidgets() {
     });
     document.getElementById('symbol-info-widget').appendChild(symbolInfoWidgetScript);
 
-    // Symbol Overview Widget for Tether
     const symbolOverviewWidgetScript = document.createElement('script');
     symbolOverviewWidgetScript.type = 'text/javascript';
     symbolOverviewWidgetScript.src = 'https://s3.tradingview.com/external-embedding/embed-widget-symbol-overview.js';
@@ -28,19 +26,19 @@ function initializeWidgets() {
         "symbols": [
             [
                 "Bitstamp",
-                "BITSTAMP:USDTUSD"  // If available, adapt to exchange
+                "BITSTAMP:USDTUSD"
             ],
             [
                 "Coinbase",
-                "COINBASE:USDTUSD"  // If available, adapt to exchange
+                "COINBASE:USDTUSD"
             ],
             [
                 "Kraken",
-                "KRAKEN:USDTUSD"    // If available, adapt to exchange
+                "KRAKEN:USDTUSD"  
             ],
             [
                 "Crypto.com",
-                "CRYPTOCOM:USDTUSD"  // If available, adapt to exchange
+                "CRYPTOCOM:USDTUSD"
             ],
         ],
         "chartOnly": false,

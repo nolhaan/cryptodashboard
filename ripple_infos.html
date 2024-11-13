@@ -1,23 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ripple/XRP Infos</title>
 
-    <!-- ICON -->
     <link rel="icon" href="https://s2.coinmarketcap.com/static/img/coins/200x200/52.png" type="image/png">
 
-    <!-- MATERIAL ICONS -->
     <link href="https://fonts.googleapis.com/css2?family=Material+Icons+Outlined" rel="stylesheet">
 
-    <!-- GOOGLE FONTS -->
     <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="coins_infos/ripple_infos/ripple_infos.css">
+    <link rel="stylesheet" href="4. coins_infos/ripple_infos/ripple_infos.css">
 </head>
+
 <body>
     <div class="dashboard-container">
+        <div class="burger-menu-button">
+            <span class="material-icons-outlined">menu</span>
+        </div>
+        <div class="burger-menu">
+            <ul>
+                <li><a href="webtracker.html">Accueil</a></li>
+                <li><a href="trades.html">Trades</a></li>
+                <li><a href="actualites.html">Actualités</a></li>
+                <li><a href="coins_infos.html">Coins infos</a></li>
+                <li><a href="parametres.html">Paramètres</a></li>
+            </ul>
+        </div>
         <div class="main-sidebar">
             <div class="sidebar">
                 <ul class="list-items">
@@ -99,7 +110,8 @@
                         <h2>Sommaire</h2>
                         <ul>
                             <li><a href="#section1">1. Qu'est-ce que le Ripple (XRP) ?</a></li>
-                            <li><a href="#section2">2. Comment l'écosystème et l'architecture de Ripple fonctionne-t-elle ?</a></li>
+                            <li><a href="#section2">2. Comment l'écosystème et l'architecture de Ripple
+                                    fonctionne-t-elle ?</a></li>
                             <li><a href="#section3">3. Quels sont les rôles et les tokenomics du token XRP ?</a></li>
                             <li><a href="#section4">4. Les 3 solutions apportées par Ripple ?</a></li>
                             <li><a href="#section5">5. Ripple, des ennuis judiciaires ?</a></li>
@@ -113,124 +125,203 @@
                             <h2>1. Qu'est-ce que le Ripple (XRP) ?</h2>
                         </div>
                         <div class="content-body">
-                            <p>Fondée en 2012 à San Francisco, <u>Ripple est la société à l'origine de la cryptomonnaie XRP</u>. L'ambition de l'entreprise est de <u>permettre des transactions interbancaires de
-                                manière sécurisée, instantanée et à moindres frais</u>.</p>
-                            <p>Si Ripple est souvent considéré comme une entreprise aux services des banques, c'est en raison de son niveau de centralisation élevé. En outre, tandis qu'un certain nombre
-                                de cryptomonnaie ont comme valeur commune la décentralisation, Ripple est plutôt intéressé par l'amélioration d'un service préexistant : <u>les transactions 
-                                transfrontalières</u>. D'ailleurs, la société travaille avec plus de 100 institutions bancaires et entreprises, dont le Crédit Agricole, Bank of America, etc...</p>
-                            <p>En ce sens, <u>Ripple se positionne comme un concurrent direct du réseau interbancaire SWIFT</u>, rassemblant pas moins de 11 000 banques et entreprises partenaires.
-                                Aujourd'hui, le protocole SWIFT permet de transférer des fonds d'un pays à l'autre de manière sécurisée. Néanmoins, le principal problème de cette méthode est
-                                le temps de traitement des opérations : plusieurs jours sont nécessaires pour effectuer un virement.</p>
-                            <p>Au contraire, avec la blockchain de Ripple (XRP Ledger), <u>les transactions sont presque instantanées (moins de 8 secondes)</u>. De leur côté, <u>les frais déduits des opérations
-                                sont quasiments nuls (environ 0.0002$ par transaction)</u>.</p>
-                            <p>Enfin, la société Ripple joue un rôle majeur dans le déploiement des monnaies numériques de banques centrales (MNBC), permettant le <u>paramétrage d'une monnaie de son émission
+                            <p>Fondée en 2012 à San Francisco, <u>Ripple est la société à l'origine de la cryptomonnaie
+                                XRP</u>. L'ambition de l'entreprise est de <u>permettre des transactions interbancaires 
+                                de manière sécurisée, instantanée et à moindres frais</u>.</p>
+                            <p>Si Ripple est souvent considéré comme une entreprise aux services des banques, c'est en
+                                raison de son niveau de centralisation élevé. En outre, tandis qu'un certain nombre
+                                de cryptomonnaie ont comme valeur commune la décentralisation, Ripple est plutôt
+                                intéressé par l'amélioration d'un service préexistant : <u>les transactions 
+                                transfrontalières</u>. D'ailleurs, la société travaille avec plus de 100
+                                institutions bancaires et entreprises, dont le Crédit Agricole, Bank of America, etc...
+                            </p>
+                            <p>En ce sens, <u>Ripple se positionne comme un concurrent direct du réseau interbancaire
+                                SWIFT</u>, rassemblant pas moins de 11 000 banques et entreprises partenaires.
+                                Aujourd'hui, le protocole SWIFT permet de transférer des fonds d'un pays à l'autre de
+                                manière sécurisée. Néanmoins, le principal problème de cette méthode est
+                                le temps de traitement des opérations : plusieurs jours sont nécessaires pour effectuer
+                                un virement.</p>
+                            <p>Au contraire, avec la blockchain de Ripple (XRP Ledger), <u>les transactions sont presque
+                                instantanées (moins de 8 secondes)</u>. De leur côté, <u>les frais déduits des
+                                opérations sont quasiments nuls (environ 0.0002$ par transaction)</u>.</p>
+                            <p>Enfin, la société Ripple joue un rôle majeur dans le déploiement des monnaies numériques
+                                de banques centrales (MNBC), permettant le <u>paramétrage d'une monnaie de son émission
                                 à sa distribution</u>.</p>
                         </div>
                         <div class="content-header-2">
                             <h2>2. Comment l'écosystème et l'architecture de Ripple fonctionne-t-elle ?</h2>
                         </div>
                         <div class="content-body">
-                            <p>Le Réseau XRP Ledger se différencie par l'<u>>architecture unique de son réseau</u>, en perpétuelle <u>oscillation entre centralisation et décentralisation</u>.</p> 
-                            <p>Pour fonctionner correctement, <u>cette blockchain s'appuie sur trois priorités classées dans un ordre hiérarchique</u>. Ces propriétés doivent être respectées par les
+                            <p>Le Réseau XRP Ledger se différencie par l'<u>>architecture unique de son réseau</u>, en
+                                perpétuelle <u>oscillation entre centralisation et décentralisation</u>.</p>
+                            <p>Pour fonctionner correctement, <u>cette blockchain s'appuie sur trois priorités classées
+                                dans un ordre hiérarchique</u>. Ces propriétés doivent être respectées par les
                                 validateurs :</p>
-                            <p>- <span class="definition"> La conformité</span> : <u>Les validateurs doivent faire primer le respect des règles avant tout</u>. Ces règles, édictées par XRP Ledger, permettant un consensus entre les
-                                participants du réseau. <u>La conformité d'une transaction sera toujours valorisée</u>.</p>
-                            <p>- <span class="definition">L'accord</span> : <u>Les acteurs du réseau doivent coopérer pour réussir à valider les transactions sur le réseau</u>. Seule la majorité a le pouvoir de décision sur la sélection
-                                des transactions.</p>
-                            <p>- <span class="definition">La progression</span> : Lors de la sélection des transactions à valider, <u>chaque validateur propose un lot de transactions</u>. Les transactions les plus proposées par les validateurs
+                            <p>- <span class="definition"> La conformité</span> : <u>Les validateurs doivent faire
+                                primer le respect des règles avant tout</u>. Ces règles, édictées par XRP Ledger,
+                                permettant un consensus entre les participants du réseau. <u>La conformité d'une 
+                                transaction sera toujours valorisée</u>.</p>
+                            <p>- <span class="definition">L'accord</span> : <u>Les acteurs du réseau doivent coopérer
+                                pour réussir à valider les transactions sur le réseau</u>. Seule la majorité a le
+                                pouvoir de décision sur la sélection des transactions.</p>
+                            <p>- <span class="definition">La progression</span> : Lors de la sélection des transactions
+                                à valider, <u>chaque validateur propose un lot de transactions</u>. Les transactions les
+                                plus proposées par les validateurs
                                 sont acceptées, tandis que les moins proposées sont rejetées.</p>
-                            <p>Bien que Ripple décrit son système comme décentralisé, certains éléments fragilisent cette qualité. En outre, <u>sur les 150 validateurs du réseau XRP Ledger, 4% sont gérés
-                                par Ripple</u>. De même, <u>sur les 900 noeuds du réseau, 5% sont détenus par l'entreprise mère</u>.</p>
-                            <p>D'ailleurs, contrairement aux validateurs du réseau Ethereum rémunérés en Éther (ETH), <u>ceux de la blockchain XRP ne sont pas rémunérés</u>. Comme le souligne le site de Ripple,
-                                la seule motivation à devenir validateur est la sécurisation du réseau. En conséquence, <u>la majorité des validateurs sont des institutionnels</u>, des entreprises et des universités
-                                partenaires de Ripple.</p>
-                            <p>De plus, il est important de souligner le rôle des "<u>Unique Node List</u>" (nommées communément UNL) dans l'organisation de la blockchain XRP. Pour faire simple, <u>chaque validateur
-                                du réseau doit choisir une liste de validateurs à laquelle il fait confiance</u>. Cette liste de validateurs est dite de confiance si le groupe n'agit pas de manière malveillante
-                                lors du traitement des transactions. <u>En coopérant, chaque validateurs surveille les agissements des autres, limitant les comportements malveillants au sein du groupe</u>. Lorsqu'une
-                                UNL valide un groupe de transactions, elles doivent être validées par les autres UNL pour être exécutées.</p>
-                            <p>Ce système pousse les utilisateurs du réseau à devenir des validateurs, dans l'optique de sécuriser la blockchain et réduire le pourcentage d'acteurs malintentionnés.</p>    
+                            <p>Bien que Ripple décrit son système comme décentralisé, certains éléments fragilisent
+                                cette qualité. En outre, <u>sur les 150 validateurs du réseau XRP Ledger, 4% sont gérés
+                                par Ripple</u>. De même, <u>sur les 900 noeuds du réseau, 5% sont détenus par
+                                l'entreprise mère</u>.</p>
+                            <p>D'ailleurs, contrairement aux validateurs du réseau Ethereum rémunérés en Éther (ETH),
+                                <u>ceux de la blockchain XRP ne sont pas rémunérés</u>. Comme le souligne le site de
+                                Ripple, la seule motivation à devenir validateur est la sécurisation du réseau. En 
+                                conséquence, <u>la majorité des validateurs sont des institutionnels</u>, des 
+                                entreprises et des universités partenaires de Ripple.</p>
+                            <p>De plus, il est important de souligner le rôle des "<u>Unique Node List</u>" (nommées
+                                communément UNL) dans l'organisation de la blockchain XRP. Pour faire simple, <u>chaque
+                                validateur du réseau doit choisir une liste de validateurs à laquelle il fait 
+                                confiance</u>. Cette liste de validateurs est dite de confiance si le groupe n'agit pas 
+                                de manière malveillante lors du traitement des transactions. <u>En coopérant, chaque 
+                                validateurs surveille les agissements des autres, limitant les comportements malveillants 
+                                au sein du groupe</u>. Lorsqu'une UNL valide un groupe de transactions, elles doivent être 
+                                validées par les autres UNL pour être exécutées.</p>
+                            <p>Ce système pousse les utilisateurs du réseau à devenir des validateurs, dans l'optique de
+                                sécuriser la blockchain et réduire le pourcentage d'acteurs malintentionnés.</p>
                         </div>
                         <div class="content-header-2">
                             <h2>3. Quels sont les rôles et les tokenomics du token XRP ?</h2>
                         </div>
                         <div class="content-body">
-                            <p>Comme nous l'avons vu précédemment, <u>aucun XRP n'est créé par la validation des transactions</u>. Au contraire, <u>c'est l'entreprise Ripple qui s'occupe de la gestion des fonds</u>.</p>
-                            <p><u>En 2013, tous les tokens XRP sont créés d'un seul coup</u>. Sur les 100 milliards de XRP, <u>20 milliards sont répartis entre les 3 fondateurs, tandis que les 80 milliards restants
-                                sont alloués à l'entreprise</u>. Progressivement, des tokens sont vendus. En l'espace de 5 ans, 45% des tokens ont été acquis par des entités externes à Ripple.</p>
-                            <p>En 2018, un nouveau système nommé "<u>escrow</u>" est mis en place. Ce dernier consiste à <u>bloquer 55 milliards de XRP (donc 55% de la totalité des tokens, non vendus par Ripple) pour
-                                les relâcher progressivement</u>. L'escrow est un système faisant appel à un tiers de confiance : ce dernier connaît les conditions qui entraînent une distribution de nouveaux XRP
-                                sur le marché. De son côté, l'escrow garde les XRP jusqu'à ce que les conditions soient remplies pour distribuer de nouveaux tokens.</p>
-                            <p>Dans notre cas, <u>le tiers de confiance est Ripple</u>, et des XRP sont relâchés mensuellement. Chaque mois, un milliard de XRP sortent de l'escrow, mais la majorité des tokens sont réinjectés
-                                dans l'escrow avant la fin du mois. <u>En moyenne, donc, environ 200 millions de XRP sortent définitivement de l'escrow mensuellement</u>. L'escrow est considéré avant tout comme une façon
-                                de rassurer les investisseurs en relâchant des tokens de manière régulière, progressive, et prédicitble.</p>
-                            <p>Concernant le rôle de XRP, <u>cette cryptomonnaie sert essentiellement d'intermédiaire de valeur</u> à travers la blockchain XRP Ledger. Comme son nom l'indique, l'intermédiaire de valeur
-                                fait le lien entre 2 actifs de valeur différente.</p>
-                            <p><span class="example">Exemple : Nolhan veut envoyer 10 euros à Gildas, mais ce dernier n'accepte que les dollars américains. Dans ce cas, Nolhan peut utiliser le réseau de Ripple pour envoyer ses fonds.
-                                Ripple s'engage en tant que médiateur pour convertir les 10 euros en X dollars, tandis que le XRP sert de passerelle entre ces 2 monnaies fiduciaires.</span></p>
+                            <p>Comme nous l'avons vu précédemment, <u>aucun XRP n'est créé par la validation des
+                                transactions</u>. Au contraire, <u>c'est l'entreprise Ripple qui s'occupe de la gestion
+                                des fonds</u>.</p>
+                            <p><u>En 2013, tous les tokens XRP sont créés d'un seul coup</u>. Sur les 100 milliards de
+                                XRP, <u>20 milliards sont répartis entre les 3 fondateurs, tandis que les 80 milliards
+                                restants sont alloués à l'entreprise</u>. Progressivement, des tokens sont vendus. En
+                                l'espace de 5 ans, 45% des tokens ont été acquis par des entités externes à Ripple.</p>
+                            <p>En 2018, un nouveau système nommé "<u>escrow</u>" est mis en place. Ce dernier consiste à
+                                <u>bloquer 55 milliards de XRP (donc 55% de la totalité des tokens, non vendus par Ripple)
+                                pour les relâcher progressivement</u>. L'escrow est un système faisant appel à un tiers
+                                de confiance : ce dernier connaît les conditions qui entraînent une distribution de
+                                nouveaux XRP sur le marché. De son côté, l'escrow garde les XRP jusqu'à ce que les 
+                                conditions soientremplies pour distribuer de nouveaux tokens.</p>
+                            <p>Dans notre cas, <u>le tiers de confiance est Ripple</u>, et des XRP sont relâchés
+                                mensuellement. Chaque mois, un milliard de XRP sortent de l'escrow, mais la majorité des
+                                tokens sont réinjectés dans l'escrow avant la fin du mois. <u>En moyenne, donc, environ 
+                                200 millions de XRP sortent définitivement de l'escrow mensuellement</u>. L'escrow est 
+                                considéré avant tout comme une façon de rassurer les investisseurs en relâchant des 
+                                tokens de manière régulière, progressive, et prédicitble.</p>
+                            <p>Concernant le rôle de XRP, <u>cette cryptomonnaie sert essentiellement d'intermédiaire de
+                                valeur</u> à travers la blockchain XRP Ledger. Comme son nom l'indique, l'intermédiaire 
+                                de valeur fait le lien entre 2 actifs de valeur différente.</p>
+                            <p><span class="example">Exemple : Nolhan veut envoyer 10 euros à Gildas, mais ce dernier
+                                n'accepte que les dollars américains. Dans ce cas, Nolhan peut utiliser le réseau de
+                                Ripple pour envoyer ses fonds. Ripple s'engage en tant que médiateur pour convertir 
+                                les 10 euros en X dollars, tandis que le XRP sert de passerelle entre ces 2 monnaies 
+                                fiduciaires.</span></p>
                         </div>
                         <div class="content-header-2">
                             <h2>4. Les 3 solutions apportées par Ripple ?</h2>
                         </div>
                         <div class="content-body">
-                            <p><u>Le réseau Ripple propose actuellement un pack de trois produits</u>, conçu comme une solution de système de paiement pour les banques et autres institutions financières.
-                                Ces 3 produits principaux sont : <u>le xRapid</u>, <u>le xCurrent</u> et <u>le xVia</u>.</p>
-                            <p>- <span class="definition">xRapid</span> : C'est sans doute le produit à retenir, car <u>c'est une solution de liquidité à la demande, qui utilise le token XRP en tant que monnaie de relais mondial entre les différentes
-                                monnaies fiduciaires</u>. Le système permet des délais de confirmation plus courts et des frais très réduits par rapport aux méthodes de transfert conventionnelles. <span class="example">Prenons à nouveau un 
-                                exemple : Une banque espagnole X souhaite envoyer 10M€ à une banque péruvienne Y, celle-ci convertira d'abord les 10M€ en XRP auprès de "fournisseurs de liquidité", enverra les XRP en
-                                quelques secondes, et la banque réceptrice échangera ces XRP auprès d'autres "fournisseurs de liquidité" contre 10M€ en Sols péruvien</span>. Il peut toujours y avoir des difficultés liées à
-                                la volatilité d'XRP, mais cela reste peu probable étant donné la vitesse de l'opération. Un tel service intéresse les banques, car il permet des transactions beaucoup plus rapides que
-                                le transfert inter-devise traditionnel. <u>La valeur du token XRP pourrait donc s'apprécier si le système xRapid confirme sa réussite à grande échelle</u>.</p>
-                            <p>- <span class="definition">xCurrent</span> : C'est une autre solution conçue pour <u>permettre le règlement instantané et le suivi des paiements transfrontaliers entre les membres du réseau Ripple</u>. Mais contrairement à
-                                xRapid, la solution Xcurrent n'utilise pas la cryptomonnaie XRP par défaut. <u>Il repose sur un système d'échange d'actifs sous la forme d'IOU (I Owe You). Signifiant littéralement "je
-                                vous dois", il s'agit simplement d'un document informel reconnaissant une dette</u>. Les IOU peuvent s'envoyer à des coûts extrêmement faibles, de l'ordre de quelques fractions d'XRP.
-                                Les institutions financières sont donc également intéressées par cette solution. xCurrent incorpore un service de messagerie qui assure la communication de pair-à-pair entre les
-                                institutions financières connectées au réseau Ripple. <u>Il permet d'échanger des informations sur les frais, les taux de change, les détails de paiements ou encore le délai de versement
-                                des fonds</u>. xCurrent prend également en charge les transactions de cryptomonnaies.</p>
-                            <p>- <span class="definition">xVia</span> : Moins essentiel, <u>xVia vient faciliter le travail des banques grâce à une interface de programmation (API) standardisée qui leur permet d'interagir dans un cadre commun, sans
-                                avoir à supporter de multiples intégrations de réseaux de paiements</u>. Néanmoins, ces produits sont peu utilisés à l'heure actuelle. <u>L'un des problèmes majeurs du protocole est que le
-                                XRP, qui est censé agir comme monnaie d'échange entre différents interlocuteurs, n'est pas stable : son cours fluctue par rapport au dollar, notamment</u>. De plus, les différents produits
-                                proposés reposent tous sur l'idée que les clients ne gardent du XRP que pendant la transaction et s'en débarrassent au plus vite. Or, de nouveaux protocoles avec une monnaie stable ont
-                                depuis fait leur apparition, comme l'USDT de Tether, et connaissent une adoption bien plus rapide n'ayant pas cette problématique.</p>
+                            <p><u>Le réseau Ripple propose actuellement un pack de trois produits</u>, conçu comme une
+                                solution de système de paiement pour les banques et autres institutions financières.
+                                Ces 3 produits principaux sont : <u>le xRapid</u>, <u>le xCurrent</u> et <u>le xVia
+                                </u>.</p>
+                            <p>- <span class="definition">xRapid</span> : C'est sans doute le produit à retenir, car
+                                <u>c'est une solution de liquidité à la demande, qui utilise le token XRP en tant que
+                                monnaie de relais mondial entre les différentes monnaies fiduciaires</u>. Le système 
+                                permet des délais de confirmation plus courts et des frais très réduits par rapport 
+                                aux méthodes de transfert conventionnelles.
+                                <span class="example">Prenons à nouveau un exemple : Une banque espagnole X souhaite 
+                                envoyer 10M€ à une banque péruvienne Y, celle-ci convertira d'abord les 10M€ en XRP
+                                auprès de "fournisseurs de liquidité", enverra les XRP en quelques secondes, et la 
+                                banque réceptrice échangera ces XRP auprès d'autres "fournisseurs de liquidité" 
+                                contre 10M€ en Sols péruvien</span>. Il peut toujours y avoir des difficultés liées à
+                                la volatilité d'XRP, mais cela reste peu probable étant donné la vitesse de l'opération.
+                                Un tel service intéresse les banques, car il permet des transactions beaucoup plus
+                                rapides que le transfert inter-devise traditionnel. <u>La valeur du token XRP pourrait 
+                                donc s'apprécier si le système xRapid confirme sa réussite à grande échelle</u>.</p>
+                            <p>- <span class="definition">xCurrent</span> : C'est une autre solution conçue pour
+                                <u>permettre le règlement instantané et le suivi des paiements transfrontaliers entre
+                                les membres du réseau Ripple</u>. Mais contrairement à xRapid, la solution Xcurrent 
+                                n'utilise pas la cryptomonnaie XRP par défaut. <u>Il repose sur un système d'échange 
+                                d'actifs sous la forme d'IOU (I Owe You). Signifiantn littéralement "je vous dois", 
+                                il s'agit simplement d'un document informel reconnaissant une dette</u>. Les IOU 
+                                peuvent s'envoyer à des coûts extrêmement faibles, de l'ordre de quelques fractions 
+                                d'XRP. Les institutions financières sont donc également intéressées par cette solution.
+                                xCurrent incorpore un service de messagerie qui assure la communication de pair-à-pair
+                                entre les institutions financières connectées au réseau Ripple. <u>Il permet d'échanger 
+                                des informations sur les frais, les taux de change, les détails de paiements ou encore
+                                le délai de versement des fonds</u>. xCurrent prend également en charge les transactions
+                                de cryptomonnaies.</p>
+                            <p>- <span class="definition">xVia</span> : Moins essentiel, <u>xVia vient faciliter le
+                                travail des banques grâce à une interface de programmation (API) standardisée qui
+                                leur permet d'interagir dans un cadre commun, sans avoir à supporter de multiples 
+                                intégrations de réseaux de paiements</u>. Néanmoins, ces produits sont peu utilisés à 
+                                l'heure actuelle. <u>L'un des problèmes majeurs du protocole est que le XRP, qui est censé 
+                                agir comme monnaie d'échange entre différents interlocuteurs, n'est pas stable : son cours 
+                                fluctue par rapport au dollar, notamment</u>. De plus, les différents produits proposés 
+                                reposent tous sur l'idée que les clients ne gardent du XRP que pendant la transaction et 
+                                s'en débarrassent au plus vite. Or, de nouveaux protocoles avec une monnaie stable ont
+                                depuis fait leur apparition, comme l'USDT de Tether, et connaissent une adoption bien
+                                plus rapide n'ayant pas cette problématique.</p>
                         </div>
                         <div class="content-header-2">
                             <h2>5. Ripple, des ennuis judiciaires ?</h2>
                         </div>
                         <div class="content-body">
-                            <p>Fin 2020, La SEC, autorité de contrôle de la bourse américaine, a lancé une enquête à l'encontre de Ripple et de 2 de ses dirigeants. <u>L'accusation principale est que l'entreprise aurait
-                                vendu du XRP en faisant miroiter aux investisseurs une opportunité de plus-value</u>, alors qu'il n'est que très peu utilisé dans les produits que l'entreprise propose, et correspond donc
-                                à une valeur mobilière.</p>
-                            <p>Or, un tel produit vendu par une entreprise est bien plus régulé qu'une cryptomonnaie classique telle que le Bitcoin. Il pourrait être relativement difficile pour Ripple de se sortir
-                                d'une telle situation.</p>
-                            <p><u>En 2023, la juge Torres a statuée en faveur de Ripple</u>. De ce fait, <u>le XRP n'est pas un titre financier (security)</u> alors que Gary Gensler, président de la SEC, tentait de démontrer que
-                                les ventes initiales de cryptomonnaie XRP en faisaient un titre financier non enregistré.</p>
+                            <p>Fin 2020, La SEC, autorité de contrôle de la bourse américaine, a lancé une enquête à
+                                l'encontre de Ripple et de 2 de ses dirigeants. <u>L'accusation principale est que
+                                l'entreprise aurait vendu du XRP en faisant miroiter aux investisseurs une opportunité de
+                                plus-value</u>, alors qu'il n'est que très peu utilisé dans les produits que
+                                l'entreprise propose, et correspond donc à une valeur mobilière.</p>
+                            <p>Or, un tel produit vendu par une entreprise est bien plus régulé qu'une cryptomonnaie
+                                classique telle que le Bitcoin. Il pourrait être relativement difficile pour Ripple de
+                                se sortir d'une telle situation.</p>
+                            <p><u>En 2023, la juge Torres a statuée en faveur de Ripple</u>. De ce fait, <u>le XRP n'est
+                                pas un titre financier (security)</u> alors que Gary Gensler, président de la SEC,
+                                tentait de démontrer que les ventes initiales de cryptomonnaie XRP en faisaient un titre 
+                                financier non enregistré.</p>
                         </div>
                         <div class="content-header-2">
                             <h2>6. Quels sont les avantages de Ripple ?</h2>
                         </div>
                         <div class="content-body">
-                            <p>- <u>Ripple propose une solution très efficace pour accélérer les transactions interbancaires</u>, qui peuvent désormais s'effectuer en 2 à 5 secondes.</p>
-                            <p>- <u>Ripple est plus sécurisé que Swift et permet de réduire considérablement les commissions des transactions internationales</u>.</p>
+                            <p>- <u>Ripple propose une solution très efficace pour accélérer les transactions
+                                    interbancaires</u>, qui peuvent désormais s'effectuer en 2 à 5 secondes.</p>
+                            <p>- <u>Ripple est plus sécurisé que Swift et permet de réduire considérablement les
+                                    commissions des transactions internationales</u>.</p>
                             <p>- <u>Ripple est une monnaie peu volatile, car centralisé</u>.</p>
                         </div>
                         <div class="content-header-2">
                             <h2>7. Quels sont les inconvénients de Ripple ?</h2>
                         </div>
                         <div class="content-body">
-                            <p>- <u>Ripple renforce la position des banques</u>, en mettant à leur disposition une technologie de blockchain efficace en réponse à l'écosystème décentralisé des cryptomonnaies.</p>
-                            <p>- <u>Les tokens sont pré-minés, il n'existe donc aucun mécanisme de récompense possible</u> pour ceux qui souhaitent participer à la sécurité du réseau.</p>
-                            <p>- <u>Ripple est totalement centralisé</u>, puisque sa fondation contrôle la mise sur le marché des tokens et en possède l'essentiel. Son mode de gouvernance s'éloigne totalement de l'idéal libertarien
-                                de la cryptomonnaie.</p>
-                            <p>- <u>Le token XRP est encore très peu utilisé, malgré le développement du Ripplenet</u>. Il est donc compliqué d'envisager une augmentation significative de sa valeur tant que la priorité continue d'être
-                                donnée aux échanges en monnaie fiat.</p>    
+                            <p>- <u>Ripple renforce la position des banques</u>, en mettant à leur disposition une
+                                    technologie de blockchain efficace en réponse à l'écosystème décentralisé des
+                                    cryptomonnaies.</p>
+                            <p>- <u>Les tokens sont pré-minés, il n'existe donc aucun mécanisme de récompense
+                                    possible</u> pour ceux qui souhaitent participer à la sécurité du réseau.</p>
+                            <p>- <u>Ripple est totalement centralisé</u>, puisque sa fondation contrôle la mise sur le
+                                    marché des tokens et en possède l'essentiel. Son mode de gouvernance s'éloigne
+                                    totalement de l'idéal libertarien de la cryptomonnaie.</p>
+                            <p>- <u>Le token XRP est encore très peu utilisé, malgré le développement du Ripplenet</u>.
+                                    Il est donc compliqué d'envisager une augmentation significative de sa valeur tant 
+                                    que la priorité continue d'être donnée aux échanges en monnaie fiat.</p>
                         </div>
                         <div class="content-header-2">
                             <h2>8. Quel futur pour XRP ?</h2>
                         </div>
                         <div class="content-body">
-                            <p>L'avenir du Ripple dans les prochaines années voir dizaines d'années est incertain, <u>étant donné que le monde de la cryptomonnaie est en plein Boom, mais connaît des chutes impressionnantes
-                                et peut rapidement exploser à la hausse</u> (plus de 70% en quelques jours parfois) et des chutes puissantes aussi rapidement.</p>
-                            <p>Cependant, comme nous avons pu le voir, le Ripple est le concurrent direct du Bitcoin, <u>bien que beaucoup moins cher que le BTCUSD, il est beaucoup plus simple d'investir le Ripple XRP
-                                pour les investisseurs recherchant une opportunité d'entrer dans le monde des cryptomonnaies</u> dans les prochaines années.</p>    
+                            <p>L'avenir du Ripple dans les prochaines années voir dizaines d'années est incertain,
+                                <u>étant donné que le monde de la cryptomonnaie est en plein Boom, mais connaît des
+                                chutes impressionnantes et peut rapidement exploser à la hausse</u> (plus de 70% en 
+                                quelques jours parfois) et des chutes puissantes aussi rapidement.</p>
+                            <p>Cependant, comme nous avons pu le voir, le Ripple est le concurrent direct du Bitcoin,
+                                <u>bien que beaucoup moins cher que le BTCUSD, il est beaucoup plus simple d'investir le
+                                Ripple XRP pour les investisseurs recherchant une opportunité d'entrer dans le monde des
+                                cryptomonnaies</u> dans les prochaines années.</p>
                         </div>
                     </div>
                 </div>
@@ -238,8 +329,26 @@
         </div>
     </div>
 
+    <script>
+        const burgerMenuButton = document.querySelector('.burger-menu-button');
+        const burgerMenu = document.querySelector('.burger-menu');
+        const body = document.body;
+
+        burgerMenuButton.addEventListener('click', () => {
+            if (!burgerMenu.classList.contains('open')) {
+                burgerMenu.classList.add('open');
+                body.classList.add('menu-open');
+            } else {
+                burgerMenu.classList.remove('open');
+                body.classList.remove('menu-open');
+            }
+        });
+
+    </script>
+
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="coins_infos/ripple_infos/ripple_infos.js"></script>
+    <script src="4. coins_infos/ripple_infos/ripple_infos.js"></script>
 </body>
+
 </html>
