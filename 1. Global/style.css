@@ -43,6 +43,7 @@ body {
     width: 100vw;
     height: 100vh;
     transition: background-color .3s ease-in-out, color 0.3s ease-in-out;
+    overflow-x: hidden;
 }
 
 ul {
@@ -320,7 +321,7 @@ a:hover {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
     flex: 1;
-    height: 208px;
+    height: 210px;
     position: relative;
     display: flex;
     align-items: center;
@@ -468,7 +469,12 @@ a:hover {
 
     #btc-mini-chart,
     #eth-mini-chart,
-    #mcap-mini-chart,
+    #mcap-mini-chart {
+        width: 90%;
+        height: 50px;
+        margin-bottom: 150px;
+    }
+
     #market-quotes-widget,
     #ta-widget {
         width: 90%;

@@ -60,6 +60,10 @@ function addTradeToTable(trade) {
     const tradesArchive = document.getElementById('trades-archive');
     const newRow = document.createElement('tr');
 
+    const commentContent = window.innerWidth < 1750 ?
+        `<span class="comment-preview" onclick="showFullComment('${trade.comments.replace(/'/g, "\\'")}', '${trade.screenshot}')">...</span>` :
+        trade.comments;
+
     newRow.innerHTML = `
         <td>${trade.entryDate}</td>
         <td class="${trade.longShort}">${trade.longShort}</td>
@@ -69,10 +73,10 @@ function addTradeToTable(trade) {
         <td>${formatNumber(trade.sell, 8)}</td>
         <td class="profit-${trade.profit >= 0 ? 'positive' : 'negative'}">${formatNumber(trade.profit, 2)}$</td>
         <td class="roi-${trade.roi >= 0 ? 'positive' : 'negative'}">${formatNumber(trade.roi, 2)}%</td>
-        <td>${trade.comments}</td>
+        <td class="comment-cell">${commentContent}</td>
         <td>
             ${trade.screenshot ? `<a href="${trade.screenshot}" target="_blank">
-                                  <img src="${trade.screenshot}" alt="screenshot" style="width: 50px; height: auto; cursor: pointer;"></a>` : ''}
+                                  <img src="${trade.screenshot}" alt="screenshot" style="width: 50px; height: auto; cursor: pointer;" onclick="openScreenshot('${trade.screenshot}')"></a>` : ''}
         </td>
         <td>
             <button class="edit-trade" onclick="editTrade(this)">✏️</button>
@@ -81,6 +85,74 @@ function addTradeToTable(trade) {
     `;
 
     tradesArchive.appendChild(newRow);
+}
+
+document.getElementById('trades-archive').style.height = `${TRADES_PER_PAGE * 75}px`;
+
+function showFullComment(comment, screenshot) {
+    const modal = document.createElement('div');
+    modal.classList.add('comment-modal');
+
+    const screenshotContent = screenshot ? `
+        <img src="${screenshot}" alt="screenshot" style="width: 100px; height: auto; margin-top: 10px; cursor: pointer;" onclick="openScreenshot('${screenshot}')">
+    ` : '';
+
+    modal.innerHTML = `
+        <div class="modal-content">
+            <span class="close-button" onclick="closeModal(this)">&times;</span>
+            <p>${comment}</p>
+            ${screenshotContent}
+        </div>
+    `;
+
+    document.body.appendChild(modal);
+
+    modal.addEventListener('click', (event) => {
+        if (event.target === modal) {
+            modal.remove();
+        }
+    });
+}
+
+function openScreenshot(screenshotUrl) {
+    if (window.innerWidth >= 1750) {
+        return;
+    }
+
+    const modal = document.createElement('div');
+    modal.classList.add('screenshot-modal');
+
+    modal.innerHTML = `
+        <div class="modal-content">
+            <span class="close-button" onclick="closeModal(this)">&times;</span>
+            <img src="${screenshotUrl}" alt="screenshot" style="width: 80%; height: auto; margin: 0 auto; display: block;">
+        </div>
+    `;
+
+    modal.style.position = 'fixed';
+    modal.style.top = '200px';
+    modal.style.left = '0';
+    modal.style.width = '100%';
+    modal.style.height = '100%';
+    modal.style.backgroundColor = 'rgba(0, 0, 0, 0.5)';
+    modal.style.zIndex = '1000';
+    modal.style.display = 'flex';
+    modal.style.justifyContent = 'center';
+    modal.style.alignItems = 'center';
+
+    document.body.appendChild(modal);
+
+    modal.addEventListener('click', (event) => {
+        if (event.target === modal) {
+            modal.remove();
+        }
+    });
+}
+
+
+function closeModal(button) {
+    const modal = button.closest('.comment-modal') || button.closest('.screenshot-modal');
+    modal.remove();
 }
 
 function loadTradesFromJson() {

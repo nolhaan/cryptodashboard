@@ -1,5 +1,6 @@
-const cryptoIds = ['bitcoin', 'ethereum', 'tether', 'solana', 'xrp', 'binancecoin'];
+const cryptoIds = ['bitcoin', 'ethereum', 'tether', 'solana', 'xrp', 'binance-coin'];
 let cryptoData = [];
+let charts = {};
 
 async function fetchCryptoData() {
     try {
@@ -87,8 +88,8 @@ function displayCryptoData(data) {
                         window.location.href = 'solana_infos.html';
                     } else if (crypto.id === 'xrp') {
                         window.location.href = 'ripple_infos.html';
-                    } else if (crypto.id === 'binancecoin') {
-                        window.location.href = 'binancecoin_infos.html';
+                    } else if (crypto.id === 'binance-coin') {
+                        window.location.href = 'bnb_infos.html';
                     }
                 });
             }

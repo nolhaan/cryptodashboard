@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', function () {
             widgetHeight = 200;
         } else if (screenWidth < 1750) {
             widgetWidth = '100%';
-            widgetHeight = 250;
+            widgetHeight = 195;
         } else {
             widgetWidth = 220;
             widgetHeight = 180;
